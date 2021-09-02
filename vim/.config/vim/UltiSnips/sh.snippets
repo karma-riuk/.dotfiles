@@ -1,0 +1,13 @@
+snippet unittest "Unit test (shunit2) setup" b
+#!/bin/bash
+
+oneTimeSetUp() {
+	. ../${1:file to source}
+}
+
+test$2(){
+	$0
+}
+
+. $XDG_LIB_HOME/shunit2/shunit2
+endsnippet

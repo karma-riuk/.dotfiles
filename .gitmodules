@@ -1,0 +1,55 @@
+[submodule "vim/.config/vim/plugged/nerdcommenter"]
+	path = vim/.config/vim/plugged/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter
+[submodule "vim/.config/vim/plugged/vim-instant-markdown"]
+	path = vim/.config/vim/plugged/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown
+[submodule "vim/.config/vim/plugged/vim-latex-live-preview"]
+	path = vim/.config/vim/plugged/vim-latex-live-preview
+	url = https://github.com/xuhdev/vim-latex-live-preview
+[submodule "vim/.config/vim/plugged/lightline.vim"]
+	path = vim/.config/vim/plugged/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/.config/vim/plugged/ultisnips"]
+	path = vim/.config/vim/plugged/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "vim/.config/vim/plugged/supertab"]
+	path = vim/.config/vim/plugged/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "vim/.config/vim/plugged/vim-snippets"]
+	path = vim/.config/vim/plugged/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "vim/.config/vim/plugged/indentline"]
+	path = vim/.config/vim/plugged/indentline
+	url = https://github.com/yggdroot/indentline
+[submodule "vim/.config/vim/plugged/vimtex"]
+	path = vim/.config/vim/plugged/vimtex
+	url = https://github.com/lervag/vimtex
+[submodule "vim/.config/vim/plugged/vim-css-color"]
+	path = vim/.config/vim/plugged/vim-css-color
+	url = https://github.com/ap/vim-css-color
+[submodule "vim/.config/vim/plugged/vim-cool"]
+	path = vim/.config/vim/plugged/vim-cool
+	url = https://github.com/romainl/vim-cool
+[submodule "vim/.config/vim/plugged/sonokai"]
+	path = vim/.config/vim/plugged/sonokai
+	url = https://github.com/sainnhe/sonokai
+[submodule "vim/.config/vim/plugged/vim-polyglot"]
+	path = vim/.config/vim/plugged/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "vim/.config/vim/plugged/YouCompleteMe"]
+	path = vim/.config/vim/plugged/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe
+	ignore = untracked
+[submodule "vim/.config/vim/plugged/nerdtree"]
+	path = vim/.config/vim/plugged/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/.config/vim/plugged/nerdtree-git-plugin"]
+	path = vim/.config/vim/plugged/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "vim/.config/vim/plugged/vim-devicons"]
+	path = vim/.config/vim/plugged/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons
+[submodule "vim/.config/vim/plugged/vim-nerdtree-syntax-highlight"]
+	path = vim/.config/vim/plugged/vim-nerdtree-syntax-highlight
+	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight

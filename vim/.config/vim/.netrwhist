@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/karma'
+let g:netrw_dirhist_5='/home/karma/.local/lib/volumectl'
+let g:netrw_dirhist_4='/home/karma/Documents/USI/BA1 2020/Software Atelier/Assignements/4. Group Project/pub/web/html/gen#_TEMPLATE'
+let g:netrw_dirhist_3='/etc/X11/xorg.conf.d'
+let g:netrw_dirhist_2='/home/karma/Documents/USI/BA1 2020/Software Atelier/Assignements/2. CV/test'
+let g:netrw_dirhist_1='/home/karma/.config/qutebrowser/bookmarks'

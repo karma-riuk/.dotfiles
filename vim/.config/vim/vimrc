@@ -1,0 +1,215 @@
+" XDG
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup 
+set viewdir=$XDG_DATA_HOME/vim/view
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
+" Plugins
+call plug#begin()
+""Theme
+" Plug 'acoustichero/goldenrod.vim' 
+Plug 'preservim/nerdcommenter'
+Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
+Plug 'xuhdev/vim-latex-live-preview', { 'for' : 'tex' }
+Plug 'itchyny/lightline.vim'
+Plug 'SirVer/ultisnips'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
+Plug 'yggdroot/indentline'
+Plug 'lervag/vimtex'
+Plug 'ap/vim-css-color'
+" Highlighting search patterns when needed
+Plug 'romainl/vim-cool' 
+Plug 'sainnhe/sonokai'
+Plug 'sheerun/vim-polyglot'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+call plug#end()
+
+" Command
+command Src execute "so " . $MYVIMRC
+
+" Look and feel
+"" Colorscheme
+set background=dark 
+
+" let g:sonokai_style = 'andromeda'
+colorscheme sonokai
+
+""" Lightline colorscheme
+let g:lightline = { 'colorscheme' : 'sonokai' }
+
+""" Changing cursor style (insert: |, normal: _, both blinking)
+let &t_SI = "\<Esc>[5 q"
+let &t_SR = "\<Esc>[1 q"
+let &t_EI = "\<Esc>[3 q"
+
+"" Enable transparency
+hi Normal ctermbg=None 
+
+"" Spelling errors
+hi SpellBad ctermfg=red
+
+"" Show keystrokes as they are pressed
+set showcmd
+set hlsearch incsearch
+set wildmenu wildmode=longest:full,list,full
+set updatetime=100
+set timeoutlen=1000 ttimeoutlen=10
+
+
+" 
+set number relativenumber
+set tabstop=4 shiftwidth=4 expandtab
+set tw=80
+set scrolloff=8
+
+"" Left side number column foreground color
+hi LineNr ctermfg=darkgray
+
+"" What to show when ':set list' is called (to show tabs, end of lines, spaces, etc.)
+set listchars=eol:¬,tab:\ »\ ,space:·,trail:█
+
+"" Splits
+set splitright
+
+"" Smart case for searching
+set ignorecase smartcase
+
+" Mapings
+let mapleader = ","
+
+"" Saving and quitting
+map <leader>s :w<Cr>
+map <leader>jk :wq<Cr>
+map <leader>q :q<Cr>
+map <leader>Q :q!<Cr>
+
+"" Fixing Y
+map Y y$
+
+"" Split window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"" Renaming vairables
+map <leader>r :s/<C-R><C-W>//g<left><left>
+map <leader>R :%s/<C-R><C-W>//gc<left><left><left>
+
+"" Rapiddly correcting mispelled word
+map <leader>z 1z=
+
+"" Print and paste from clipboard
+map <leader>p "+p
+map <leader>P "+P
+map <leader>y "+y
+map <leader>Y "+Y
+map <leader>d "+d
+map <leader>D "+D
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+"" Fixing mistakes I usually make
+imap <C-b> <Esc>b
+
+" Filetype specific settings
+"" Setting the filetype of service files
+augroup Services
+    autocmd!
+    autocmd BufNewFile,BufRead *.service set ft=dosini
+augroup END
+
+"" Reloading configs after saving files
+augroup SetSpell
+    autocmd!
+    autocmd FileType tex set spell
+augroup END
+
+"" Reloading configs after saving files
+augroup ReloadConfigs
+    autocmd!
+    autocmd BufWritePost dunstrc silent exec "!killall dunst" | redraw!
+augroup END
+
+"" Disable the indent lines plugins on files that use italize / bold / etc...
+"" because it gets wierd
+augroup DisableIndents
+    autocmd!
+    autocmd FileType tex,markdown IndentLinesDisable
+augroup END
+
+
+
+" Plugin settings
+"" Nerd commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitspace = 1
+let g:NERDToggleCheckAllLines = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = { 'jas': { 'left': '//','right': '' }, 'python': {'left': '#', 'right': '' } }
+
+"" Markdown previewer
+let g:instant_markdown_browser = "qutebrowser --target window"
+
+"" LateX previewer
+let g:livepreview_previewer = 'zathura'
+
+"" Lightline
+""" Enable statuline for single buffer
+set laststatus=2
+""" Disable '--INSERT--' below the status line
+set noshowmode
+
+"" Ultisnips
+""" Trigger configuration
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+""" Split snippet edit vertically
+let g:UltiSnipsEditSplit="vertical"
+
+""" Help ultisnips find the location of the dot directory of vim
+let g:UltiSnipsSnippetsDir = expand("$XDG_CONFIG_HOME/vim/ultisnips")
+" let g:UltiSnipsSnippetDirectories = [expand("$XDG_CONFIG_HOME/vim/ultisnips"), 'UltiSnips']
+
+let g:CoolTotalMatches = 1
+
+"" Indentline
+let g:indentLine_char = '│'
+let g:indentLine_color_term = 237
+
+"" YouCompleteMe
+""" Disable on latex files
+let g:ycm_filetype_blacklist = {'tex' : 1}
+""" Make tab of YCM and Ultisnips work nicely
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+"" NERDTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+augroup NERDTree
+    """ Start NERDTree. If a file is specified, move the cursor to its window.
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+    """ Exit Vim if NERDTree is the only window left.
+    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+augroup END

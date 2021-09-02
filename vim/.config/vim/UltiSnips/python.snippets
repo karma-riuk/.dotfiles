@@ -1,0 +1,22 @@
+snippet ifname "if name == main" b
+if __name__ == "__main__":
+    $0
+endsnippet
+
+snippet unittest "unittest setup" b
+import unittest
+
+class ${1:Tests}(unittest.TestCase):
+    $0
+endsnippet
+
+snippet aoctest "Advent of Goal Tests" b
+from prog import *
+import unittest
+
+class Methods(unittest.TestCase):
+    pass
+
+class Result(unittest.TestCase):
+    pass
+endsnippet
