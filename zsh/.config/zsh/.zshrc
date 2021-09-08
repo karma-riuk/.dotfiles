@@ -36,7 +36,7 @@ antigen apply
 
 bindkey -v
 function zle-line-init zle-keymap-select {
-            RPS1="${${KEYMAP/vicmd/[N]}/(main|viins)/[I]}"
+            RPS1="${${KEYMAP/vicmd/-- Normal --}/(main|viins)/}"
             zle reset-prompt
 }
 zle -N zle-line-init
@@ -65,7 +65,6 @@ bindkey -M vicmd "^j" down-line-or-beginning-search
 bindkey "^v" edit-command-line
 
 
-
-[ -f ~/.config/fzf/config.zsh ] && source ~/.config/fzf/config.zsh
+# [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 source $ZDOTDIR/aliases
