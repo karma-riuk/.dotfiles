@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+SCRIPT_NAME=`basename $0`
+CONF_FILE="$XDG_CONFIG_HOME/$SCRIPT_NAME/config"
+DEFAULT_MOUNT_POINT="/mnt"
+
+
+cleanup_config () {
+	grep "[^= ]=" "$1";
+}
+
+source_conf () {
+	source <(grep "[^= ]=")
+	echo ">$foo"
+	#mount_point=${mount_point:-DEFAULT_MOUNT_POINT}
+}
+
+check_conf () {
+	echo "$mount_point"
+}
+
+
+mnt () {
+	sshfs server:"$1" 
+}
+
+

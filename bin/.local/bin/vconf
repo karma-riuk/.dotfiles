@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+LIST="$(envsubst < "$XDG_CONFIG_HOME/vconf/list")"
+
+
+add_to_histfile () {
+    echo ": `date +%s`:0;$1" >> $HISTFILE
+}
+
+with_fzf () {
+    local selected="$(echo "$LIST" | fzf-tmux)"
+    local name="$(echo "$selected" | sed 's/ -.*$//')"
+    local file="$(echo "$selected" | sed 's/^.*- //')"
+    # add_to_histfile "vconf $name"
+    [[ -f "$file" ]] && vim "$file"
+    exit 0
+}
+
+with_dmenu () {
+    local file="$(echo "$LIST" | rofi -dmenu -l 10 -p 'Edit config:' | sed 's/^.*- //')"
+    [[ -f "$file" ]] && termite -e "vim '$file'"
+    exit 0
+}
+
+( [[ "$1" = "-d" ]] || [[ "$1" = "--dmenu" ]] ) && with_dmenu || with_fzf
+

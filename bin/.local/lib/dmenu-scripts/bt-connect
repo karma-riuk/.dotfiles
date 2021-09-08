@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+
+notify() {
+    dunstify -h string:x-dunst-stack-tag:bluetooth -i bluetooth-online "Bluetooth" "$1"
+}
+
+
+declare -A devices
+
+disconnect_txt="Disconnect"
+
+
+while read -r mac name; do
+    devices[$name]="$mac"
+done < <(bluetoothctl devices | sed 's/^Device //')
+devices["$disconnect_txt"]="$disconnect_txt"
+
+choice=$(printf "%s\n" "${!devices[@]}" | sort | rofi -dmenu -i -p "Device" -l ${#devices[@]})
+[[ -z "$choice" ]] && exit
+
+if [[ "$choice" = "$disconnect_txt" ]]; then
+    notify "Disconnecting"
+    bluetoothctl disconnect
+    [[ $? -eq 0 ]] && notify "Successfully disconnected"
+else 
+    notify "Connecting to ${choice}..."
+    bluetoothctl connect ${devices[$choice]}
+    [[ $? -eq 0 ]] && notify "Connected to ${choice} successfully"
+fi

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+session_name="drpdwn"
+
+if [[ "$1" = "-f" ]] || [[ "$1" = "--force" ]]; then
+    tmux kill-session -t $session_name 
+fi
+
+if [[ -z "$(tmux list-session | grep $session_name)" ]]; then
+    tmux new-session -d -n main -s $session_name
+    tmux new-window -n tests -c /tmp/tests
+    tmux split-window -h -c /tmp/tests
+    tmux selectp -t 0
+    tmux new-window -n bin -c ~/.local/bin
+    tmux new-window -n "run in background" 
+    tmux selectw -t 1
+fi
+
+tmux attach-session -t $session_name

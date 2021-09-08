@@ -53,3 +53,18 @@
 [submodule "vim/.config/vim/plugged/vim-nerdtree-syntax-highlight"]
 	path = vim/.config/vim/plugged/vim-nerdtree-syntax-highlight
 	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+[submodule "bin/.local/lib/notify-bar"]
+	path = bin/.local/lib/notify-bar
+	url = git@github.com:karma-riuk/notify-bar.git
+[submodule "bin/.local/lib/bash_ini_parser"]
+	path = bin/.local/lib/bash_ini_parser
+	url = https://github.com/rudimeier/bash_ini_parser
+[submodule "bin/.local/lib/volumectl"]
+	path = bin/.local/lib/volumectl
+	url = git@git.karma-riuk.com:karma/volumectl
+[submodule "bin/.local/lib/shunit2"]
+	path = bin/.local/lib/shunit2
+	url = https://github.com/kward/shunit2
+[submodule "bin/.local/lib/brightctl"]
+	path = bin/.local/lib/brightctl
+	url = git@github.com:karma-riuk/brightctl.git
