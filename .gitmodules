@@ -66,5 +66,5 @@
 	path = bin/.local/lib/shunit2
 	url = https://github.com/kward/shunit2
 [submodule "bin/.local/lib/brightctl"]
-	path = bin/.local/lib/brightctl
+	path = brightctl/.local/lib/brightctl
 	url = git@github.com:karma-riuk/brightctl.git
