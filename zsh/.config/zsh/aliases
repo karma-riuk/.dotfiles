@@ -1,0 +1,107 @@
+# Changing "ls" to "exa"
+alias ls='exa --color=always --group-directories-first' # my preferred listing
+alias l='exa -a --color=always --group-directories-first'
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -al --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+
+alias sudo="doas --"
+alias yay="yay --nodiffmenu --noeditmenu"
+
+alias sys="sudo systemctl"
+
+alias wgdown="wg-quick down home"
+alias wgup="wg-quick up home"
+
+# Config 
+## Vim vimrc not relocating properly to XDG 
+# alias vim='vim -u ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
+
+## Commiting
+alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# Bluetooth
+alias bt="bluetoothctl"
+alias bt-airpods="bluetoothctl connect AC:90:85:8E:9A:63"
+alias bt-headphones="bluetoothctl connect 2C:41:A1:02:43:BA"
+alias bt-xbox="bluetoothctl connect 9C:AA:1B:64:07:F8"
+
+# LateX tlmgr
+# alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
+
+
+# Quality of life
+alias cp="cp -v"
+alias du="du -h"
+alias xclip="xclip -selection c"
+alias pac="sudo pacman"
+alias c="clear"
+alias py="python"
+alias pytest="py -m unittest"
+alias q="exit"
+# alias scrot="scrot \"scrot_$(date '+%Y-%m-%d_%H-%M-%S').png\" -e 'mv \$f ~/Pictures/Screenshots/'"
+alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias lsblk="lsblk -o name,fstype,size,fsused,fsuse%,type,mountpoint,label"
+alias pamixer="pamixer --allow-boost"
+
+###################### FUNCTIONS ######################
+
+# Exctract any compressed filetype
+ex () {
+    [ ! -f $1 ] && echo "'$1' doens't exist" && exit 1
+    case $1 in
+        *.tar.bz2)   tar xjf $1   ;;
+        *.tar.gz)    tar xzf $1   ;;
+        *.bz2)       bunzip2 $1   ;;
+        *.rar)       unrar x $1   ;;
+        *.gz)        gunzip $1    ;;
+        *.tar)       tar xf $1    ;;
+        *.tbz2)      tar xjf $1   ;;
+        *.tgz)       tar xzf $1   ;;
+        *.zip)       unzip $1     ;;
+        *.Z)         uncompress $1;;
+        *.7z)        7z x $1      ;;
+        *.deb)       ar x $1      ;;
+        *.tar.xz)    tar xf $1    ;;
+        *.tar.zst)   unzstd $1    ;;      
+        *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+} 
+
+#EPFL stuff (might be usefull for other ideas)
+#cepfl () {
+#    cd "$(find "$EPFL/" -maxdepth 3 -type d | grep -v "\.git" | sed "/^.*\/$/d" | fzf-tmux)"
+#}
+#
+#sepfl () {
+#    #pdf="$(find "$EPFL"/**/Series/ -name "*.pdf" | fzf-tmux -m)" && echo ">>"${pdf[@]}"<<" && (zathura ${pdf} > /dev/null 2>&1 &)
+#
+#    while IFS= read -r pdf; do 
+#        (zathura "$pdf" > /dev/null 2>&1 &)
+#    done <<< $(find "$EPFL"/**/Series/ -name "*.pdf" | fzf-tmux -m)
+#   
+#}
+#
+#eepfl () {
+#    lecture=$(find "$EPFL/" -maxdepth 2 -type f | grep ".tex" | grep -v ".sw\\w"| fzf) 
+#    [[ ! -z "$lecture" ]] && vim "$lecture"
+#}
+
+# Stupid script
+lets_hack_NASA(){
+    for i in $(seq 1 5); do 
+        tree /;
+    done
+}
+
+
+bwunlock () {
+    export_key="$(bw unlock | grep "$ export BW_SESSION=" | sed "s/\$ //")"
+    echo "New key:"
+    echo "$export_key"
+    [[ "$(grep "export BW_SESSION" $XDG_CONFIG_HOME/zsh/.zshenv)" ]] && sed -i "s|^\\s*export BW_SESSION=.*$|$export_key|" $XDG_CONFIG_HOME/zsh/.zshenv || echo "$export_key" >> $XDG_CONFIG_HOME/zsh/.zshenv
+}
+alias svn-menu="'/home/karma/Documents/USI/BA1 2020/Software Atelier/Assignements/4. Group Project/pub/web/script/svn-menu/svn-control.sh'" # TO BE DELETED
+
+
+# vim: ft=zsh
