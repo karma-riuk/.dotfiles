@@ -216,3 +216,8 @@ augroup NERDTree
     """ Exit Vim if NERDTree is the only window left.
     autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup END
+
+"" vimtex
+let g:vimtex_quickfix_ignore_filters = [
+            \ '\v(Over|Under)full',
+            \]
