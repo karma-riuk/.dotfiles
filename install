@@ -6,12 +6,12 @@
 [[ -z "${STOW_FOLDERS+x}" ]] && STOW_FOLDERS="awesome,bin,brightctl,dunst,htop,latex,notify-bar,profile,termite,vconf,vim,volumectl,zsh"
 
 
-pushd $DOTFILES
+pushd $DOTFILES > /dev/null
 
-for folder in $(echo $STOW_FOLDERS | sed 's/,/ /g'); do
+IFS=','; for folder in $STOW_FOLDERS; do
     stow -D "$folder"
     stow "$folder"
     echo "Installing $folder"
 done
 
-popd
+popd > /dev/null
