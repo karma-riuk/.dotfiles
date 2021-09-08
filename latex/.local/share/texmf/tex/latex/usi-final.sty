@@ -1,0 +1,47 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{usi-answers}[2021/03/02 Basic answers to assignements setup]
+
+\RequirePackage{kvoptions}
+
+\SetupKeyvalOptions{
+    family=USI,
+    prefix=USI@
+}
+
+\DeclareStringOption[TITLE\_PLACEHOLDER]{title}
+\DeclareStringOption[{NAME SURNAME}]{prof}
+\DeclareStringOption[{Arnaud Fauconnet}]{authors}
+\DeclareStringOption[Spring]{season}
+\DeclareStringOption[\the\year]{year}
+
+\ProcessKeyvalOptions*
+
+\title{\USI@title\\Final Exam}
+\author{\USI@authors\\Prof. \USI@prof}
+
+\date{Faculty of Informatics, USI\\\USI@season\ term \USI@year}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{minipage}{.5\textwidth}
+      \@date 
+  \end{minipage}
+  \begin{minipage}{.5\textwidth} 
+      \begin{flushright}
+          \@author 
+      \end{flushright}
+  \end{minipage}
+  \vskip 2em%
+  \begin{center}%
+    {\LARGE \@title \par}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\makeatother
+  
+
+\newcommand{\dsenumlabel}{\textbf{\alph*)}}
+\newcommand{\cqfd}{\begin{flushright}$\Box$\end{flushright}}
