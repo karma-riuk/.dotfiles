@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+
+[[ -z "${DOTFILES+x}" ]] && DOTFILES="$HOME/.dotfiles"
+
+[[ -z "${STOW_FOLDERS+x}" ]] && STOW_FOLDERS="awesome,bin,brightctl,dunst,htop,latex,notify-bar,profile,termite,vconf,vim,volumectl,zsh"
+
+
+pushd $DOTFILES
+
+for folder in $(echo $STOW_FOLDERS | sed 's/,/ /g'); do
+    stow -D "$folder"
+    stow "$folder"
+    echo "Installing $folder"
+done
+
+popd

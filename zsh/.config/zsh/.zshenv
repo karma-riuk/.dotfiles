@@ -46,6 +46,6 @@ export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomo
 export TODAY=$(date '+%A %d/%m/%Y')
 
 export DOTFILES="$HOME/.dotfiles"
-export STOW_FOLDERS="bin,brightctl,htop,latex,notify-bar,profile,tmux,vconf,volumectl,zsh"
+export STOW_FOLDERS="awesome,bin,brightctl,dunst,htop,latex,notify-bar,profile,termite,tmux,vconf,vim,volumectl,zsh"
 
 export BW_SESSION="DrfT0geM63+msk0NbbEpBiHc5eRT6e6+t/IlxjebfNSceP3deulQDEg2a/9AeqTIWQNbXF82CjoIx0+6GkyA0w=="
