@@ -3,6 +3,6 @@
 
 [[ -z "${DOTFILES+x}" ]] && DOTFILES="$HOME/.dotfiles"
 
-[[ -z "${STOW_FOLDERS+x}" ]] && STOW_FOLDERS="bin,brightctl,dunst,htop,latex,notify-bar,profile,termite,vconf,vim,volumectl,zsh"
+[[ -z "${STOW_FOLDERS+x}" ]] && STOW_FOLDERS="bin,brightctl,dunst,htop,latex,notify-bar,profile,termite,vconf,vim,volumectl,zsh,zathura"
 
 STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/install
