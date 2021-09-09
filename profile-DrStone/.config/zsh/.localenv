@@ -1,1 +1,1 @@
-STOW_FOLDERS="bin,dunst,htop,latex,profile-manjaro,termite,vconf,vim,zsh,zathura"
+STOW_FOLDERS="alacritty,bin,dunst,git,htop,latex,profile-DrStone,termite,vconf,vim,zsh,zathura"

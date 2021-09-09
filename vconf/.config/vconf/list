@@ -12,3 +12,4 @@ vim - $XDG_CONFIG_HOME/vim/vimrc
 zsh - $XDG_CONFIG_HOME/zsh/.zshrc
 zsh aliases - $XDG_CONFIG_HOME/zsh/aliases
 zsh environmental - $XDG_CONFIG_HOME/zsh/.zshenv
+zsh local environmental - $XDG_CONFIG_HOME/zsh/.localenv
