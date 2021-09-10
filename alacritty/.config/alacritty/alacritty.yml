@@ -271,7 +271,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#444444'
+    black:   '#232323'
     red:     '#ff000f'
     green:   '#8ce10b'
     yellow:  '#ffb900'
@@ -290,7 +290,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '#232323'
+    black:   '#4a4a4a'
     red:     '#ff2740'
     green:   '#abe15b'
     yellow:  '#ffd242'
@@ -376,7 +376,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.85
+background_opacity: 0.9
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -386,16 +386,16 @@ background_opacity: 0.85
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-#cursor:
+cursor:
   # Cursor style
-  #style:
+  style:
     # Cursor shape
     #
     # Values for `shape`:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    #shape: Block
+    shape: Underline
 
     # Cursor blinking state
     #
@@ -412,7 +412,7 @@ background_opacity: 0.85
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  #vi_mode_style: None
+  vi_mode_style: Block
 
   # Cursor blinking interval in milliseconds.
   #blink_interval: 750
