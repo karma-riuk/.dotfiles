@@ -2,6 +2,8 @@
 
 LIST="$(envsubst < "$XDG_CONFIG_HOME/vconf/list")"
 
+ERR_FILE_EMPTY=2
+ERR_FILE_NOT_EXIST=3
 
 add_to_histfile () {
     echo ": `date +%s`:0;$1" >> $HISTFILE
@@ -9,18 +11,27 @@ add_to_histfile () {
 
 with_fzf () {
     local selected="$(echo "$LIST" | fzf-tmux)"
-    local name="$(echo "$selected" | sed 's/ -.*$//')"
     local file="$(echo "$selected" | sed 's/^.*- //')"
+    # local name="$(echo "$selected" | sed 's/ -.*$//')"
     # add_to_histfile "vconf $name"
-    [[ -f "$file" ]] && vim "$file"
-    exit 0
+    [[ -z "$file" ]] && exit $ERR_FILE_EMPTY
+    [[ -f "$file" ]] && vim "$file" || ( >&2 echo "File '$file' does not exist on the system" && exit $ERR_FILE_NOT_EXIST )
 }
 
 with_dmenu () {
     local file="$(echo "$LIST" | rofi -dmenu -l 10 -p 'Edit config:' | sed 's/^.*- //')"
-    [[ -f "$file" ]] && termite -e "vim '$file'"
-    exit 0
+    [[ -z "$file" ]] && exit $ERR_FILE_EMPTY
+    [[ -f "$file" ]] && termite -e "vim '$file'" || ( notify-send -u critical "vconf" "File '$file' does not exist on the system" && exit $ERR_FILE_NOT_EXIST )
 }
 
-( [[ "$1" = "-d" ]] || [[ "$1" = "--dmenu" ]] ) && with_dmenu || with_fzf
+case "$1" in
+    '')
+        with_fzf;;
+    -d|--dmenu)
+        with_dmenu;;
+    *)
+        
+esac
+
+# ( [[ "$1" = "-d" ]] || [[ "$1" = "--dmenu" ]] ) && with_dmenu && exit 0 || with_fzf
 
