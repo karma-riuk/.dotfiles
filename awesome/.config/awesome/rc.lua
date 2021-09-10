@@ -56,7 +56,8 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "termite"
+-- terminal = "termite"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -191,11 +192,11 @@ globalkeys = gears.table.join(
 
     -- Scratchpad terminal
     awful.key({ modkey,           }, "u", 
-        function () scratch.toggle("termite -r scratchpad -t scratch-term -e tmux-setup", {name = "scratch-term", role = "scratchpad" }) end,
+        function () scratch.toggle(terminal .. " -t scratch-term -e tmux-setup", {name = "scratch-term", role = "scratchpad" }) end,
         {description = "Toggle the tmux scratchpad", group = "tag"}),
 
     awful.key({ modkey,           }, "i", 
-        function () scratch.toggle("termite -r scratchpad -t scratch-htop -e htop", {name = "scratch-htop", role = "scratchpad" }) end,
+        function () scratch.toggle(terminal .. " -t scratch-htop -e htop", {name = "scratch-htop", role = "scratchpad" }) end,
         {description = "Toggle the tmux scratchpad", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
@@ -229,7 +230,7 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "Return", function () awful.util.spawn("sh -c 'termite -d \"$(xcwd)\"'") end,
+    awful.key({ modkey, "Control" }, "Return", function () awful.util.spawn("sh -c '" ..  terminal .." --working-directory \"$(xcwd)\"'") end,
               {description = "open a terminal on current path", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -240,7 +241,7 @@ globalkeys = gears.table.join(
     end,
     {description = "Spawns a rofi prompt to connect paired bluetooth devices", group = "Utilities"}),
     awful.key({ modkey, "Shift" }, "b",     function ()
-        scratch.toggle(terminal .. " -r scratchpad -t scratch-bluetooth  -e bluetoothctl", {name="scratch-bluetooth", role="scratchpad"})    
+        scratch.toggle(terminal .. " -t scratch-bluetooth  -e bluetoothctl", {name="scratch-bluetooth", role="scratchpad"})    
     end,
     {description = "Spawns a bluetoothctl terminal", group = "Utilities"}),
 
