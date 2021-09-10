@@ -1,37 +1,73 @@
 #!/usr/bin/env bash
 
+set -e
+
 LIST="$(envsubst < "$XDG_CONFIG_HOME/vconf/list")"
 
 ERR_FILE_EMPTY=2
 ERR_FILE_NOT_EXIST=3
 
-add_to_histfile () {
-    echo ": `date +%s`:0;$1" >> $HISTFILE
+is_file_empty () {
+    if [[ -z "$1" ]]; then 
+        exit $ERR_FILE_EMPTY 
+    fi
+}
+
+edit_from_terminal () {
+    is_file_empty "$file"
+
+    if [[ -f "$1" ]]; then
+        vim "$1" 
+    else
+        >&2 echo "Error: File '$1' does not exist on the system"
+        exit $ERR_FILE_NOT_EXIST
+    fi
+}
+
+edit_from_dmenu () {
+    is_file_empty "$file"
+
+    if [[ -f "$1" ]]; then
+        termite -e "vim '$1'"
+    else
+        notify-send -u critical "vconf" "File '$1' does not exist on the system"
+        exit $ERR_FILE_NOT_EXIST
+    fi
 }
 
 with_fzf () {
-    local selected="$(echo "$LIST" | fzf-tmux)"
-    local file="$(echo "$selected" | sed 's/^.*- //')"
-    # local name="$(echo "$selected" | sed 's/ -.*$//')"
-    # add_to_histfile "vconf $name"
-    [[ -z "$file" ]] && exit $ERR_FILE_EMPTY
-    [[ -f "$file" ]] && vim "$file" || ( >&2 echo "File '$file' does not exist on the system" && exit $ERR_FILE_NOT_EXIST )
+    local file="$(echo "$1" | fzf-tmux | sed 's/^.*- //')"
+    edit_from_terminal "$file"
 }
 
 with_dmenu () {
-    local file="$(echo "$LIST" | rofi -dmenu -l 10 -p 'Edit config:' | sed 's/^.*- //')"
-    [[ -z "$file" ]] && exit $ERR_FILE_EMPTY
-    [[ -f "$file" ]] && termite -e "vim '$file'" || ( notify-send -u critical "vconf" "File '$file' does not exist on the system" && exit $ERR_FILE_NOT_EXIST )
+    local file="$(echo "$1" | rofi -dmenu -l 10 -p 'Edit config:' | sed 's/^.*- //')"
+    edit_from_dmenu "$file"
+}
+
+with_argument () {
+    local possibilities=$(echo "$LIST" | grep "^$1\w* - ")
+    # Check if there is an exact match in the possiblites, if there is select
+    # that one (example if $1 == zsh and there is 'zsh' and 'zshenv' in the
+    # possiblities, then select 'zsh' because it is an exact match)
+    if [[ "$(echo "$possibilities" | wc -l)" -eq 1 ]]; then
+        local file="$(echo "$possibilities" | sed 's/^.*- //')"
+        edit_from_terminal "$file"
+    elif [[ "$(echo "$possibilities" | grep "^$1 - ")" ]]; then
+        local file="$(echo "$possibilities" | grep "^$1 - " | sed 's/^.*- //')"
+        edit_from_terminal "$file"
+    else 
+        with_fzf "$possibilities"
+    fi
+
 }
 
 case "$1" in
     '')
-        with_fzf;;
+        with_fzf "$LIST";;
     -d|--dmenu)
-        with_dmenu;;
+        with_dmenu "$LIST";;
     *)
-        
+        with_argument "$1";;
 esac
-
-# ( [[ "$1" = "-d" ]] || [[ "$1" = "--dmenu" ]] ) && with_dmenu && exit 0 || with_fzf
 

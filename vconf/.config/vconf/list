@@ -11,6 +11,6 @@ tmux - $XDG_CONFIG_HOME/tmux/tmux.conf
 vconf - $XDG_CONFIG_HOME/vconf/list
 vim - $XDG_CONFIG_HOME/vim/vimrc
 zsh - $XDG_CONFIG_HOME/zsh/.zshrc
-zsh aliases - $XDG_CONFIG_HOME/zsh/aliases
-zsh environmental - $XDG_CONFIG_HOME/zsh/.zshenv
-zsh local environmental - $XDG_CONFIG_HOME/zsh/.localenv
+aliases - $XDG_CONFIG_HOME/zsh/aliases
+zshenv - $XDG_CONFIG_HOME/zsh/.zshenv
+localenv - $XDG_CONFIG_HOME/zsh/.localenv
