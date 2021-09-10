@@ -34,6 +34,10 @@ call plug#end()
 " Command
 command Src execute "so " . $MYVIMRC
 
+" Disabeling q: and Q (q: for search through last vim commands, Q for Ex mode)
+nnoremap q: <nop>
+nnoremap Q <nop>
+
 " Look and feel
 "" Colorscheme
 set background=dark 
