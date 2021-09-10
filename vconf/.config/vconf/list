@@ -1,4 +1,4 @@
-alacritty - $XDG_CONFIG_HOME/alacritty/config.yaml
+alacritty - $XDG_CONFIG_HOME/alacritty/alacritty.yaml
 awesomewm - $XDG_CONFIG_HOME/awesome/rc.lua
 dunst - $XDG_CONFIG_HOME/dunst/dunstrc
 picom - $XDG_CONFIG_HOME/picom/picom.conf
