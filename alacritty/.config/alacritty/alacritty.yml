@@ -23,7 +23,7 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
@@ -45,9 +45,9 @@
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 3
+    y: 3
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -93,39 +93,39 @@
   # and `light`. Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 10000
 
   # Scrolling distance multiplier.
-  #multiplier: 3
+  multiplier: 3
 
 # Font configuration
-#font:
+font:
   # Normal (roman) font face
-  #normal:
+  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: monospace
+    family: Meslo LG S
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    style: Regular
 
   # Bold font face
-  #bold:
+  # bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    # family: Monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    # style: Bold
 
   # Italic font face
   #italic:
@@ -150,7 +150,7 @@
     #style: Bold Italic
 
   # Point size
-  #size: 11.0
+  size: 6.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -173,14 +173,17 @@
   #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night)
-#colors:
+colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  primary:
+   background: '#0e1019'
+   # foreground: '#f5f8f6'
+   # foreground: '#fffaf4'
+   # background: '#1d1f21'
+   foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
     #
@@ -267,27 +270,43 @@
   #  background: CellForeground
 
   # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+  normal:
+    black:   '#444444'
+    red:     '#ff000f'
+    green:   '#8ce10b'
+    yellow:  '#ffb900'
+    blue:    '#008df8'
+    magenta: '#9d42a5'
+    cyan:    '#00d8eb'
+    white:   '#eaeaea'
+    # black:   '#1d1f21'
+    # red:     '#cc6666'
+    # green:   '#b5bd68'
+    # yellow:  '#f0c674'
+    # blue:    '#81a2be'
+    # magenta: '#b294bb'
+    # cyan:    '#8abeb7'
+    # white:   '#c5c8c6'
 
   # Bright colors
-  #bright:
-  #  black:   '#666666'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e7c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0b1'
-  #  white:   '#eaeaea'
-
+  bright:
+    black:   '#232323'
+    red:     '#ff2740'
+    green:   '#abe15b'
+    yellow:  '#ffd242'
+    blue:    '#0092ff'
+    magenta: '#9a5feb'
+    cyan:    '#67fff0'
+    white:   '#c5c8c6'
+    # black:   '#666666'
+    # red:     '#d54e53'
+    # green:   '#b9ca4a'
+    # yellow:  '#e7c547'
+    # blue:    '#7aa6da'
+    # magenta: '#c397d8'
+    # cyan:    '#70c0b1'
+    # white:   '#eaeaea'
+ 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
@@ -357,7 +376,7 @@
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+background_opacity: 0.85
 
 #selection:
   # This string contains all characters that are used as separators for
