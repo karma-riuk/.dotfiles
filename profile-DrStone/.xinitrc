@@ -64,5 +64,3 @@ get_session(){
 }
 
 exec $(get_session "$1")
-
-touch /tmp/asdf
