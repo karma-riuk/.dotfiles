@@ -28,7 +28,7 @@ edit_from_dmenu () {
     is_file_empty "$file"
 
     if [[ -f "$1" ]]; then
-        termite -e "vim '$1'"
+        alacritty -e vim "$1"
     else
         notify-send -u critical "vconf" "File '$1' does not exist on the system"
         exit $ERR_FILE_NOT_EXIST
