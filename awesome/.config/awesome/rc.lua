@@ -192,11 +192,11 @@ globalkeys = gears.table.join(
 
     -- Scratchpad terminal
     awful.key({ modkey,           }, "u", 
-        function () scratch.toggle(terminal .. " -t scratch-term -e tmux-setup", {name = "scratch-term", role = "scratchpad" }) end,
+        function () scratch.toggle(terminal .. " -t scratch-term -e tmux-setup", {name = "scratch-term"}) end,
         {description = "Toggle the tmux scratchpad", group = "tag"}),
 
     awful.key({ modkey,           }, "i", 
-        function () scratch.toggle(terminal .. " -t scratch-htop -e htop", {name = "scratch-htop", role = "scratchpad" }) end,
+        function () scratch.toggle(terminal .. " -t scratch-htop -e htop", {name = "scratch-htop"}) end,
         {description = "Toggle the tmux scratchpad", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
@@ -241,7 +241,7 @@ globalkeys = gears.table.join(
     end,
     {description = "Spawns a rofi prompt to connect paired bluetooth devices", group = "Utilities"}),
     awful.key({ modkey, "Shift" }, "b",     function ()
-        scratch.toggle(terminal .. " -t scratch-bluetooth  -e bluetoothctl", {name="scratch-bluetooth", role="scratchpad"})    
+        scratch.toggle(terminal .. " -t scratch-bluetooth  -e bluetoothctl", {name="scratch-bluetooth"})    
     end,
     {description = "Spawns a bluetoothctl terminal", group = "Utilities"}),
 
@@ -521,7 +521,9 @@ awful.rules.rules = {
     },
     -- General rules for scratchpads
     { rule = {
-            role = "scratchpad"
+            -- class = "scratchpad"
+            -- role = "scratchpad"
+            name = "scratch-.*"
         },
         properties = {
             floating = true,
@@ -535,10 +537,12 @@ awful.rules.rules = {
         end
     },
 
+
     -- Specific rules for scratchpads
     ---- Tmux
     { rule = {
-            role = "scratchpad",
+            -- role = "scratchpad",
+            -- class = "scratchpad",
             name = "scratch-term",
         },
         properties = {
@@ -548,7 +552,8 @@ awful.rules.rules = {
     },
     ---- Htop
     { rule = {
-            role = "scratchpad",
+            -- role = "scratchpad",
+            -- class = "scratchpad",
             name = "scratch-htop",
         },
         properties = {
@@ -558,7 +563,8 @@ awful.rules.rules = {
     },
     ---- Bluetoothctl
     { rule = {
-            role = "scratchpad",
+            -- role = "scratchpad",
+            -- class = "scratchpad",
             name = "scratch-bluetooth",
         },
         properties = {
