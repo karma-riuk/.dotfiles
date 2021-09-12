@@ -3,7 +3,7 @@
 
 [[ -z "${DOTFILES+x}" ]] && DOTFILES="$HOME/.dotfiles"
 
-[[ -z "${STOW_FOLDERS+x}" ]] && STOW_FOLDERS="awesome,bin,brightctl,dunst,htop,latex,notify-bar,profile-KoroSensei,termite,vconf,vim,volumectl,zathura,zsh"
+[[ -z "${STOW_FOLDERS+x}" ]] && STOW_FOLDERS="alacritty,awesome,bin,brightctl,dunst,git,htop,latex,notify-bar,profile-KoroSensei,termite,tmux,vconf,vim,volumectl,wd,zathura,zsh"
 
 
 pushd $DOTFILES > /dev/null
