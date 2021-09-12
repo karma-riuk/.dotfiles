@@ -225,3 +225,9 @@ augroup END
 let g:vimtex_quickfix_ignore_filters = [
             \ '\v(Over|Under)full',
             \]
+
+augroup MyVimtex
+  autocmd!
+  " autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
+  autocmd User VimtexEventQuit VimtexClean
+augroup END
