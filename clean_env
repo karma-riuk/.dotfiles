@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-
-[[ -z "${DOTFILES+x}" ]] && DOTFILES="$HOME/.dotfiles"
-
-[[ -z "${STOW_FOLDERS+x}" ]] && STOW_FOLDERS="alacritty,awesome,bin,brightctl,dunst,git,htop,latex,notify-bar,profile-KoroSensei,termite,tmux,vconf,vim,volumectl,wd,zathura,zsh"
-
-
 pushd $DOTFILES > /dev/null
 
 IFS=','; for folder in $STOW_FOLDERS; do
