@@ -103,6 +103,12 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+""" Same but for the terminal
+tmap <C-h> <C-w>h
+tmap <C-j> <C-w>j
+tmap <C-k> <C-w>k
+tmap <C-l> <C-w>l
+
 "" Renaming vairables
 map <leader>r :s/<C-R><C-W>//g<left><left>
 map <leader>R :%s/<C-R><C-W>//gc<left><left><left>
