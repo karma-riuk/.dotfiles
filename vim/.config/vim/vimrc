@@ -6,6 +6,9 @@ set viewdir=$XDG_DATA_HOME/vim/view
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
+"" Vim-polyglot
+let g:polyglot_disabled = ['tex']
+
 " Plugins
 call plug#begin()
 ""Theme
@@ -18,13 +21,13 @@ Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'yggdroot/indentline'
-Plug 'lervag/vimtex'
 Plug 'ap/vim-css-color'
 " Highlighting search patterns when needed
 Plug 'romainl/vim-cool' 
 Plug 'sainnhe/sonokai'
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' " Conflicts with ultisnips and the ~/.dotfiles stow directory (for some reason, in latex, it asks me which of the ~/.config/vim and ~/.dotfiles/vim/.config/vim snippets I want to use, while the files are the same...)
 Plug 'ycm-core/YouCompleteMe'
+Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
@@ -132,6 +135,13 @@ imap <C-b> <Esc>b
 
 " Filetype specific settings
 "" Setting the filetype of service files
+" augroup Compliers
+"     autocmd!
+"     autocmd Filetype c,cpp command -nargs=* Make make <args> | cwindow 10 
+"     autocmd Filetype c,cpp nmap <silent> <leader>m :make compile \| cwindow 10 <cr>
+" augroup END
+
+"" Setting the filetype of service files
 augroup Services
     autocmd!
     autocmd BufNewFile,BufRead *.service set ft=dosini
@@ -140,7 +150,7 @@ augroup END
 "" Reloading configs after saving files
 augroup SetSpell
     autocmd!
-    autocmd FileType tex set spell
+    autocmd FileType tex,markdown set spell
 augroup END
 
 "" Reloading configs after saving files
@@ -204,7 +214,9 @@ let g:indentLine_color_term = 237
 
 "" YouCompleteMe
 """ Disable on latex files
-let g:ycm_filetype_blacklist = {'tex' : 1}
+let g:ycm_filetype_blacklist = {'tex' : 1,
+            \ 'markdown': 1
+            \ }
 """ Make tab of YCM and Ultisnips work nicely
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -237,3 +249,4 @@ augroup MyVimtex
   " autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
   autocmd User VimtexEventQuit VimtexClean
 augroup END
+
