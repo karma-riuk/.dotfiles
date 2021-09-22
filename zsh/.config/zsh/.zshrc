@@ -1,4 +1,5 @@
 # ZSH stuff 
+#
 HIST_STAMPS="dd/mm/yyyy"
 setopt correct
 DISABLE_AUTO_TITLE="true"
@@ -68,3 +69,7 @@ bindkey "^v" edit-command-line
 # [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 source $ZDOTDIR/aliases
+
+# The following lines come from Software Atelier 3 (USI SA 2021-22)
+# source /usr/share/nvm/init-nvm.sh # ucomment this line (or paste it in the terminal) to have access to the nvm command, it slows the opening of a new shell thow
+export npm_config_prefix="$HOME/.local"
