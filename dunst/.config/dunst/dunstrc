@@ -38,13 +38,13 @@
     # it's at least twice as big as the frame width.
     progress_bar_height = 3
 
-    # Set the frame width of the progress bar
+    # Set the frame width of the progress bar (values: 0: disabled, 1: enabled)
     progress_bar_frame_width = 0
 
-    # Set the minimum width for the progress bar
+    # Set the minimum width for the progress bar (values: any integer)
     progress_bar_min_width = 150
 
-    # Set the maximum width for the progress bar
+    # Set the maximum width for the progress bar (values: any integer)
     progress_bar_max_width = 300
 
 
@@ -283,8 +283,8 @@
     # * close_all: Close all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_current
     mouse_right_click = close_all
 
 # Experimental features that may or may not work correctly. Do not expect them

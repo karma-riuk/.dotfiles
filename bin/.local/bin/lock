@@ -57,6 +57,7 @@ TEXT=""
     #* ) TEXT="" ;; # Default to English
 #esac
 
+echo "WESH ALORS"
 while true ; do
     case "$1" in
         -h|--help)
@@ -80,6 +81,7 @@ if "$SET" && [[ $# -gt 0 ]]; then
     SHOT=("$@");
 fi
 
+echo "CLAQUETTES SURVETTES \`${SHOT[@]} $IMAGE"
 "${SHOT[@]}" "$IMAGE"
 
 # get path where the script is located to find the lock icon
@@ -134,3 +136,4 @@ i3lock -n "${COMMON_PARAM[@]}" "${PARAM[@]}" -i "$IMAGE" #> /dev/null 2>&1
 # As above, if we were passed -d/--desktop, we'll attempt to restore all windows
 # after unlocking.
 ${DESKTOP} ${DESKTOP:+-k off}
+
