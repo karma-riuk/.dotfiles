@@ -287,11 +287,18 @@ globalkeys = gears.table.join(
 
     -- XF86 Keys
     --- Media Management
+    ---- Volume Management
     awful.key({ }, "XF86AudioMute",
               function ()
                   awful.spawn("volumectl -t")
               end,
               {description = "Toggle mute", group = "Media management"}),
+
+    awful.key({ "Shift" }, "XF86AudioMute",
+              function ()
+                  awful.spawn("volumectl -m")
+              end,
+              {description = "Set mute", group = "Media management"}),
 
     awful.key({ }, "XF86AudioRaiseVolume",
               function ()
@@ -299,11 +306,23 @@ globalkeys = gears.table.join(
               end,
               {description = "Increase volume", group = "Media management"}),
 
+    awful.key({ "Shift" }, "XF86AudioRaiseVolume",
+              function ()
+                  awful.spawn("volumectl -I")
+              end,
+              {description = "Increase volume a lot", group = "Media management"}),
+
     awful.key({ }, "XF86AudioLowerVolume",
               function ()
                   awful.spawn("volumectl -d")
               end,
               {description = "Decrease volume", group = "Media management"}),
+
+    awful.key({ "Shift" }, "XF86AudioLowerVolume",
+              function ()
+                  awful.spawn("volumectl -D")
+              end,
+              {description = "Decrease volume a lot", group = "Media management"}),
 
     awful.key({ }, "XF86AudioPlay",
               function ()
