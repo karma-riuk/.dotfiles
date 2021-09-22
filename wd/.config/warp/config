@@ -7,7 +7,7 @@ qute:~/.config/qutebrowser
 dnd:~/Documents/DND
 config:~/.config
 aoc:~/code/Advent of Code 2020
-usi:~/Documents/USI/BA2 2021
 bin:~/.local/bin
 admin:~/Documents/Administration
 dot:~/.dotfiles
+usi:~/Documents/USI/BA3_2021
