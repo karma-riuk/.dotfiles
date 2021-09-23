@@ -57,7 +57,6 @@ TEXT=""
     #* ) TEXT="" ;; # Default to English
 #esac
 
-echo "WESH ALORS"
 while true ; do
     case "$1" in
         -h|--help)
@@ -81,7 +80,6 @@ if "$SET" && [[ $# -gt 0 ]]; then
     SHOT=("$@");
 fi
 
-echo "CLAQUETTES SURVETTES \`${SHOT[@]} $IMAGE"
 "${SHOT[@]}" "$IMAGE"
 
 # get path where the script is located to find the lock icon
@@ -121,8 +119,8 @@ else #black
     )
 fi
 
-#convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" -font "$FONT" -pointsize 26 -fill "$BW" -gravity center \ # original
-    #-annotate +0+160 "$TEXT" "$ICON" -gravity center -composite "$IMAGE" # original
+# convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" -font "$FONT" -pointsize 26 -fill "$BW" -gravity center \ # original
+#     -annotate +0+160 "$TEXT" "$ICON" -gravity center -composite "$IMAGE" # original
 
 convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" "$IMAGE"
 
