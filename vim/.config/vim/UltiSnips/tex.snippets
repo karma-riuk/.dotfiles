@@ -40,7 +40,7 @@ context "math()"
 snippet '([pl])wer' "Power" rA
 `!p snip.rv = '^' if match.group(1) == 'p' else '_'`{$1}$0
 endsnippet
-	
+    
 context "math()"
 snippet '(q{1,2})(ua|au)d' "quads" rA
 `!p snip.rv = "\\" + match.group(1) + "uad"`
@@ -94,9 +94,9 @@ endsnippet
 
 snippet '^(def|thm)' "paragraph/theorem of definition" r
 `!p dic = {'def' : 'definition', 
-			'thm' : 'theorem',
-			}`
+            'thm' : 'theorem',
+            }`
 \\begin{`!p snip.rv = dic[match.group(1)]`}[$1]
-	$0
+    $0
 \\end{`!p snip.rv = dic[match.group(1)]`}
 endsnippet
