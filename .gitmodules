@@ -68,3 +68,6 @@
 [submodule "brightctl/.local/lib/brightctl"]
 	path = brightctl/.local/lib/brightctl
 	url = git@github.com:karma-riuk/brightctl.git
+[submodule "vim/.config/vim/plugged/vim-sensible"]
+	path = vim/.config/vim/plugged/vim-sensible
+	url = https://github.com/tpope/vim-sensible
