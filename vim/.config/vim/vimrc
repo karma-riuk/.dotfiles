@@ -6,14 +6,15 @@ set viewdir=$XDG_DATA_HOME/vim/view
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
-"" Vim-polyglot
-let g:polyglot_disabled = ['tex']
+set nocompatible
+
 
 " Plugins
 call plug#begin()
 ""Theme
 " Plug 'acoustichero/goldenrod.vim' 
 Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-sensible'
 Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for' : 'tex' }
 Plug 'itchyny/lightline.vim'
@@ -25,10 +26,10 @@ Plug 'ap/vim-css-color'
 " Highlighting search patterns when needed
 Plug 'romainl/vim-cool' 
 Plug 'sainnhe/sonokai'
-Plug 'sheerun/vim-polyglot' " Conflicts with ultisnips and the ~/.dotfiles stow directory (for some reason, in latex, it asks me which of the ~/.config/vim and ~/.dotfiles/vim/.config/vim snippets I want to use, while the files are the same...)
+Plug 'sheerun/vim-polyglot'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'lervag/vimtex'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -80,7 +81,7 @@ set scrolloff=8
 hi LineNr ctermfg=darkgray
 
 "" What to show when ':set list' is called (to show tabs, end of lines, spaces, etc.)
-set listchars=eol:¬,tab:\ »\ ,space:·,trail:█
+" set listchars=eol:¬,tab:\ »\ ,space:·,trail:█
 
 "" Splits
 set splitright
@@ -205,6 +206,9 @@ let g:UltiSnipsEditSplit="vertical"
 """ Help ultisnips find the location of the dot directory of vim
 let g:UltiSnipsSnippetsDir = expand("$XDG_CONFIG_HOME/vim/ultisnips")
 " let g:UltiSnipsSnippetDirectories = [expand("$XDG_CONFIG_HOME/vim/ultisnips"), 'UltiSnips']
+" let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = "~/.config/vim/plugged/vim-snippets/snippets"
+set rtp-=~/.dotfiles/vim/.config/vim/plugged/vim-snippets " to fix the issue with vim-polyglot and snippets duplication of snippets
+
 
 let g:CoolTotalMatches = 1
 
