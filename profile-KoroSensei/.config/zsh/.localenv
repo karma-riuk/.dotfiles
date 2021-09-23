@@ -1,1 +1,1 @@
-export STOW_FOLDERS="awesome,bin,brightctl,dunst,htop,latex,notify-bar,profile-KoroSensei,termite,tmux,vconf,vim,volumectl,zathura,zsh"
+export STOW_FOLDERS="awesome,bin,brightctl,dunst,htop,latex,notify-bar,profile-KoroSensei,termite,tmux,vconf,vim,volumectl,wallpapers,wd,zathura,zsh"
