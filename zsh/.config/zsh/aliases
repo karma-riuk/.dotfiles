@@ -13,6 +13,9 @@ alias sys="sudo systemctl"
 alias wgdown="wg-quick down home"
 alias wgup="wg-quick up home"
 
+alias cw="feh --no-fehbg --bg-scale --randomize ~/.local/share/wallpapers/*"
+alias feh="feh --keep-zoom-vp"
+
 # Config 
 ## Vim vimrc not relocating properly to XDG 
 # alias vim='vim -u ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
