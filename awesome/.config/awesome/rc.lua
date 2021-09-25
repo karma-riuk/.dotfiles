@@ -236,14 +236,27 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Control"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ modkey }, "b",     function ()
-        awful.spawn("bt-connect")    
-    end,
-    {description = "Spawns a rofi prompt to connect paired bluetooth devices", group = "Utilities"}),
-    awful.key({ modkey, "Shift" }, "b",     function ()
-        scratch.toggle(terminal .. " -t scratch-bluetooth  -e bluetoothctl", {name="scratch-bluetooth"})    
-    end,
-    {description = "Spawns a bluetoothctl terminal", group = "Utilities"}),
+
+    awful.key({ modkey }, "b",     
+        function ()
+            awful.spawn("bt-connect")    
+        end,
+        {description = "Spawns a rofi prompt to connect paired bluetooth devices", group = "Utilities"}
+    ),
+
+    awful.key({ modkey, "Shift" }, "b", 
+        function ()
+            scratch.toggle(terminal .. " -t scratch-bluetooth  -e bluetoothctl", {name="scratch-bluetooth"})    
+        end,
+        {description = "Spawns a bluetoothctl terminal", group = "Utilities"}
+    ),
+
+    awful.key({ modkey,           }, "n",
+        function ()
+          scratch.toggle("bitwarden-desktop", {name="Bitwarden"})    
+        end,
+        {description = "Spawns a bitwarden window", group = "Utilities"}
+    ),
 
 
         -- awful.tag.incnmaster(-1, nil, true)  -- decrease # of master clients
@@ -263,17 +276,17 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Control" }, "n",
-              function ()
-                  local c = awful.client.restore()
-                  -- Focus restored client
-                  if c then
-                    c:emit_signal(
-                        "request::activate", "key.unminimize", {raise = true}
-                    )
-                  end
-              end,
-              {description = "restore minimized", group = "client"}),
+    -- awful.key({ modkey, "Control" }, "n",
+    --           function ()
+    --               local c = awful.client.restore()
+    --               -- Focus restored client
+    --               if c then
+    --                 c:emit_signal(
+    --                     "request::activate", "key.unminimize", {raise = true}
+    --                 )
+    --               end
+    --           end,
+    --           {description = "restore minimized", group = "client"}),
 
     -- Prompt
     awful.key({ modkey },            "d",     function () awful.spawn("rofi -show run") end,
@@ -373,13 +386,13 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "n",
-        function (c)
-            -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
-            c.minimized = true
-        end ,
-        {description = "minimize", group = "client"}),
+    -- awful.key({ modkey,           }, "n",
+    --     function (c)
+    --         -- The client currently has the input focus, so it cannot be
+    --         -- minimized, since minimized clients can't have the focus.
+    --         c.minimized = true
+    --     end ,
+    --     {description = "minimize", group = "client"}),
 
 
 
@@ -539,10 +552,12 @@ awful.rules.rules = {
      }
     },
     -- General rules for scratchpads
-    { rule = {
+    { rule_any = {
             -- class = "scratchpad"
             -- role = "scratchpad"
-            name = "scratch-.*"
+            name = { "scratch-.*",
+                "Bitwarden" 
+            }
         },
         properties = {
             floating = true,
@@ -589,6 +604,15 @@ awful.rules.rules = {
         properties = {
             width = screen_width * .45,
             height = screen_height * .4
+        },
+    },
+
+    { rule = {
+            name = "Bitwarden",
+        },
+        properties = {
+            width = screen_width * .6,
+            height = screen_height * .6
         },
     },
 
