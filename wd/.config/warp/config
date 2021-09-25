@@ -11,3 +11,4 @@ bin:~/.local/bin
 admin:~/Documents/Administration
 dot:~/.dotfiles
 usi:~/Documents/USI/BA3_2021
+dotfiles:~/.dotfiles
