@@ -571,6 +571,10 @@ awful.rules.rules = {
         end
     },
 
+    {
+        rule = { class = "Vivaldi-stable" },
+        properties = {maximized = false}, -- 
+    },
 
     -- Specific rules for scratchpads
     ---- Tmux
@@ -635,7 +639,7 @@ awful.rules.rules = {
           "veromix",
           "Nm-connection-editor",
           "xtightvncviewer"},
-
+    
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
         name = {
@@ -653,8 +657,8 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Firefox" },
+      properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
