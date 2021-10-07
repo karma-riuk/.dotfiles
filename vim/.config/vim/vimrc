@@ -27,7 +27,7 @@ Plug 'ap/vim-css-color'
 Plug 'romainl/vim-cool' 
 Plug 'sainnhe/sonokai'
 Plug 'sheerun/vim-polyglot'
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -59,6 +59,7 @@ let &t_EI = "\<Esc>[3 q"
 
 "" Enable transparency
 hi Normal ctermbg=None 
+hi Terminal ctermbg=None 
 
 "" Spelling errors
 hi SpellBad ctermfg=red
@@ -207,8 +208,11 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir = expand("$XDG_CONFIG_HOME/vim/ultisnips")
 " let g:UltiSnipsSnippetDirectories = [expand("$XDG_CONFIG_HOME/vim/ultisnips"), 'UltiSnips']
 " let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = "~/.config/vim/plugged/vim-snippets/snippets"
-set rtp-=~/.dotfiles/vim/.config/vim/plugged/vim-snippets " to fix the issue with vim-polyglot and snippets duplication of snippets
 
+augroup LATEX_RTP
+    autocmd!
+    autocmd Filetype tex set rtp-=~/.dotfiles/vim/.config/vim/plugged/vim-snippets " to fix the issue with vim-polyglot and snippets duplication of snippets
+augroup END
 
 let g:CoolTotalMatches = 1
 
