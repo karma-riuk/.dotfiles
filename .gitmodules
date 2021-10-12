@@ -71,3 +71,9 @@
 [submodule "vim/.config/vim/plugged/vim-sensible"]
 	path = vim/.config/vim/plugged/vim-sensible
 	url = https://github.com/tpope/vim-sensible
+[submodule "vim/.config/vim/plugged/ctrlp.vim"]
+	path = vim/.config/vim/plugged/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "vim/.config/vim/plugged/ctrlp-funky"]
+	path = vim/.config/vim/plugged/ctrlp-funky
+	url = https://github.com/tacahiroy/ctrlp-funky
