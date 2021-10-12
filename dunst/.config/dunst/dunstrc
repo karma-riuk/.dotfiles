@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "310x5-30+20"
+    geometry = "400x5-30+20"
 
     # Turn on the progess bar
     progress_bar = true
@@ -45,7 +45,7 @@
     progress_bar_min_width = 150
 
     # Set the maximum width for the progress bar (values: any integer)
-    progress_bar_max_width = 300
+    progress_bar_max_width = 400
 
 
     # Show how many messages are currently hidden (because of geometry).
