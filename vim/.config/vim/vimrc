@@ -35,6 +35,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
+" Plug 'nikvdp/ejs-syntax'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'szw/vim-maximizer'
+" Plug 'ymagossou/Conque-GDB', { 'for': 'c' }
+Plug 'puremourning/vimspector'
+Plug 'jason0x43/vim-wildgitignore'
 call plug#end()
 
 " Command
@@ -63,15 +70,16 @@ let &t_EI = "\<Esc>[3 q"
 hi Normal ctermbg=None 
 hi Terminal ctermbg=None 
 
+
 "" Spelling errors
 hi SpellBad ctermfg=red
 
 "" Show keystrokes as they are pressed
 set showcmd
 set hlsearch incsearch
-set wildmenu wildmode=longest,list,full
+set wildmenu wildmode=longest:full,full
 """ Ignore binary files
-set wildignore+=*.a,*.o
+set wildignore+=*.a,*.o,*.class
 """ Ignore image files
 set wildignore+=*.png,*.jpg,*.bmp,*.gif,*.ico
 """ Ignore useless directories
@@ -112,6 +120,23 @@ map <leader>Q :q!<Cr>
 "" Fixing Y
 map Y y$
 
+"" Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+"" Undo breakpoints
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap ( (<c-g>u
+inoremap ) )<c-g>u
+inoremap [ [<c-g>u
+inoremap ] ]<c-g>u
+inoremap { {<c-g>u
+inoremap } }<c-g>u
+
 "" Split window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -142,6 +167,7 @@ map <leader>D "+D
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+
 "" Fixing mistakes I usually make
 imap <C-b> <Esc>b
 
@@ -155,6 +181,16 @@ tmap <C-n> <C-w>N
 "     autocmd Filetype c,cpp command -nargs=* Make make <args> | cwindow 10 
 "     autocmd Filetype c,cpp nmap <silent> <leader>m :make compile \| cwindow 10 <cr>
 " augroup END
+
+augroup RememberLastPosition
+    autocmd!
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"zv" | endif
+augroup END
+
+augroup Term
+    autocmd!
+    autocmd TerminalOpen * set nonumber | set norelativenumber
+augroup END
 
 "" Setting the filetype of service files
 augroup Services
@@ -270,20 +306,59 @@ augroup MyVimtex
   " autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
   autocmd User VimtexEventQuit VimtexClean
 augroup END
+" let g:vimtex_enabled = 0
+let g:tex_fast = 'bMpr'
+" let g:tex_fast = ''
 
 
 "" CtrlP
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['pom.xml']
 
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
+" if executable('ag')
+"   " Use Ag over Grep
+"   set grepprg=ag\ --nogroup\ --nocolor
+" 
+"   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" endif
 let g:ctrlp_funky_syntax_highlight = 1
+
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
+"" Auto-pairs
+let g:AutoPairsShortcutToggle = '<leader>('
+
+augroup Latex_Dollar_Separator
+    autocmd!
+    autocmd FileType tex let g:AutoPairs = {
+                \ '(':')',
+                \ '[':']',
+                \ '{':'}',
+                \ "$":"$",
+                \ "$$":"$$",
+                \ }
+augroup END
+
+"" ConqueGDB
+let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
+let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
+let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is configured incorrectly 
+let g:ConqueGdb_Leader = '\' 
+
+"" Maximizer
+nnoremap <leader>m :MaximizerToggle!<CR>
+vnoremap <leader>m :MaximizerToggle!<CR>gv
+
+"" Vimspector
+nmap <leader>dd <Plug>VimspectorContinue
+nmap <leader>dl <Plug>VimspectorStepInto
+nmap <leader>dj <Plug>VimspectorStepOver
+nmap <leader>dk <Plug>VimspectorStepOut
+nmap <leader>d_ <Plug>VimspectorRestart
+nmap <leader>de :call vimspector#Reset()<Cr>
+
+
+nmap <leader>drc <Plug>VimspectorRunToCursor
+nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
