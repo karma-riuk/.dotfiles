@@ -6,9 +6,11 @@ vim:~/.config/vim
 qute:~/.config/qutebrowser
 dnd:~/Documents/DND
 config:~/.config
-aoc:~/code/Advent of Code 2020
 bin:~/.local/bin
 admin:~/Documents/Administration
 dot:~/.dotfiles
 usi:~/Documents/USI/BA3_2021
 dotfiles:~/.dotfiles
+share:~/share
+automaton:~/Documents/USI/BA3_2021/Software Atelier 3 The Web/AutoAutomaton
+aoc:~/code/Advent of Code/2021
