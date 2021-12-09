@@ -10,7 +10,11 @@ autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 ## End of lines added by compinstall
 
+zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf|class|a|o|png|jpg|bmp|gif|ico|git|DS_Store|sw?|tmp):source-files' '*:all-files'
+
 # setopt INC_APPEND_HISTORY
+
+# export NVM_LAZY_LOAD=true
 
 plugins=(git pip command-not-found fasd wd)
 source $ZSH/oh-my-zsh.sh
@@ -22,6 +26,8 @@ zstyle :prompt:pure:prompt:success color cyan
 prompt pure
 
 
+export NVM_LAZY_LOAD=true
+
 # Plugin management
 source "$ZSH"/antigen.zsh
 antigen use oh-my-zsh
@@ -29,6 +35,7 @@ antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle lukechilds/zsh-nvm
 antigen apply
 
 
@@ -69,7 +76,3 @@ bindkey "^v" edit-command-line
 # [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 source $ZDOTDIR/aliases
-
-# The following lines come from Software Atelier 3 (USI SA 2021-22)
-# source /usr/share/nvm/init-nvm.sh # ucomment this line (or paste it in the terminal) to have access to the nvm command, it slows the opening of a new shell thow
-export npm_config_prefix="$HOME/.local"

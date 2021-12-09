@@ -2,9 +2,6 @@ set default-fg "#0F0"
 # set default-bg "#070A0B"
 
 set default-bg "#0a0d0f"
-set recolor-lightcolor "#111213"
-
-set recolor-darkcolor "#c5c8c6"
 # set recolor-lightcolor "#111"
 
 set highlight-color \#F00
@@ -16,6 +13,9 @@ set statusbar-fg \#CDD
 
 
 set recolor true
+set recolor-lightcolor "#111213"
+set recolor-darkcolor "#c5c8c6"
+set recolor-keephue
 
 set selection-clipboard clipboard
 
@@ -24,6 +24,6 @@ set first-page-column 0
 
 set statusbar-basename true
 set window-title-basename true
-set guioptions ""
 
-set show-scrollbars
+# Show horizontal and vertical scrollbars
+set guioptions "hv"

@@ -6,6 +6,9 @@ if [[ "$1" = "-f" ]] || [[ "$1" = "--force" ]]; then
     tmux kill-session -t $session_name 
 fi
 
+
+SA3_DIR="$HOME/Documents/USI/BA3_2021/Software Atelier 3 The Web/AutoAutomaton"
+
 if [[ -z "$(tmux list-session | grep $session_name)" ]]; then
     tmux new-session -d -n main -s $session_name
     tmux new-window -n tests -c /tmp/tests
@@ -13,6 +16,9 @@ if [[ -z "$(tmux list-session | grep $session_name)" ]]; then
     tmux selectp -t 0
     tmux new-window -n bin -c ~/.local/bin
     tmux new-window -n "run in background" 
+    echo "$SA3_DIR"
+    tmux new-window -n "SA3" -c "$SA3_DIR"
+    tmux split-window -h -c "$SA3_DIR" 
     tmux selectw -t 1
 fi
 
