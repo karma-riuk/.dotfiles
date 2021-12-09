@@ -64,3 +64,4 @@ get_session(){
 }
 
 exec $(get_session "$1")
+xbindkeys
