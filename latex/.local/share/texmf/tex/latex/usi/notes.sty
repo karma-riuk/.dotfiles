@@ -1,0 +1,100 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{usi-notes}[2021/03/02 Basic notes setup]
+
+\RequirePackage{kvoptions}
+
+\SetupKeyvalOptions{
+    family=USI,
+    prefix=USI@
+}
+
+\DeclareStringOption[TITLE\_PLACEHOLDER]{title}
+\DeclareStringOption[NAME]{profname}
+\DeclareStringOption[SURNAME]{profsurname}
+\DeclareStringOption[{Arnaud Fauconnet}]{authors}
+\DeclareStringOption[{Spring}]{season}
+\DeclareStringOption[\the\year]{year}
+\DeclareStringOption[1]{semester}
+
+\ProcessKeyvalOptions*
+
+% \title{\USI@title\\Midterm}
+% \author{\USI@authors\\Prof. \USI@prof}
+
+% \date{Faculty of Informatics, USI\\\USI@season\ term \USI@year}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+\usepackage{graphicx}
+\makeatletter
+\def\@maketitle{%
+    \begin{titlepage}
+        \center % Center everything on the page
+        \vspace*{\fill}
+
+        %----------------------------------------------------------------------------------------
+        %	HEADING SECTIONS
+        %----------------------------------------------------------------------------------------
+
+        \textsc{\LARGE Università della Svizzera Italiana}\\[1.5cm] % Name of your university/college
+        \textsc{\Large Bachelor of Informatics}\\[0.5cm] % Major heading such as course name
+        \textsc{\Large Semester \USI@semester}\\[0.5cm] % Major heading such as course name
+
+        %----------------------------------------------------------------------------------------
+        %	TITLE SECTION
+        %----------------------------------------------------------------------------------------
+
+        \HRule \\[0.8cm]
+        { \huge \bfseries \USI@title}\\[0.6cm] % Title of your document
+        { \huge \bfseries Lecture Notes}\\[0.6cm]
+        \HRule \\[1.5cm]
+
+        %----------------------------------------------------------------------------------------
+        %	AUTHOR SECTION
+        %----------------------------------------------------------------------------------------
+
+        \begin{minipage}{0.4\textwidth}
+            \begin{flushleft} \large
+                \emph{Author:}\\
+                Arnaud \textsc{Fauconnet} % Your name
+            \end{flushleft}
+        \end{minipage}
+        ~
+        \begin{minipage}{0.4\textwidth}
+            \begin{flushright} \large
+                \emph{Professor:} \\
+                \USI@profname\ \textsc{\USI@profsurname} % Supervisor's Name
+            \end{flushright}
+        \end{minipage}\\[2cm]
+
+        %----------------------------------------------------------------------------------------
+        %	DATE SECTION
+        %----------------------------------------------------------------------------------------
+
+        {\large \USI@season\ - \USI@year}\\[1cm] % Date, change the \today to a set date if you want to be precise
+
+        %----------------------------------------------------------------------------------------
+        %	LOGO SECTION
+        %----------------------------------------------------------------------------------------
+
+        \includegraphics[width=.75\textwidth]{usi-logo.png}\\ % Include a department/university logo - this will require the graphicx package
+
+        %----------------------------------------------------------------------------------------
+
+        \vfill % Fill the rest of the page with whitespace
+    \end{titlepage}
+}
+\makeatother
+
+\usepackage{amsthm} 
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
