@@ -1,3 +1,7 @@
 [user]
 	email = riukkarma@gmail.com
 	name = Karma Riuk
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
