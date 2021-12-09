@@ -126,7 +126,7 @@ awful.tag.add("1", {
 awful.tag.add("2", {
         -- icon = "/usr/share/icons/Papirus/qutebrowser.svg",
         layout = awful.layout.suit.tile.bottom,
-        master_width_factor = 0.8,
+        master_width_factor = 0.7,
     })
 
 awful.screen.connect_for_each_screen(function(s)
@@ -171,6 +171,10 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
+-- awful.tags[2].selected = false
+awful.screen.focused().selected_tags[1].selected = false
+-- root.tags()[2].selected = false
+
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -196,7 +200,7 @@ globalkeys = gears.table.join(
         {description = "Toggle the tmux scratchpad", group = "tag"}),
 
     awful.key({ modkey,           }, "i", 
-        function () scratch.toggle(terminal .. " -t scratch-htop -e htop", {name = "scratch-htop"}) end,
+        function () scratch.toggle(terminal .. " -t scratch-htop -e gotop --mbps", {name = "scratch-htop"}) end,
         {description = "Toggle the tmux scratchpad", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
@@ -572,6 +576,14 @@ awful.rules.rules = {
     },
 
     {
+        rule = { class = "Google-chrome" },
+        properties = {maximized = false}, -- 
+    },
+    {
+        rule = { class = "qutebrowser" },
+        properties = {maximized = false}, -- 
+    },
+    {
         rule = { class = "Vivaldi-stable" },
         properties = {maximized = false}, -- 
     },
@@ -595,8 +607,8 @@ awful.rules.rules = {
             name = "scratch-htop",
         },
         properties = {
-            width = screen_width * .6,
-            height = screen_height * .7
+            width = screen_width * .8,
+            height = screen_height * .8
         },
     },
     ---- Bluetoothctl
