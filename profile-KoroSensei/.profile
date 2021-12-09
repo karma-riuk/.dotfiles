@@ -15,7 +15,7 @@ xcape -e 'Control_L=Escape'
 unclutter --timeout 1 &
 picom &
 # feh --no-fehbg --bg-scale ~/Pictures/nice_drawing.png &
-feh --bg-max --randomize --no-fehbg ~/.local/share/wallpapers/* &
+feh --bg-scale --randomize --no-fehbg ~/.local/share/wallpapers/* &
 nm-applet --indicator &
 setxkbmap -option compose:ralt &
 xset -dpms &
