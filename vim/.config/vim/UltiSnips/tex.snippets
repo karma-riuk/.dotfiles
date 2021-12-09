@@ -92,11 +92,15 @@ snippet '(^|[^\\a-zA-Z])(prec|succ|approx|deg)' "\ shortcut auto part 7" rA
 endsnippet
 
 
-snippet '^(def|thm)' "paragraph/theorem of definition" r
+snippet '^(def|thm|proof|remark|lemma|coro|ex)' "paragraph/theorem of definition" r
 `!p dic = {'def' : 'definition', 
             'thm' : 'theorem',
-            }`
-\\begin{`!p snip.rv = dic[match.group(1)]`}[$1]
+            'lemma' : 'lemma',
+            'coro' : 'corollary',
+            'proof' : 'proof',
+            'remark' : 'remark',
+            'ex' : 'example',
+            }`\\begin{`!p snip.rv = dic[match.group(1)]`}[$1]
     $0
 \\end{`!p snip.rv = dic[match.group(1)]`}
 endsnippet
