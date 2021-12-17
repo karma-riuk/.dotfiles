@@ -26,6 +26,7 @@ zstyle :prompt:pure:prompt:success color cyan
 prompt pure
 
 
+
 export NVM_LAZY_LOAD=true
 
 # Plugin management
@@ -72,6 +73,7 @@ bindkey -M vicmd "^j" down-line-or-beginning-search
 
 bindkey "^v" edit-command-line
 
+unsetopt autopushd
 
 # [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 

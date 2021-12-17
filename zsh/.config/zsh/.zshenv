@@ -51,3 +51,5 @@ export BW_SESSION="DrfT0geM63+msk0NbbEpBiHc5eRT6e6+t/IlxjebfNSceP3deulQDEg2a/9Ae
 
 local_env_file="${ZDOTDIR:-$HOME/.config/zsh}/.localenv"
 [[ -f "$local_env_file" ]] && source "$local_env_file"
+
+export AOC_SESSION="53616c7465645f5f7a77ee2af988e0cf811b42022a82f63b63b0b3f7309381ca1669704cfe79817e55fe0c29610e862e"
