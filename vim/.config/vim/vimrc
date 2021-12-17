@@ -1,3 +1,6 @@
+if has("nvim")
+    finish
+endif
 " XDG
 set undodir=$XDG_DATA_HOME/vim/undo
 set directory=$XDG_DATA_HOME/vim/swap
