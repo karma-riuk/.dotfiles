@@ -97,14 +97,4 @@ lets_hack_NASA(){
     done
 }
 
-
-bwunlock () {
-    export_key="$(bw unlock | grep "$ export BW_SESSION=" | sed "s/\$ //")"
-    echo "New key:"
-    echo "$export_key"
-    [[ "$(grep "export BW_SESSION" $XDG_CONFIG_HOME/zsh/.zshenv)" ]] && sed -i "s|^\\s*export BW_SESSION=.*$|$export_key|" $XDG_CONFIG_HOME/zsh/.zshenv || echo "$export_key" >> $XDG_CONFIG_HOME/zsh/.zshenv
-}
-alias svn-menu="'/home/karma/Documents/USI/BA1 2020/Software Atelier/Assignements/4. Group Project/pub/web/script/svn-menu/svn-control.sh'" # TO BE DELETED
-
-
 # vim: ft=zsh
