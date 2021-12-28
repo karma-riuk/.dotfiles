@@ -16,9 +16,6 @@ if [[ -z "$(tmux list-session | grep $session_name)" ]]; then
     tmux selectp -t 0
     tmux new-window -n bin -c ~/.local/bin
     tmux new-window -n "run in background" 
-    echo "$SA3_DIR"
-    tmux new-window -n "SA3" -c "$SA3_DIR"
-    tmux split-window -h -c "$SA3_DIR" 
     tmux selectw -t 1
 fi
 
