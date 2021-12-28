@@ -1,0 +1,106 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+    return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+    [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+    return x != '0' and x != '0'
+
+endglobal
+
+snippet subsub "Sub sub section"
+\\subsubsection{${1:Sub sub section name}}
+\\label{subsub:`!p snip.rv = t[1].lower().replace(" ", "_")`}
+$0
+endsnippet
+
+snippet bf "bold text" w
+\textbf{$1}
+endsnippet
+
+snippet ita "italics" w
+\textit{$1}
+endsnippet
+
+context "math()"
+priority 1
+snippet '([^\\]|^)(bigc[ua]p|prod)' "setting the behaviour of sum to bigcup/bigcap/prod" rA
+`!p snip.rv = match.group(1) + '\\'+ match.group(2)`${1:^{${2:n}}}_{${3:i=1}}
+endsnippet
+
+context "math()"
+snippet binom "binomial coefficient (n choose k)"
+\\binom{${1:n}}{${2:k}}
+endsnippet
+
+context "math()"
+snippet '([pl])wer' "Power" rA
+`!p snip.rv = '^' if match.group(1) == 'p' else '_'`{$1}$0
+endsnippet
+    
+context "math()"
+snippet '(q{1,2})(ua|au)d' "quads" rA
+`!p snip.rv = "\\" + match.group(1) + "uad"`
+endsnippet
+
+context "math()"
+snippet 'm(bb|cal) (\w)' "\mathbb{\w} or \mathcal{\w}" rA
+`!p snip.rv = f"\\math{match.group(1)}{{{match.group(2).upper()}}}"`
+endsnippet
+
+# context "math()"
+# snippet '(^|\W)([{}])' "{ -> \{ if after non character word (same with '}')" rA
+# `!p snip.rv = match.group(1) + '\\' + match.group(2)`
+# endsnippet
+
+context "math()"
+snippet '(^|[^\\a-zA-Z])(cdot|vdots|infty|forall|mapsto|oplus|o?times|bigbreak|mathbf)' "\ shortcut auto part 1" rA
+`!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
+endsnippet
+ 
+context "math()"
+snippet '(^|[^\\a-zA-Z])(bm|exists|o?int?|not|notin)' "\ shortcut auto part 2" rA
+`!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
+endsnippet
+ 
+context "math()"
+snippet '(^|[^\\a-zA-Z])(beta|[gG]amma|[dD]elta|[eE]psilon|[lL]ambda|[rR]ho|varphi)' "\ shortcut auto part 3" rA
+`!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
+endsnippet
+
+context "math()"
+snippet '(^|[^\\a-zA-Z])([Oo]mega|(var)?theta|[sS]igma|[Pp]hi|nabla|alpha|[pP]i|[mn]u)' "\ shortcut auto part 4" rA
+`!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
+endsnippet
+ 
+context "math()"
+snippet '(^|[^\\a-zA-Z])(implies|iff|neq|bar|[lg]eq|circ|to|lor|land|dim|neg|subset)' "\ shortcut auto part 5" rA
+`!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
+endsnippet
+ 
+context "math()"
+snippet '(^|[^\\a-zA-Z])(c[ua]p|emptyset|setminus|equiv|left|right|partial|triangle)' "\ shortcut auto part 6" rA
+`!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
+endsnippet
+
+context "math()"
+snippet '(^|[^\\a-zA-Z])(prec|succ|approx|deg)' "\ shortcut auto part 7" rA
+`!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
+endsnippet
+
+
+snippet '^(def|thm|proof|remark|lemma|coro|ex)' "paragraph/theorem of definition" r
+`!p dic = {'def' : 'definition', 
+            'thm' : 'theorem',
+            'lemma' : 'lemma',
+            'coro' : 'corollary',
+            'proof' : 'proof',
+            'remark' : 'remark',
+            'ex' : 'example',
+            }`\\begin{`!p snip.rv = dic[match.group(1)]`}[$1]
+    $0
+\\end{`!p snip.rv = dic[match.group(1)]`}
+endsnippet
