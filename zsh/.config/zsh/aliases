@@ -19,6 +19,7 @@ alias feh="feh --keep-zoom-vp"
 # Config 
 ## Vim vimrc not relocating properly to XDG 
 # alias vim='vim -u ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
+alias vim='nvim'
 
 ## Commiting
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"

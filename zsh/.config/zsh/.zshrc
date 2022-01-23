@@ -11,6 +11,7 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 ## End of lines added by compinstall
 
 zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf|class|a|o|png|jpg|bmp|gif|ico|git|DS_Store|sw?|tmp):source-files' '*:all-files'
+zstyle ':completion:*:*:nvim:*' file-patterns '^*.(aux|log|pdf|class|a|o|png|jpg|bmp|gif|ico|git|DS_Store|sw?|tmp):source-files' '*:all-files'
 
 # setopt INC_APPEND_HISTORY
 
@@ -36,7 +37,7 @@ antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle lukechilds/zsh-nvm
+# antigen bundle lukechilds/zsh-nvm
 antigen apply
 
 
