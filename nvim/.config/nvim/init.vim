@@ -6,14 +6,13 @@
 " set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
 set nocompatible
-echo "helo"
-
 
 " Plugins
-call plug#begin()
+call plug#begin(stdpath('data') . '/plugged')
 ""Theme
 " Plug 'acoustichero/goldenrod.vim' 
 " Plug 'preservim/nerdcommenter'
+
 Plug 'tpope/vim-sensible'
 Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for' : 'tex' }
@@ -24,13 +23,12 @@ Plug 'honza/vim-snippets'
 Plug 'yggdroot/indentline'
 Plug 'ap/vim-css-color'
 " Highlighting search patterns when needed
-Plug 'romainl/vim-cool' 
+Plug 'romainl/vim-cool'
 Plug 'sainnhe/sonokai'
 Plug 'sheerun/vim-polyglot'
-" Plug 'ycm-core/YouCompleteMe'
 Plug 'lervag/vimtex'
 
-" Plug 'scrooloose/nerdtree' 
+" Plug 'scrooloose/nerdtree'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -52,12 +50,15 @@ Plug 'jason0x43/vim-wildgitignore'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'onsails/lspkind-nvim'
+
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-nvim-lsp' 
-Plug 'onsails/lspkind-nvim' 
-Plug 'quangnguyen30192/cmp-nvim-ultisnips' 
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'f3fora/cmp-spell'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
@@ -76,7 +77,7 @@ call plug#end()
 
 " Command
 " command Src execute "so " . $MYVIMRC
-command Src execute "so " . "~/.config/nvim/init.vim"
+" command Src execute "so " . "~/.config/nvim/init.vim"
 
 " Disabeling q: and Q (q: for search through last vim commands, Q for Ex mode)
 nnoremap q: <nop>
@@ -111,8 +112,8 @@ set wildignore+=*.png,*.jpg,*.bmp,*.gif,*.ico
 set wildignore+=.DS_Store,.git,.hg,.svn
 """ Ignore temporary files directories
 set wildignore+=+*~,*.sw?,*.tmp
-set updatetime=100
-set timeoutlen=1000 ttimeoutlen=10
+" set updatetime=100
+" set timeoutlen=1000 ttimeoutlen=10
 set signcolumn=yes
 
 
@@ -229,25 +230,17 @@ augroup END
 "" Reloading configs after saving files
 augroup ReloadConfigs
     autocmd!
-    autocmd BufWritePost dunstrc silent exec "!killall dunst" | redraw!
+    autocmd BufWritePost dunstrc silent exec "!killall dunst" \| redraw!
 augroup END
 
 "" Disable the indent lines plugins on files that use italize / bold / etc...
 "" because it gets wierd
 augroup DisableIndents
     autocmd!
-    autocmd FileType tex,markdown IndentLinesDisable
+    autocmd FileType tex,markdown set conceallevel=2 | let g:indentLine_enabled = 0 | let g:indentLine_color_term = 5
 augroup END
 
-
-
 " Plugin settings
-"" Nerd commenter
-" let g:NERDSpaceDelims = 1
-" let g:NERDCommentEmptyLines = 1
-" let g:NERDTrimTrailingWhitspace = 1 let g:NERDToggleCheckAllLines = 1
-" let g:NERDDefaultAlign = 'left'
-" let g:NERDCustomDelimiters = { 'jas': { 'left': '//','right': '' }, 'python': {'left': '#', 'right': '' } }
 
 "" Markdown previewer
 let g:instant_markdown_browser = "qutebrowser --target window"
@@ -279,10 +272,10 @@ let g:UltiSnipsSnippetsDir = expand("$XDG_CONFIG_HOME/vim/ultisnips")
 " let g:UltiSnipsSnippetDirectories = [expand("$XDG_CONFIG_HOME/vim/ultisnips"), 'UltiSnips']
 " let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = "~/.config/vim/plugged/vim-snippets/snippets"
 
-augroup LATEX_RTP
-    autocmd!
-    autocmd Filetype tex set rtp-=~/.dotfiles/vim/.config/vim/plugged/vim-snippets " to fix the issue with vim-polyglot and snippets duplication of snippets
-augroup END
+" augroup LATEX_RTP
+"     autocmd!
+"     autocmd Filetype tex set rtp-=~/.dotfiles/vim/.config/vim/plugged/vim-snippets " to fix the issue with vim-polyglot and snippets duplication of snippets
+" augroup END
 
 let g:CoolTotalMatches = 1
 
@@ -290,20 +283,23 @@ let g:CoolTotalMatches = 1
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 237
 
-"" YouCompleteMe
-""" Disable on latex files
-let g:ycm_filetype_blacklist = {'tex' : 1,
-            \ 'markdown': 1
-            \ }
-""" Make tab of YCM and Ultisnips work nicely
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 "" vimtex
 let g:vimtex_quickfix_ignore_filters = [
             \ '\v(Over|Under)full',
+            \]
+
+" let g:vimtex_enabled = 0
+" let g:tex_fast = 'bMpr'
+" let g:tex_fast = ''
+let g:vimtex_matchparen_enabled = 0
+let g:vimtex_imaps_enabled = 0 " vimtex imaps are cool by nothing compared to ultisnips
+set conceallevel=2
+
+let g:vimtex_delim_toggle_mod_list = [
+            \ ['\left', '\right'],
+            \ ['\bigl', '\bigr'],
+            \ ['\biggl', '\biggr'],
+            \ ['\Biggl', '\Biggr'],
             \]
 
 augroup MyVimtex
@@ -311,13 +307,11 @@ augroup MyVimtex
   " autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
   autocmd User VimtexEventQuit VimtexClean
 augroup END
-" let g:vimtex_enabled = 0
-let g:tex_fast = 'bMpr'
-" let g:tex_fast = ''
-
 
 "" Auto-pairs
 let g:AutoPairsShortcutToggle = '<leader>('
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<M-v>' " default: <M-b>, changed because otherwise doing <esc>b might do something unintended and it triggered be a lot
 
 augroup Latex_Dollar_Separator
     autocmd!
@@ -360,7 +354,7 @@ nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
 
 "" Telescope
 noremap <C-p> :Telescope git_files<cr>
-nnoremap <C-S-h> <cmd>Telescope help_tags<cr>
+nnoremap <F11> <cmd>Telescope help_tags<cr>
 lua << EOF
 local t = require('telescope')
 t .setup {
@@ -419,6 +413,17 @@ fun! GitStatus()
     return get(b:,'gitsigns_status','')
 endf
 
+"" Neoformat
+let g:neoformat_tex_latexindent = {
+        \ 'exe': 'latexindent',
+        \ 'stdin': 1,
+        \ }
+
+augroup fmt
+  autocmd!
+  " autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
 "" Neogit
 lua require('neogit').setup()
 
@@ -446,10 +451,26 @@ EOF
 "" Treesitter
 lua << EOF
 require'nvim-treesitter.configs'.setup { 
-    context_commentstring = { enable = true },
-    highlight = {enable = true} 
+    context_commentstring = {
+        enable = true 
+        },
+    highlight = {
+        enable = true,
+        disable = { "latex" },
+        },
+    indent = {
+        enable = true,
+        disable = { "c", "cpp" },
+        },
     }
 EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+augroup Fold
+    autocmd!
+    autocmd FileType c,cpp set fdm=manual | set foldexpr=
+augroup END
 
 lua << EOF
 
@@ -545,7 +566,8 @@ cmp.setup {
   sources = {
       { name = 'nvim_lsp' },
       { name = 'ultisnips' },
-      { name = 'buffer', keyword_length = 5 },
+      -- { name = 'buffer', keyword_length = 5, max_item_count = 3 },
+      -- { name = 'spell', keyword_length = 5, max_item_count = 2},
       { name = 'path' },
       },
   formatting = {
@@ -553,9 +575,10 @@ cmp.setup {
       with_text = true, -- do not show text alongside icons
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       menu = {
-          buffer = '[buf]',
+          buffer = '[Buf]',
           nvim_lsp = '[LSP]',
-          path = '[path]',
+          path = '[Path]',
+          spell = '[Spell]',
         },
     })
   },
@@ -564,6 +587,18 @@ cmp.setup {
       }
 
 }
+
+cmp.setup.cmdline(':', {
+  sources = {
+    { name = 'cmdline' , max_item_count = 5}
+  }
+})
+
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' , max_item_count = 5 }
+  }
+})
 
 require("toggleterm").setup{
   -- size can be a number or function which is passed the current terminal
