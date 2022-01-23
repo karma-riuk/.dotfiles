@@ -1,0 +1,4 @@
+snippet incl "include 'header.h'" b
+#include "${1:`!p from re import sub; snip.rv = sub(r'.\w+$', '.h', fn)`}"
+endsnippet
+	

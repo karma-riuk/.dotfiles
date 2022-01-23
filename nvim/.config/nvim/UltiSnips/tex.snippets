@@ -9,6 +9,9 @@ def env(name):
     [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
     return x != '0' and x != '0'
 
+def latex_command(match):
+	return f"{match.group(1)}\\{match.group(2)}"
+
 endglobal
 
 snippet subsub "Sub sub section"
@@ -30,6 +33,12 @@ priority 1
 snippet '([^\\]|^)(bigc[ua]p|prod)' "setting the behaviour of sum to bigcup/bigcap/prod" rA
 `!p snip.rv = match.group(1) + '\\'+ match.group(2)`${1:^{${2:n}}}_{${3:i=1}}
 endsnippet
+
+context "math()"
+snippet text "\text{  }" 
+\\text{ ${1:${VISUAL}} }$0
+endsnippet
+
 
 context "math()"
 snippet binom "binomial coefficient (n choose k)"
@@ -60,12 +69,12 @@ context "math()"
 snippet '(^|[^\\a-zA-Z])(cdot|vdots|infty|forall|mapsto|oplus|o?times|bigbreak|mathbf)' "\ shortcut auto part 1" rA
 `!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
 endsnippet
- 
+
 context "math()"
 snippet '(^|[^\\a-zA-Z])(bm|exists|o?int?|not|notin)' "\ shortcut auto part 2" rA
 `!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
 endsnippet
- 
+
 context "math()"
 snippet '(^|[^\\a-zA-Z])(beta|[gG]amma|[dD]elta|[eE]psilon|[lL]ambda|[rR]ho|varphi)' "\ shortcut auto part 3" rA
 `!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
@@ -75,12 +84,12 @@ context "math()"
 snippet '(^|[^\\a-zA-Z])([Oo]mega|(var)?theta|[sS]igma|[Pp]hi|nabla|alpha|[pP]i|[mn]u)' "\ shortcut auto part 4" rA
 `!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
 endsnippet
- 
+
 context "math()"
 snippet '(^|[^\\a-zA-Z])(implies|iff|neq|bar|[lg]eq|circ|to|lor|land|dim|neg|subset)' "\ shortcut auto part 5" rA
 `!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
 endsnippet
- 
+
 context "math()"
 snippet '(^|[^\\a-zA-Z])(c[ua]p|emptyset|setminus|equiv|left|right|partial|triangle)' "\ shortcut auto part 6" rA
 `!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
@@ -103,4 +112,22 @@ snippet '^(def|thm|proof|remark|lemma|coro|ex)' "paragraph/theorem of definition
             }`\\begin{`!p snip.rv = dic[match.group(1)]`}[$1]
     $0
 \\end{`!p snip.rv = dic[match.group(1)]`}
+endsnippet
+
+snippet empheq "empheq"
+\\begin{empheq}[box=\\tcbhighmath]{${1:equation}*}
+	${0:${VISUAL}}
+\\end{empheq}
+endsnippet
+
+snippet bf "\textbf{}"
+\\textbf{${1:${VISUAL}}}$0
+endsnippet
+
+snippet ub "\underbrace{VISUAL}" w
+\\underbrace{${1:${VISUAL}}}_{$2}$0
+endsnippet
+
+snippet ob "\overbrace{VISUAL}" w
+\\overbrace{${1:${VISUAL}}}_{$2}$0
 endsnippet
