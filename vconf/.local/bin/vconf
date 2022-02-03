@@ -6,6 +6,7 @@ LIST="$(envsubst < "$XDG_CONFIG_HOME/vconf/list")"
 
 ERR_FILE_EMPTY=2
 ERR_FILE_NOT_EXIST=3
+EDITOR="${EDITOR:-nvim}"
 
 is_file_empty () {
     if [[ -z "$1" ]]; then 
@@ -17,7 +18,7 @@ edit_from_terminal () {
     is_file_empty "$file"
 
     if [[ -f "$1" ]]; then
-        vim "$1" 
+        $EDITOR "$1" 
     else
         >&2 echo "Error: File '$1' does not exist on the system"
         exit $ERR_FILE_NOT_EXIST
