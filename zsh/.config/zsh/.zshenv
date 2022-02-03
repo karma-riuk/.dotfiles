@@ -33,7 +33,7 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH="$XDG_CONFIG_HOME"/zsh/oh-my-zsh
 #export USI="/home/karma/Documents/USI/BA 1 - 2020"
-export EDITOR=vim
+export EDITOR=nvim
 export MANPATH="/usr/local/man:$MANPATH"
 
 # The following two lines are to avoid wierd tab completion artifacts
@@ -41,7 +41,7 @@ export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 
 # Setting vim to view man pages
-export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma norelativenumber nonumber' -\""
+export MANPAGER="/bin/sh -c \"col -b | nvim --not-a-term -c 'set ft=man ts=8 nomod nolist noma norelativenumber nonumber' -\""
 
 export TODAY=$(date '+%A %d/%m/%Y')
 
