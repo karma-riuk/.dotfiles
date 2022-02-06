@@ -41,13 +41,13 @@ export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 
 # Setting vim to view man pages
-export MANPAGER="/bin/sh -c \"col -b | nvim --not-a-term -c 'set ft=man ts=8 nomod nolist noma norelativenumber nonumber' -\""
+export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist norelativenumber nonumber' -\""
 
 export TODAY=$(date '+%A %d/%m/%Y')
 
 export DOTFILES="$HOME/.dotfiles"
 
-export BW_SESSION="DrfT0geM63+msk0NbbEpBiHc5eRT6e6+t/IlxjebfNSceP3deulQDEg2a/9AeqTIWQNbXF82CjoIx0+6GkyA0w=="
+# export BW_SESSION="DrfT0geM63+msk0NbbEpBiHc5eRT6e6+t/IlxjebfNSceP3deulQDEg2a/9AeqTIWQNbXF82CjoIx0+6GkyA0w=="
 
 local_env_file="${ZDOTDIR:-$HOME/.config/zsh}/.localenv"
 [[ -f "$local_env_file" ]] && source "$local_env_file"
