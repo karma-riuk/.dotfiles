@@ -15,3 +15,4 @@ share:~/share
 automaton:~/Documents/USI/BA3_2021/Software Atelier 3 The Web/AutoAutomaton
 aoc:~/code/Advent of Code/2021
 nvim:~/.config/nvim
+nvim-plugged:~/.local/share/nvim/plugged
