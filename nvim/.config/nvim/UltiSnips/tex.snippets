@@ -101,14 +101,15 @@ snippet '(^|[^\\a-zA-Z])(prec|succ|approx|deg)' "\ shortcut auto part 7" rA
 endsnippet
 
 
-snippet '^(def|thm|proof|remark|lemma|coro|ex)' "paragraph/theorem of definition" r
+snippet '^(def|thm|proof|remark|lemma|coro|exe|exa)' "paragraph/theorem of definition" r
 `!p dic = {'def' : 'definition', 
             'thm' : 'theorem',
             'lemma' : 'lemma',
             'coro' : 'corollary',
             'proof' : 'proof',
             'remark' : 'remark',
-            'ex' : 'example',
+            'exa' : 'example',
+            'exe' : 'exercise',
             }`\\begin{`!p snip.rv = dic[match.group(1)]`}[$1]
     $0
 \\end{`!p snip.rv = dic[match.group(1)]`}
@@ -130,4 +131,8 @@ endsnippet
 
 snippet ob "\overbrace{VISUAL}" w
 \\overbrace{${1:${VISUAL}}}_{$2}$0
+endsnippet
+
+snippet ref "\ref{$1:$2}"
+\ref{$1}$0
 endsnippet
