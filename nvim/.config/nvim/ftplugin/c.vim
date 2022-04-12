@@ -1,2 +1,2 @@
 " Prevent treesitter auto folder
-set fdm=manual set foldexpr=
+set fdm=manual foldexpr=
