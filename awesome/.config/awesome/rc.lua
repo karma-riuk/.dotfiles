@@ -404,16 +404,17 @@ clientkeys = gears.table.join(
     awful.key({ modkey,           }, "f",
         function (c)
             c.maximized = not c.maximized
+            c.maximized_vertical = not c.maximized_vertical
             c:raise()
         end ,
         {description = "Toggle full screen", group = "client"}),
 
-    awful.key({ modkey, "Shift" }, "f",
-        function (c)
-            c.maximized_vertical = not c.maximized_vertical
-            c:raise()
-        end ,
-        {description = "(Un)maximize vertically", group = "client"}),
+    -- awful.key({ modkey, "Shift" }, "f",
+    --     function (c)
+    --         c.maximized_vertical = not c.maximized_vertical
+    --         c:raise()
+    --     end ,
+    --     {description = "(Un)maximize vertically", group = "client"}),
     awful.key({ modkey, "Control"   }, "f",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
@@ -656,6 +657,7 @@ awful.rules.rules = {
         -- and the name shown there might not match defined rules here.
         name = {
           "Event Tester",  -- xev.
+          "Figure %d+", -- Matlab figures
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
