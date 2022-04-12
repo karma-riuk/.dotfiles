@@ -66,11 +66,17 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/toggleterm.nvim'
 
 Plug 'ThePrimeagen/harpoon'
+
+
+" PlantUML
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'tyru/open-browser.vim'
 call plug#end()
 
 " Command
 " command Src execute "so " . $MYVIMRC
-" command Src execute "so " . "~/.config/nvim/init.vim"
+command Src execute "so " . "~/.config/nvim/init.vim"
 
 " Disabeling q: and Q (q: for search through last vim commands, Q for Ex mode)
 nnoremap q: <nop>
@@ -88,6 +94,7 @@ colorscheme sonokai
 "" Enable transparency
 hi Normal ctermbg=None 
 hi Terminal ctermbg=None 
+
 
 
 "" Spelling errors
@@ -202,6 +209,10 @@ tnoremap <C-n> <C-\><C-n>
 "     autocmd Filetype c,cpp command -nargs=* Make make <args> | cwindow 10 
 "     autocmd Filetype c,cpp nmap <silent> <leader>m :make compile \| cwindow 10 <cr>
 " augroup END
+
+augroup TerminalNoSpell
+    au TermOpen * setlocal nospell
+augroup END
 
 augroup RememberLastPosition
     autocmd!
