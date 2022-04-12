@@ -4,10 +4,12 @@ let g:vimtex_quickfix_ignore_filters = [
 
 " let g:vimtex_enabled = 0
 " let g:tex_fast = 'bMpr'
-" let g:tex_fast = ''
+let g:tex_fast = ''
+
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_imaps_enabled = 0 " vimtex imaps are cool by nothing compared to ultisnips
 set conceallevel=2
+set colorcolumn=81
 
 let g:vimtex_delim_toggle_mod_list = [
             \ ['\left', '\right'],
@@ -24,14 +26,11 @@ augroup MyVimtex
 augroup END
 
 " Affects the 'jiangmiao/auto-pairs' plugin
-augroup Latex_Dollar_Separator
-    autocmd!
-    autocmd FileType tex let g:AutoPairs = {
+let g:AutoPairs = {
                 \ '(':')',
                 \ '[':']',
                 \ '{':'}',
                 \ "$":"$",
                 \ "$$":"$$",
                 \ }
-augroup END
 
