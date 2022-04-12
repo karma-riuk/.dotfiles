@@ -5,10 +5,11 @@ alias la='exa -a --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -al --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
-alias sudo="doas --"
+alias sudo="doas -- "
 alias yay="yay --nodiffmenu --noeditmenu"
 
 alias sys="sudo systemctl"
+alias sysu="systemctl --user"
 
 alias wgdown="wg-quick down home"
 alias wgup="wg-quick up home"
