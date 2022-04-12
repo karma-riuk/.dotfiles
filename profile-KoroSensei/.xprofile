@@ -1,0 +1,41 @@
+# xsession start script
+touch /tmp/xsession.succesffully.started
+
+USERXSESSION="${XDG_CACHE_HOME:-$HOME/.cache}/X11/xsession"
+USERXSESSIONRC="${XDG_CACHE_HOME:-$HOME/.cache}/X11/xsessionrc"
+ALTUSERXSESSION="${XDG_CACHE_HOME:-$HOME/.cache}/X11/Xsession"
+ERRFILE="$HOME/.cache/X11/xsession-errors"
+
+# Avoid the tapping and scrolling touchpad to be activated while typing
+syndaemon -i 0.5 -t -K -R -d
+
+# Set Caps-Lock to control
+setxkbmap -option ctrl:nocaps
+
+# Enable accents with right-alt
+setxkbmap -option compose:ralt &
+
+# If Caps-Lock or control is just tapped and not pressed with another key, assign it to Esc
+xcape -e 'Control_L=Escape'
+
+# Hide the mouse after 1 second
+unclutter --timeout 1 &
+
+# Compositor
+picom &
+
+# Background after logging in
+# feh --no-fehbg --bg-scale ~/Pictures/nice_drawing.png &
+feh --bg-scale --randomize --no-fehbg ~/.local/share/wallpapers/* &
+
+# Avoid the screen turning off after a while
+xset -dpms &
+xset s off &
+
+# Touchpad gestures
+libinput-gestures-setup start &
+
+# Applets
+nm-applet --indicator &
+cbatticon &
+touch /tmp/xsession.succesffully.ended
