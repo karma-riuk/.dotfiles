@@ -1,5 +1,5 @@
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
 
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
@@ -26,8 +26,8 @@ cmp.setup {
     },
     sources = {
         {name = 'nvim_lsp'}, {name = 'ultisnips'},
-        -- { name = 'buffer', keyword_length = 5, max_item_count = 3 },
-        -- { name = 'spell', keyword_length = 5, max_item_count = 2},
+        { name = 'buffer', keyword_length = 5, max_item_count = 3 },
+        { name = 'spell', keyword_length = 5, max_item_count = 2},
         {name = 'path'}
     },
     formatting = {
@@ -46,6 +46,12 @@ cmp.setup {
 
 }
 
-cmp.setup.cmdline(':', {sources = {{name = 'cmdline', max_item_count = 5}}})
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {{name = 'cmdline', max_item_count = 5}}
+})
 
-cmp.setup.cmdline('/', {sources = {{name = 'buffer', max_item_count = 5}}})
+cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {{name = 'buffer', max_item_count = 5}}
+})

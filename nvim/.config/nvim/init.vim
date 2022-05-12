@@ -42,6 +42,7 @@ Plug 'puremourning/vimspector'
 Plug 'jason0x43/vim-wildgitignore'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'onsails/lspkind-nvim'
 
@@ -66,6 +67,9 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/toggleterm.nvim'
 
 Plug 'ThePrimeagen/harpoon'
+
+" Popups and input dialogs
+Plug 'stevearc/dressing.nvim'
 
 
 " PlantUML
@@ -250,9 +254,6 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 200})
 augroup END
 
-"" Comment.nvim
-lua require('Comment').setup()
-
 "" LSP Signature
 lua require('lsp_signature').setup()
 
@@ -261,3 +262,6 @@ lua require('gitsigns').setup()
 
 "" Neogit
 lua require('neogit').setup()
+
+"" Dressing
+lua require('dressing').setup()

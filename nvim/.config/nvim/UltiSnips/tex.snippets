@@ -100,6 +100,15 @@ snippet '(^|[^\\a-zA-Z])(prec|succ|approx|deg)' "\ shortcut auto part 7" rA
 `!p snip.rv = f"{match.group(1)}\\{match.group(2)}"`
 endsnippet
 
+context "math()"
+snippet -> "\to" Ai
+\to
+endsnippet
+
+context "math()"
+snippet => "\implies" Ai
+\implies
+endsnippet
 
 snippet '^(def|thm|proof|remark|lemma|coro|exe|exa)' "paragraph/theorem of definition" r
 `!p dic = {'def' : 'definition', 
@@ -136,3 +145,4 @@ endsnippet
 snippet ref "\ref{$1:$2}"
 \ref{$1}$0
 endsnippet
+
