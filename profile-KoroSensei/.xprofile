@@ -7,7 +7,7 @@ ALTUSERXSESSION="${XDG_CACHE_HOME:-$HOME/.cache}/X11/Xsession"
 ERRFILE="$HOME/.cache/X11/xsession-errors"
 
 # Avoid the tapping and scrolling touchpad to be activated while typing
-syndaemon -i 0.5 -t -K -R -d
+# syndaemon -i 0.5 -t -K -R -d
 
 # Set Caps-Lock to control
 setxkbmap -option ctrl:nocaps
@@ -36,6 +36,7 @@ xset s off &
 libinput-gestures-setup start &
 
 # Applets
+blueman-applet &
 nm-applet --indicator &
 cbatticon &
 touch /tmp/xsession.succesffully.ended
