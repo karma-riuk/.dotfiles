@@ -48,7 +48,7 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
     'clangd', 'pyright', 'bashls', 'cssls', 'tsserver', 'html', 'vimls',
-    'texlab', 'vuels', 'jdtls'
+    'texlab', 'vuels', 'jdtls', 'sumneko_lua'
 }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
