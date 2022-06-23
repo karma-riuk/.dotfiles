@@ -3,7 +3,7 @@ set nocompatible
 " Plugins
 call plug#begin(stdpath('data') . '/plugged')
 ""Theme
-" Plug 'acoustichero/goldenrod.vim' 
+" Plug 'acoustichero/goldenrod.vim'
 " Plug 'preservim/nerdcommenter'
 
 Plug 'tpope/vim-sensible'
@@ -76,6 +76,12 @@ Plug 'stevearc/dressing.nvim'
 Plug 'aklt/plantuml-syntax'
 Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'tyru/open-browser.vim'
+
+" Firenvim (nvim textbox in browser)
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+" TS Text objects
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 call plug#end()
 
 " Command
@@ -94,10 +100,10 @@ set background=dark
 " let g:sonokai_diagnostic_text_highlight = 1
 let g:sonokai_diagnostic_virtual_text = 'colored'
 colorscheme sonokai
- 
+
 "" Enable transparency
-hi Normal ctermbg=None 
-hi Terminal ctermbg=None 
+hi Normal ctermbg=None
+hi Terminal ctermbg=None
 
 
 
@@ -121,7 +127,7 @@ set wildignore+=+*~,*.sw?,*.tmp
 set signcolumn=yes
 
 
-" 
+"
 set number relativenumber
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set tw=80
@@ -210,7 +216,7 @@ tnoremap <C-n> <C-\><C-n>
 "" Setting the filetype of service files
 " augroup Compliers
 "     autocmd!
-"     autocmd Filetype c,cpp command -nargs=* Make make <args> | cwindow 10 
+"     autocmd Filetype c,cpp command -nargs=* Make make <args> | cwindow 10
 "     autocmd Filetype c,cpp nmap <silent> <leader>m :make compile \| cwindow 10 <cr>
 " augroup END
 
