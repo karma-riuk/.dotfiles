@@ -99,4 +99,17 @@ lets_hack_NASA(){
     done
 }
 
+bw_unlock () { 
+    if [[ -z "$BW_SESSION" ]]; then
+        tmp_session="`bw unlock --raw`" 
+        exit_status=$?
+        [[ $exit_status != 0 ]] && echo "$tmp_session" && return 1
+        export BW_SESSION="$tmp_session" 
+        echo "export BW_SESSION=\"$BW_SESSION\"" > $BITWARDEN_ENV_FILE
+        echo "Bitwarden vault was globally unlocked successfully"
+    else
+        echo "Bitwarden valut was already unlocked, to lock it, run the following commands:"
+        echo "unset BW_SESSION && rm \"$BITWARDEN_ENV_FILE\" && bw lock"
+    fi
+}
 # vim: ft=zsh

@@ -48,6 +48,8 @@ export TODAY=$(date '+%A %d/%m/%Y')
 export DOTFILES="$HOME/.dotfiles"
 
 # export BW_SESSION="DrfT0geM63+msk0NbbEpBiHc5eRT6e6+t/IlxjebfNSceP3deulQDEg2a/9AeqTIWQNbXF82CjoIx0+6GkyA0w=="
+export BITWARDEN_ENV_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/bw.env"
+[[ -f "$BITWARDEN_ENV_FILE" ]] && source "$BITWARDEN_ENV_FILE"
 
 local_env_file="${ZDOTDIR:-$HOME/.config/zsh}/.localenv"
 [[ -f "$local_env_file" ]] && source "$local_env_file"
