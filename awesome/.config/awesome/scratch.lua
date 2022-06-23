@@ -1,6 +1,9 @@
 local client = client
 local awful = require("awful")
 local util = require("awful.util")
+local naughty = require("naughty")
+local gears = require('gears')
+local tts = require('table_to_string')
 
 local scratch = {}
 local defaultRule = {instance = "scratch"}
@@ -8,7 +11,8 @@ local defaultRule = {instance = "scratch"}
 -- Turn on this scratch window client (add current tag to window's tags,
 -- then set focus to the window)
 local function turn_on(c)
-    c:tags({awful.tag.selected(c.screen)})
+    c:tags({awful.screen.focused().selected_tag})
+    c.screen = awful.screen.focused()
     c:raise()
     client.focus = c
 end
@@ -20,7 +24,9 @@ end
 
 function scratch.raise(cmd, rule)
     local rule = rule or defaultRule
-    local function matcher(c) return awful.rules.match(c, rule) end
+    local function matcher(c)
+        return awful.rules.match(c, rule)
+    end
 
     -- logic mostly copied form awful.client.run_or_raise, except we don't want
     -- to change to or merge with scratchpad tag, just show the window
@@ -34,7 +40,7 @@ function scratch.raise(cmd, rule)
     end
 
     -- client not found, spawn it
-    util.spawn(cmd)
+    awful.spawn(cmd)
 end
 
 function scratch.toggle(cmd, rule, alwaysclose)
