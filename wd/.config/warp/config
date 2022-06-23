@@ -20,3 +20,6 @@ usi-archives:~/Documents/USI/.archives
 doc:~/Documents
 pintos:~/Documents/USI/BA4_2022/Operating Systems/pintos0/pintos-env/pintos
 cn1:~/Documents/USI/BA4_2022/Computer Networking/Assignments/01
+sa4-front:~/Documents/USI/BA4_2022/Software Atelier 4/project/frontend
+sa4-back:~/Documents/USI/BA4_2022/Software Atelier 4/project/backend
+awe:~/.config/awesome
