@@ -91,31 +91,31 @@ VALUE="80" #brightness value to compare to
 COLOR=$(convert "$IMAGE" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
     -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
 
-COMMON_PARAM=(--wrongtext="who are you?" --veriftext="Humm..." \
+COMMON_PARAM=(--wrong-text="who are you?" --verif-text="Humm..." \
     --indicator --clock --radius 275 --ring-width 12 \
-    --timesize 50 --time-font=codesaver --timepos="w/2:h/2-40" \
-    --datesize 50 --date-font=codesaver --datepos="w/2:h/2+40" --datestr="$DATESTR"\
-    --wrongsize 50 --wrong-font=codesaver \
-    --verifsize 50 --verif-font=codesaver --verifpos "w/2:h/2"\
-    --insidewrongcolor A54242a0 --ringwrongcolor A54242a0 \
-    --bshlcolor B54242B0 
+    --time-size 50 --time-font=codesaver --time-pos="w/2:h/2-40" \
+    --date-size 50 --date-font=codesaver --date-pos="w/2:h/2+40" --date-str="$DATESTR"\
+    --wrong-size 50 --wrong-font=codesaver \
+    --verif-size 50 --verif-font=codesaver \ #--verifpos "w/2:h/2"\
+    --insidewrong-color A54242a0 --ringwrong-color A54242a0 \
+    # --bshlcolor B54242B0 
 )
 
 if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
     BW="black"
     ICON="$SCRIPTPATH/icons/lockdark.png"
-    PARAM=(--ringcolor 282a2e3e --insidecolor ffffff77 \
-        --linecolor 00000000 --keyhlcolor ffffff80 --ringvercolor ffffff00 \
-        --timecolor 282a2eff --datecolor 282a2eff --wrongcolor 282a2eff \
-        --insidevercolor bbbbbb77 \
+    PARAM=(--ring-color 282a2e3e --inside-color ffffff77 \
+        --line-color 00000000 --keyhl-color ffffff80 --ringver-color ffffff00 \
+        --time-color 282a2eff --datecolor 282a2eff --wrong-color 282a2eff \
+        --insidever-color bbbbbb77 \
         )
 else #black
     BW="white"
     ICON="$SCRIPTPATH/icons/lock.png"
-    PARAM=(--ringcolor c5c8c63e --insidecolor 00000077 \
-        --linecolor ffffff00 --keyhlcolor 00000080 \
-        --timecolor c5c8c6ff --datecolor c5c8c6ff --wrongcolor c5c8c6ff --verifcolor c5c8c6ff \
-        --insidevercolor 32629130 --ringvercolor 326291a0 \
+    PARAM=(--ring-color c5c8c63e --inside-color 00000077 \
+        --line-color ffffff00 --keyhl-color 00000080 \
+        --time-color c5c8c6ff --date-color c5c8c6ff --wrong-color c5c8c6ff --verif-color c5c8c6ff \
+        --insidever-color 32629130 --ringver-color 326291a0 \
     )
 fi
 
