@@ -9,9 +9,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
 " Plug 'xuhdev/vim-latex-live-preview', { 'for' : 'tex' }
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'SirVer/ultisnips'
-" Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'yggdroot/indentline'
 Plug 'ap/vim-css-color'
@@ -21,13 +20,6 @@ Plug 'sainnhe/sonokai'
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
 
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'tacahiroy/ctrlp-funky'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
@@ -105,6 +97,7 @@ colorscheme sonokai
 hi Normal ctermbg=None
 hi Terminal ctermbg=None
 
+set helpheight=40
 
 
 "" Spelling errors
