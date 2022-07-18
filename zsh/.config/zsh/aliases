@@ -38,6 +38,7 @@ alias bt-xbox="bluetoothctl connect 9C:AA:1B:64:07:F8"
 # Quality of life
 alias cp="cp -v"
 alias du="du -h"
+alias cat="bat"
 alias xclip="xclip -selection c"
 alias pac="sudo pacman"
 alias c="clear"
