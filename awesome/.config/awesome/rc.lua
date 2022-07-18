@@ -19,8 +19,7 @@ package.loaded["naughty.dbus"] = {}
 -- Scratchpad library
 local scratch = require("scratch")
 local screen_width = function() return awful.screen.focused().geometry.width end
-local screen_height =
-    function() return awful.screen.focused().geometry.height end
+local screen_height = function() return awful.screen.focused().geometry.height end
 
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -75,6 +74,7 @@ modkey = "Mod4"
 
 beautiful.useless_gap = 3
 beautiful.gap_single_client = false
+beautiful.border_marked = '#2e9ef4'
 
 awful.mouse.snap.edge_enabled = false
 awful.mouse.snap.client_enabled = false
@@ -306,7 +306,7 @@ end, {description = "decrease the number of columns", group = "layout"}),
 
 -- Prompt
                               awful.key({modkey}, "d", function()
-    awful.spawn("rofi -show run")
+    awful.spawn("/home/karma/.config/rofi/bin/launcher_misc")
 end, {description = "Launch rofi -show run", group = "launcher"}),
 
                               awful.key({}, "Print", function()
@@ -317,6 +317,8 @@ end, {
 }), -- XF86 Keys
 --- Media Management
 ---- Volume Management
+awful.key({}, "XF86PowerOff", function() awful.spawn("/home/karma/.config/rofi/bin/powermenu") end,
+          {description = "Toggle mute", group = "Media management"}),
 awful.key({}, "XF86AudioMute", function() awful.spawn("volumectl -t") end,
           {description = "Toggle mute", group = "Media management"}),
 
@@ -643,9 +645,21 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 client.connect_signal("focus",
-                      function(c) c.border_color = beautiful.border_focus end)
+                      function(c) c.border_color = beautiful.border_marked end)
 client.connect_signal("unfocus",
                       function(c) c.border_color = beautiful.border_normal end)
+screen.connect_signal("arrange", function (s)
+    local max = s.selected_tag.layout.name == "max"
+    local only_one = #s.tiled_clients == 1 -- use tiled_clients so that other floating windows don't affect the count
+    -- but iterate over clients instead of tiled_clients as tiled_clients doesn't include maximized windows
+    for _, c in pairs(s.clients) do
+        if (max or only_one) and not c.floating or c.maximized then
+            c.border_width = 0
+        else
+            c.border_width = beautiful.border_width
+        end
+    end
+end)
 -- }}}
 
 -- awful.spawn("feh --no-fehbg --bg-scale ~/Pictures/nice_drawing.png")
