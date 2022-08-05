@@ -38,6 +38,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle lukechilds/zsh-nvm
+antigen bundle zsh-users/zsh-completions
 antigen apply
 
 
