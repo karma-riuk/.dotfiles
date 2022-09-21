@@ -15,7 +15,6 @@ automaton:~/Documents/USI/BA3_2021/Software Atelier 3 The Web/AutoAutomaton
 aoc:~/code/Advent of Code/2021
 nvim:~/.config/nvim
 nvim-plugged:~/.local/share/nvim/plugged
-usi:~/Documents/USI/BA4_2022
 usi-archives:~/Documents/USI/.archives
 doc:~/Documents
 pintos:~/Documents/USI/BA4_2022/Operating Systems/pintos0/pintos-env/pintos
@@ -23,3 +22,4 @@ cn1:~/Documents/USI/BA4_2022/Computer Networking/Assignments/01
 sa4-front:~/Documents/USI/BA4_2022/Software Atelier 4/project/frontend
 sa4-back:~/Documents/USI/BA4_2022/Software Atelier 4/project/backend
 awe:~/.config/awesome
+usi:~/Documents/USI/BA5_2022
