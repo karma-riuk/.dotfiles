@@ -4,11 +4,10 @@ set nocompatible
 call plug#begin(stdpath('data') . '/plugged')
 ""Theme
 " Plug 'acoustichero/goldenrod.vim'
-" Plug 'preservim/nerdcommenter'
 
 Plug 'tpope/vim-sensible'
 Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
-" Plug 'xuhdev/vim-latex-live-preview', { 'for' : 'tex' }
+
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -24,17 +23,18 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-" Plug 'nikvdp/ejs-syntax'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'szw/vim-maximizer'
-" Plug 'ymagossou/Conque-GDB', { 'for': 'c' }
+
 Plug 'puremourning/vimspector'
 Plug 'jason0x43/vim-wildgitignore'
 
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'onsails/lspkind-nvim'
 
@@ -52,7 +52,7 @@ Plug 'numToStr/Comment.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 
-Plug 'sbdchd/neoformat'
+Plug 'mhartington/formatter.nvim'
 
 Plug 'TimUntersberger/neogit'
 Plug 'lewis6991/gitsigns.nvim'

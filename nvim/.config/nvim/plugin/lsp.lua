@@ -44,16 +44,28 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = {
-    'clangd', 'pyright', 'bashls', 'cssls', 'tsserver', 'html', 'vimls',
-    'texlab', 'vuels', 'jdtls', 'sumneko_lua'
-}
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = {debounce_text_changes = 150}
-    }
-end
+require("mason").setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
+
+require("mason-lspconfig").setup_handlers({
+  function (server_name) -- default handler (optional)
+        local setup = {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = {debounce_text_changes = 150}
+        }
+
+        if server_name == 'sumneko_lua' then
+            setup.settings = {Lua = {diagnostics = {globals = {'vim'} }}}
+        end
+
+        require("lspconfig")[server_name].setup(setup)
+  end,
+})
