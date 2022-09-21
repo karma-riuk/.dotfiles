@@ -142,7 +142,38 @@ snippet ob "\overbrace{VISUAL}" w
 \\overbrace{${1:${VISUAL}}}_{$2}$0
 endsnippet
 
+snippet sqrt "\sqrt{VISUAL}" A
+\\sqrt{${1:${VISUAL}}}$0
+endsnippet
+
 snippet ref "\ref{$1:$2}"
 \ref{$1}$0
 endsnippet
 
+snippet 'answer_(cg)' "Usi answer to assignments" r
+`!p dic = {
+	"cg": {
+		"title": "Computer Graphics",
+		"prof": "Piotr Didyk",
+	}
+}`\\documentclass[a4paper, 11pt]{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage[margin=3cm]{geometry}
+\\usepackage[shortlabels]{enumitem}
+\\usepackage{xcolor}
+\\usepackage{kvoptions}
+\\usepackage{amsmath}
+\\usepackage{amssymb}
+\\usepackage[title={`!p snip.rv = dic[match.group(1)]["title"]`},
+    prof={`!p snip.rv = dic[match.group(1)]["prof"]`},
+    set=${1:1},
+    authors={Arnaud Fauconnet${2: \& Francesco Costa}},
+    season=Autumn,
+    year=22]{usi-answers}
+
+\begin{document}
+\maketitle
+$0
+\end{document}
+endsnippet
