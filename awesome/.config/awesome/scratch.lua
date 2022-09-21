@@ -3,7 +3,7 @@ local awful = require("awful")
 local util = require("awful.util")
 local naughty = require("naughty")
 local gears = require('gears')
-local tts = require('table_to_string')
+-- local tts = require('table_to_string')
 
 local scratch = {}
 local defaultRule = {instance = "scratch"}
