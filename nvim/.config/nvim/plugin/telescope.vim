@@ -7,4 +7,3 @@ noremap <C-f>               <cmd>lua require('telescope.builtin').current_buffer
 " noremap /               <cmd>lua require('karma.telescope').search_buffer()<cr>
 
 nnoremap <F11>          <cmd>Telescope help_tags<cr>
-nnoremap <leader>h      <cmd>Telescope help_tags<cr>
