@@ -13,6 +13,7 @@ t.setup {
     }
 }
 t.load_extension('fzy_native')
+t.load_extension("file_browser")
 
 local telescope = require('telescope.builtin')
 
@@ -22,7 +23,7 @@ local M = {}
 M.git_or_find = function()
     local opts = {}
     local ok = pcall(telescope.git_files, opts)
-    if not ok then telescope.find_files(opts) end
+    if not ok then t.extensions.file_browser.file_browser(opts) end
 end
 
 M.search_buffer = function()
