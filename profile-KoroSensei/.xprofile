@@ -33,7 +33,7 @@ xset -dpms &
 xset s off &
 
 # Touchpad gestures
-libinput-gestures-setup start &
+# libinput-gestures-setup start &
 
 # Applets
 blueman-applet &
