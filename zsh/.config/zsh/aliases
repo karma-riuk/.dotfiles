@@ -5,7 +5,7 @@ alias la='exa -a --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -al --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
-alias sudo="doas -- "
+alias sudo="doas "
 alias yay="yay --nodiffmenu --noeditmenu"
 
 alias sys="sudo systemctl"
@@ -41,13 +41,13 @@ alias du="du -h"
 alias cat="bat"
 alias xclip="xclip -selection c"
 alias pac="sudo pacman"
-alias c="clear"
+alias c="fasd_cd -di"
 alias py="python"
 alias pytest="py -m unittest"
 alias q="exit"
 # alias scrot="scrot \"scrot_$(date '+%Y-%m-%d_%H-%M-%S').png\" -e 'mv \$f ~/Pictures/Screenshots/'"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias lsblk="lsblk -e7 -o name,fstype,size,fsused,fsuse%,type,mountpoint,label"
+alias lsblk="lsblk -e7 -o name,fstype,size,fsavail,fsuse%,type,mountpoint,label"
 alias pamixer="pamixer --allow-boost"
 
 ###################### FUNCTIONS ######################
