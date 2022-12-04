@@ -6,7 +6,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Plug 'acoustichero/goldenrod.vim'
 
 Plug 'tpope/vim-sensible'
-Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
+" Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
 
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'SirVer/ultisnips'
@@ -22,6 +22,7 @@ Plug 'lervag/vimtex'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -47,6 +48,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'f3fora/cmp-spell'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/playground'
 Plug 'numToStr/Comment.nvim'
 
@@ -92,16 +94,19 @@ set background=dark
 " let g:sonokai_diagnostic_text_highlight = 1
 let g:sonokai_diagnostic_virtual_text = 'colored'
 colorscheme sonokai
+hi VertSplit guifg=#303031
+hi EndOfBuffer guibg=None
 
 "" Enable transparency
-hi Normal ctermbg=None
-hi Terminal ctermbg=None
+set termguicolors
+hi Normal guibg=None ctermbg=None
+hi Terminal guibg=None ctermbg=None
 
 set helpheight=40
 
 
 "" Spelling errors
-hi SpellBad ctermfg=red
+hi SpellBad guifg=red ctermfg=red
 
 "" Show keystrokes as they are pressed
 set showcmd
@@ -127,7 +132,7 @@ set tw=80
 set scrolloff=8
 
 "" Left side number column foreground color
-hi LineNr ctermfg=darkgray
+hi LineNr guifg=darkgray ctermfg=darkgray
 
 "" What to show when ':set list' is called (to show tabs, end of lines, spaces, etc.)
 " set listchars=eol:¬,tab:\ »\ ,space:·,trail:█
@@ -154,6 +159,8 @@ map Y y$
 "" Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap <C-u> <C-u>zzzv
+nnoremap <C-d> <C-d>zzzv
 nnoremap J mzJ`z
 
 "" Undo breakpoints
@@ -240,8 +247,14 @@ augroup END
 let g:CoolTotalMatches = 1
 
 "" Indentline
-let g:indentLine_char = '│'
-let g:indentLine_color_term = 237
+let g:indentLine_enabled = 0
+""" Enable indentline only in programming languages files
+augroup ReloadConfigs
+    autocmd!
+    autocmd FileType c,ccp,py,java,javascript,typescript,lua let g:indentLine_enabled = 1
+    autocmd FileType c,ccp,py,java,javascript,typescript,lua let g:indentLine_char = '│'
+    autocmd FileType c,ccp,py,java,javascript,typescript,lua let g:indentLine_color_term = 237
+augroup END
 
 "" Auto-pairs
 let g:AutoPairsShortcutToggle = '<leader>('
