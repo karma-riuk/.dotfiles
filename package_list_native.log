@@ -2,6 +2,7 @@ acpi
 acpid
 adwaita-qt5
 alacritty
+alsa-utils
 android-tools
 arandr
 autoconf
