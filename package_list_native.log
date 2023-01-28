@@ -135,6 +135,7 @@ python-tldextract
 qt5ct
 qutebrowser
 ranger
+ripgrep
 rofi
 rofi-calc
 rubber
