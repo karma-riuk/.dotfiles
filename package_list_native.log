@@ -1,3 +1,4 @@
+abseil-cpp
 acpi
 acpid
 adwaita-qt5
@@ -34,6 +35,7 @@ dmenu
 dosfstools
 dust
 efibootmgr
+embree
 entr
 ethtool
 evtest
@@ -132,6 +134,7 @@ python-pynvim
 python-pytz
 python-pywal
 python-tldextract
+qt5-xmlpatterns
 qt5ct
 qutebrowser
 ranger
@@ -181,6 +184,7 @@ ttf-roboto
 tumbler
 ueberzug
 unclutter
+unixodbc
 unrar
 unzip
 vagrant
