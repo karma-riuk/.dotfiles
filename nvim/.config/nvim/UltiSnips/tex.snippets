@@ -1,4 +1,6 @@
 global !p
+import px.snippets
+
 def math():
     return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 
@@ -177,3 +179,49 @@ snippet 'answer_(cg)' "Usi answer to assignments" r
 $0
 \end{document}
 endsnippet
+
+
+global !p
+def fix_indent(snip):
+    vim.eval('feedkeys("\<c-f>")')
+endglobal
+
+post_expand "fix_indent(snip)"
+snippet 'itm?' "Individual item" br
+\item $0
+endsnippet
+
+post_expand "fix_indent(snip)"
+snippet itd "Individual item" b
+\item[$1] $0
+endsnippet
+
+post_jump "px.snippets.expand(snip)"
+snippet itme "itemize alias" b
+item$1
+endsnippet
+
+
+context "math()"
+snippet '([lr])angle' "<" rA
+\\`!p snip.rv = match.group(1)`angle
+endsnippet
+	
+
+snippet img "include graphics" b
+\\begin{figure}[H]
+	\\centering
+	\\includegraphics[width=.8\textwidth]{${1:fig$2}}
+\\end{figure}
+endsnippet
+
+snippet mini "two minipages"
+\\begin{minipage}{.5\\textwidth}
+	$1
+\\end{minipage}
+\\begin{minipage}{.49\\textwidth}
+	${2:img }
+\\end{minipage}
+$0
+endsnippet
+	
