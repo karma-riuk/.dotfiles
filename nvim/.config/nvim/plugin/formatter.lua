@@ -9,7 +9,10 @@ require("formatter").setup({
         lua = require("formatter.filetypes.lua").stylua,
         c = require("formatter.filetypes.c").clangformat,
         cpp = require("formatter.filetypes.cpp").clangformat,
+        sh = require("formatter.filetypes.bash").beautysh,
     },
 })
 
 vim.keymap.set("n", "<leader>f", "<cmd>Format<cr>")
+local group = vim.api.nvim_create_augroup("Formatter", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", { group = group, command = "FormatWrite" })
