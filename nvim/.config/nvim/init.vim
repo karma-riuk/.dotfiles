@@ -7,6 +7,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'tpope/vim-sensible'
 " Plug 'suan/vim-instant-markdown', { 'for' : 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'SirVer/ultisnips'
@@ -76,6 +77,13 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " TS Text objects
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
+" notification manager
+Plug 'rcarriga/nvim-notify'
+
+Plug 'reconquest/vim-pythonx'
+
+Plug 'J-Moreau/vim-matlab', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Command
@@ -93,14 +101,20 @@ set background=dark
 " let g:sonokai_style = 'andromeda'
 " let g:sonokai_diagnostic_text_highlight = 1
 let g:sonokai_diagnostic_virtual_text = 'colored'
+let g:sonokai_transparent_background=1
 colorscheme sonokai
 hi VertSplit guifg=#303031
 hi EndOfBuffer guibg=None
 
+set winbar=%=%m\ %t\ 
+
 "" Enable transparency
 set termguicolors
 hi Normal guibg=None ctermbg=None
+hi NormalFloat guibg=None ctermbg=None
 hi Terminal guibg=None ctermbg=None
+hi FloatBorder guibg=None ctermbg=None
+
 
 set helpheight=40
 
@@ -277,3 +291,11 @@ lua require('neogit').setup()
 
 "" Dressing
 lua require('dressing').setup()
+
+"" Notify
+lua << EOF
+require("notify").setup({
+    background_color = "#000000" 
+})
+vim.notify = require("notify")
+EOF
