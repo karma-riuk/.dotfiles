@@ -1,53 +1,74 @@
-
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	-- Mappings.
-	local opts = { noremap = true, silent = false, buffer = bufnr }
+    -- Mappings.
+    local opts = { noremap = true, silent = false, buffer = bufnr }
 
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-	vim.keymap.set("n", "<leader>Do", vim.diagnostic.open_float, opts)
-	vim.keymap.set("n", "<leader>Dk", vim.diagnostic.goto_prev, opts)
-	vim.keymap.set("n", "<leader>Dj", vim.diagnostic.goto_next, opts)
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>Do", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "<leader>Dk", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>Dj", vim.diagnostic.goto_next, opts)
 end
 
 require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
+    ui = {
+        border = "rounded",
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+        },
+    },
 })
 
 require("mason-lspconfig").setup_handlers({
-	function(server_name) -- default handler (optional)
-		local setup = {
-			on_attach = on_attach,
-			capabilities = capabilities,
-			flags = { debounce_text_changes = 150 },
-		}
+    function(server_name) -- default handler (optional)
+        local setup = {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = { debounce_text_changes = 150 },
 
-		if server_name == "sumneko_lua" then
-			setup.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
-		end
+            -- Have border around floating windows
+            handlers = {
+                ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+                ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+            },
+        }
 
-		require("lspconfig")[server_name].setup(setup)
-	end,
+        if server_name == "sumneko_lua" then
+            setup.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+        end
+
+        require("lspconfig")[server_name].setup(setup)
+    end,
 })
+
+-- local win = require("lspconfig.ui.windows")
+-- local _default_opts = win.default_opts
+--
+-- win.default_opts = function(options)
+--     local opts = _default_opts(options)
+--     opts.border = "single"
+--     return opts
+-- end
+
+-- local group = vim.api.nvim_create_augroup("Mason", { clear = true })
+-- vim.api.nvim_create_autocmd(
+--     "FileType",
+--     { pattern = "mason", group = group, command = "hi LineNr guibg=None ctermbg=None" }
+-- )
