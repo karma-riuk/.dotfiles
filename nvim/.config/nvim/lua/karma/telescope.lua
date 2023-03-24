@@ -1,44 +1,76 @@
 -- Setup
-local t = require('telescope')
-t.setup {
+local t = require("telescope")
+t.setup({
+    defaults = {
+        file_ignore_patterns = {
+            "node_modules/",
+            ".git/",
+            ".hg/",
+            ".svn/",
+            -- C bin files files
+            "%.o",
+            "%.out",
+            -- Java bin files files
+            "%.class",
+            -- LateX stuff
+            "%.aux",
+            "%.log",
+            "%.toc",
+            "%.fls",
+            "%.pdf",
+            "%.gz",
+            "%.fdb_latexmk",
+            -- Random stuff
+            "%.mp%",
+            "%.png",
+            "%.jpg",
+            "%.bmp",
+            "%.ico",
+            "%.gif",
+            ".DS_Store",
+        },
+    },
     extensions = {
         fzy_native = {
             override_generic_sorter = false,
-            override_file_sorter = true
-        }
+            override_file_sorter = true,
+        },
     },
     pickers = {
-        find_files = {theme = "dropdown"},
-        git_files = {theme = "dropdown"}
-    }
-}
-t.load_extension('fzy_native')
+        find_files = { theme = "dropdown" },
+        git_files = { theme = "dropdown" },
+    },
+})
+-- t.load_extension("fzy_native")
 t.load_extension("file_browser")
 
-local telescope = require('telescope.builtin')
+local telescope = require("telescope.builtin")
 
--- Custom functions 
+-- Custom functions
 local M = {}
 
 M.git_or_find = function()
-    local opts = {}
-    local ok = pcall(telescope.git_files, opts)
-    if not ok then t.extensions.file_browser.file_browser(opts) end
+    -- local opts = {}
+    local ok = pcall(telescope.git_files)
+    if not ok then
+        t.extensions.file_browser.file_browser()
+    end
 end
 
 M.search_buffer = function()
-    local opts = {previewer = false}
+    local opts = { previewer = false }
     local ok = pcall(telescope.current_buffer_fuzzy_find, opts)
-    if not ok then vim.cmd('/') end -- kinda doesn't work
+    if not ok then
+        vim.cmd("/")
+    end -- kinda doesn't work
 end
 
-
 M.dotfiles = function()
-    telescope.find_files {
-        file_ignore_patterns = {"UltiSnips"},
+    telescope.find_files({
+        file_ignore_patterns = { "UltiSnips" },
         cwd = vim.env.XDG_CONFIG_HOME .. "/nvim",
-        prompt_title = "< VIMRC >"
-    }
+        prompt_title = "< VIMRC >",
+    })
 end
 
 return M
