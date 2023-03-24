@@ -1,6 +1,7 @@
-lua require('karma.telescope')
+" lua require('karma.telescope')
 
-noremap <C-p>           <cmd>lua require('telescope.builtin').find_files()<cr>
+" noremap <C-p>           <cmd>lua require('telescope.builtin').find_files()<cr>
+noremap <C-p>           <cmd>lua require('karma.telescope').git_or_find()<cr>
 noremap <leader>vrc     <cmd>lua require('karma.telescope').dotfiles()<cr>
 noremap <C-f>               <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({previewer = false})<cr>
 " noremap <C-f>           <cmd>lua require('telescope.builtin').find_files()<cr>
