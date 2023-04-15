@@ -152,6 +152,7 @@ sshfs
 stow
 sudo
 syncthing
+system-config-printer
 texinfo
 texlab
 texlive-bibtexextra
