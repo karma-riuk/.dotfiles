@@ -25,7 +25,6 @@ bottom
 breeze-gtk
 breeze-icons
 cbatticon
-chrpath
 cjson
 clang
 cmake
@@ -56,7 +55,6 @@ gcc
 gdb
 gimp
 git
-gn
 gnome-keyring
 gnu-netcat
 gparted
@@ -83,7 +81,6 @@ lightdm-webkit-theme-litarvan
 lightdm-webkit2-greeter
 linux
 linux-firmware
-lld
 llvm
 lsof
 lua-language-server
@@ -107,12 +104,9 @@ neovim
 network-manager-applet
 networkmanager
 nitrogen
-node-gyp
 nodejs
-nodejs-nopt
 notify-sharp-3
 noto-fonts
-npm
 obs-studio
 opendoas
 openresolv
@@ -138,25 +132,11 @@ powertop
 pulseaudio
 pulseaudio-bluetooth
 python-adblock
-python-build
-python-httplib2
-python-iniconfig
-python-installer
-python-jsonschema
-python-lark-parser
 python-pip
-python-pluggy
-python-poetry-core
 python-pynvim
-python-pyproject-hooks
-python-pyrsistent
-python-pytest
-python-pytest-asyncio
 python-pytz
 python-pywal
-python-setuptools-scm
 python-tldextract
-python-tomlkit
 qt5ct
 qutebrowser
 ranger
@@ -167,7 +147,6 @@ rubber
 sassc
 scribus
 scrot
-semver
 simple-scan
 solr
 speedtest-cli
@@ -176,7 +155,6 @@ stow
 sudo
 syncthing
 system-config-printer
-tcl
 texinfo
 texlab
 texlive-bibtexextra
@@ -195,7 +173,6 @@ the_silver_searcher
 thunar
 thunderbird
 tidy
-tk
 tlp
 tmux
 tree
@@ -276,7 +253,6 @@ xorg-xwud
 xournalpp
 xprintidle
 xterm
-yarn
 youtube-dl
 zathura
 zathura-pdf-mupdf
