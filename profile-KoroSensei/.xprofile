@@ -12,11 +12,11 @@ ERRFILE="$HOME/.cache/X11/xsession-errors"
 # Set Caps-Lock to control
 setxkbmap -option ctrl:nocaps
 
-# Enable accents with right-alt
-setxkbmap -option compose:ralt &
-
 # If Caps-Lock or control is just tapped and not pressed with another key, assign it to Esc
 xcape -e 'Control_L=Escape'
+
+# Enable accents with right-alt
+setxkbmap -option compose:ralt &
 
 # Hide the mouse after 1 second
 unclutter --timeout 1 &
