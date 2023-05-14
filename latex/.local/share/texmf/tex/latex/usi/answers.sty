@@ -4,8 +4,8 @@
 \RequirePackage{kvoptions}
 
 \SetupKeyvalOptions{
-    family=USI,
-    prefix=USI@
+	family=USI,
+	prefix=USI@
 }
 
 \DeclareStringOption[TITLE\_PLACEHOLDER]{title}
@@ -22,32 +22,31 @@
 
 \date{Faculty of Informatics, USI\\\USI@season\ term \USI@year}
 
-\setcounter{section}{\USI@set}
+% \setcounter{section}{\USI@set}
 
 \makeatletter
 \def\@maketitle{%
-  \newpage
-  \null
-  \vskip 2em%
-  \begin{minipage}{.3\textwidth}
-      \@date 
-  \end{minipage}
-  \begin{minipage}{.7\textwidth} 
-      \begin{flushright}
-          \@author 
-      \end{flushright}
-  \end{minipage}
-  \vskip 2em%
-  \begin{center}%
-    {\LARGE \@title \par}%
-  \end{center}%
-  \par
-  \vskip 1.5em}
+	\newpage
+	\null
+	\vskip 2em%
+	\begin{minipage}{.3\textwidth}
+		\@date
+	\end{minipage}
+	\begin{minipage}{.7\textwidth}
+		\begin{flushright}
+			\@author
+		\end{flushright}
+	\end{minipage}
+	\vskip 2em%
+	\begin{center}%
+		{\LARGE \@title \par}%
+	\end{center}%
+	\par
+	\vskip 1.5em}
 \makeatother
-  
-\usepackage{amsthm} 
+
+\usepackage{amsthm}
 
 % \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}
 \newtheorem{task}{Task}
-
