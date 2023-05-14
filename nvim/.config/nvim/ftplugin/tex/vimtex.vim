@@ -1,5 +1,7 @@
 let g:vimtex_quickfix_ignore_filters = [
             \ '\v(Over|Under)full',
+            \ '\vunder(bar|line)',
+            \ 'uop',
             \]
 
 " let g:vimtex_enabled = 0
