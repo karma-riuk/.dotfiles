@@ -84,6 +84,11 @@ Plug 'rcarriga/nvim-notify'
 Plug 'reconquest/vim-pythonx'
 
 Plug 'J-Moreau/vim-matlab', { 'do': ':UpdateRemotePlugins' }
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'folke/todo-comments.nvim'
+
 call plug#end()
 
 " Command
