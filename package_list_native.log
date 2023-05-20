@@ -84,7 +84,6 @@ linux-firmware
 llvm
 lsof
 lua-language-server
-lua-lgi
 luarocks
 luit
 lxappearance-gtk3
