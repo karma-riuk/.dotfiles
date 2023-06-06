@@ -5,8 +5,6 @@ adwaita-qt5
 alacritty
 alsa-utils
 android-tools
-apr
-apr-util
 arandr
 autoconf
 automake
@@ -23,7 +21,6 @@ bitwarden
 blueman
 bluez
 bluez-utils
-boost
 bottom
 breeze-gtk
 breeze-icons
@@ -52,7 +49,6 @@ figlet
 flameshot
 flex
 fontforge
-fop
 fwupd
 fzf
 gcc
@@ -72,16 +68,10 @@ imagemagick
 inkscape
 inotify-tools
 intellij-idea-community-edition
-java-avalon-framework
-java-batik
-java-commons-io
-java-commons-logging
-java-xmlgraphics-commons
 jdk-openjdk
 jre11-openjdk
 libfprint
 libgnt
-libmspack
 libreoffice-still
 libvirt
 libxcrypt-compat
@@ -92,7 +82,6 @@ lightdm-webkit2-greeter
 linux
 linux-firmware
 llvm
-log4cxx
 lsof
 lua-language-server
 luarocks
@@ -149,7 +138,6 @@ python-pynvim
 python-pytz
 python-pywal
 python-tldextract
-qt5-script
 qt5ct
 qutebrowser
 ranger
@@ -202,7 +190,6 @@ ueberzug
 unclutter
 unrar
 unzip
-uriparser
 vagrant
 valgrind
 vi
