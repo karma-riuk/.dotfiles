@@ -1,3 +1,6 @@
 $pdf_mode = 1;
-$pdflatex = 'pdflatex -synctex=1 %O %S';
-@generated_exts = (@generated_exts, 'synctex.gz', 'run.xml');
+$pdflatex = 'pdflatex -shell-escape -synctex=1 %O %S';
+@generated_exts = (@generated_exts, 'synctex(busy)', 'synctex.gz', 'run.xml', 'bbl', 'auxlock', 'fdb_latexmk');
+# $emulate_aux = 1;
+# $aux_dir = '.build';
+$bibtex_use = 1.5;
