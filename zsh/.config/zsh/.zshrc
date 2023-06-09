@@ -17,7 +17,7 @@ zstyle ':completion:*:*:nvim:*' file-patterns '^*.(aux|log|pdf|class|a|o|png|jpg
 
 # export NVM_LAZY_LOAD=true
 
-plugins=(git pip command-not-found fasd wd)
+plugins=(git pip command-not-found fasd wd sudo)
 source $ZSH/oh-my-zsh.sh
 
 # Setting my prompt to be the "pure" prompt
@@ -74,6 +74,8 @@ bindkey -M vicmd "^k" up-line-or-beginning-search
 bindkey -M vicmd "^j" down-line-or-beginning-search
 
 bindkey "^v" edit-command-line
+
+bindkey -M viins '^s' sudo-command-line
 
 unsetopt autopushd
 

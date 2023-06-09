@@ -24,12 +24,6 @@ alias vim='nvim'
 
 alias zat='zathura'
 
-# Bluetooth
-alias bt="bluetoothctl"
-alias bt-airpods="bluetoothctl connect AC:90:85:8E:9A:63"
-alias bt-headphones="bluetoothctl connect 2C:41:A1:02:43:BA"
-alias bt-xbox="bluetoothctl connect 9C:AA:1B:64:07:F8"
-
 # LateX tlmgr
 # alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 
@@ -97,19 +91,5 @@ lets_hack_NASA(){
     for i in $(seq 1 5); do 
         tree /;
     done
-}
-
-bw_unlock () { 
-    if [[ -z "$BW_SESSION" ]]; then
-        tmp_session="`bw unlock --raw`" 
-        exit_status=$?
-        [[ $exit_status != 0 ]] && echo "$tmp_session" && return 1
-        export BW_SESSION="$tmp_session" 
-        echo "export BW_SESSION=\"$BW_SESSION\"" > $BITWARDEN_ENV_FILE
-        echo "Bitwarden vault was globally unlocked successfully"
-    else
-        echo "Bitwarden valut was already unlocked, to lock it, run the following commands:"
-        echo "unset BW_SESSION && rm \"$BITWARDEN_ENV_FILE\" && bw lock"
-    fi
 }
 # vim: ft=zsh
