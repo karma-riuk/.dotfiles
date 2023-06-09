@@ -168,9 +168,9 @@ font:
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
+  glyph_offset:
+   x: 0
+   y: 0
 
   # Thin stroke font rendering (macOS only)
   #
@@ -185,11 +185,18 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-   background: '#0e1019'
    # foreground: '#f5f8f6'
    # foreground: '#fffaf4'
    # background: '#1d1f21'
+ 
+   
+    # Dark theme
+   background: '#0e1019'
    foreground: '#c5c8c6'
+
+    # Light theme
+   # background: '#ffffff'
+   # foreground: '#0e1019'
 
     # Bright and dim foreground colors
     #
@@ -336,6 +343,8 @@ colors:
   #   `- { index: 16, color: '#ff00ff' }`
   #
   #indexed_colors: []
+
+
 
 # Bell
 #
