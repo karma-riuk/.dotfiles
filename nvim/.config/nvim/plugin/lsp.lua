@@ -7,6 +7,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
 
     -- Mappings.
     local opts = { noremap = true, silent = false, buffer = bufnr }
@@ -54,8 +55,26 @@ require("mason-lspconfig").setup_handlers({
             setup.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
         end
 
+        -- if server_name == "clangd" then
+        -- print("world")
+        setup.capabilities.offsetEncoding = "utf-8"
+        -- end
+
         require("lspconfig")[server_name].setup(setup)
     end,
+})
+
+require("mason-null-ls").setup({
+    automatic_setup = true,
+    ensure_installed = { "stylua", "jq", "vale" },
+})
+require("null-ls").setup({
+    on_init = function(new_client, _)
+        new_client.offset_encoding = "utf-32"
+    end,
+    sources = {
+        require("null-ls").builtins.diagnostics.vale,
+    },
 })
 
 -- local win = require("lspconfig.ui.windows")
