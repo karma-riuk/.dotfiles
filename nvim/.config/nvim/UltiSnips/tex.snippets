@@ -13,17 +13,21 @@ def env(name):
 
 def latex_command(match):
 	return f"{match.group(1)}\\{match.group(2)}"
-
 endglobal
 
-snippet subsub "Sub sub section"
-\\subsubsection{${1:Sub sub section name}}
-\\label{subsub:`!p snip.rv = t[1].lower().replace(" ", "_")`}
-$0
+context "snip.visual_mode"
+snippet tbf "\textbf{}" 
+\\textbf{${VISUAL}}$0
 endsnippet
 
+context "snip.visual_mode"
+snippet tt "texttt" 
+\\texttt{${VISUAL}}
+endsnippet
+
+context "snip.visual_mode"
 snippet ita "italics" w
-\textit{${1:${VISUAL}}}
+\\textit{${VISUAL}}
 endsnippet
 
 context "math()"
@@ -35,6 +39,12 @@ endsnippet
 context "math()"
 snippet text "\text{  }" 
 \\text{ ${1:${VISUAL}} }$0
+endsnippet
+
+context "math()"
+context "snip.visual_mode"
+snippet text "\text{  }" 
+\\text{ ${VISUAL} }$0
 endsnippet
 
 
@@ -126,10 +136,6 @@ snippet empheq "empheq"
 \\begin{empheq}[box=\\tcbhighmath]{${1:equation}*}
 	${0:${VISUAL}}
 \\end{empheq}
-endsnippet
-
-snippet bf "\textbf{}"
-\\textbf{${1:${VISUAL}}}$0
 endsnippet
 
 snippet ub "\underbrace{VISUAL}" w
