@@ -1,5 +1,8 @@
 set nocompatible
 
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
 " Plugins
 call plug#begin(stdpath('data') . '/plugged')
 ""Theme
@@ -36,9 +39,13 @@ Plug 'jason0x43/vim-wildgitignore'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jay-babu/mason-null-ls.nvim'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'onsails/lspkind-nvim'
+
 
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
@@ -89,6 +96,15 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'folke/todo-comments.nvim'
 
+Plug 'christoomey/vim-tmux-navigator'
+
+
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
+Plug 'github/copilot.vim'
+
+Plug 'nvim-tree/nvim-tree.lua'
+
 call plug#end()
 
 " Command
@@ -108,10 +124,14 @@ set background=dark
 let g:sonokai_diagnostic_virtual_text = 'colored'
 let g:sonokai_transparent_background=1
 colorscheme sonokai
+
+" colorscheme catppuccin-latte
+" set background=light
+
 hi VertSplit guifg=#303031
 hi EndOfBuffer guibg=None
 
-set winbar=%=%m\ %t\ 
+" set winbar=%=%m\ %t\ 
 
 "" Enable transparency
 set termguicolors
@@ -195,10 +215,10 @@ inoremap { {<c-g>u
 inoremap } }<c-g>u
 
 "" Split window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
 
 """ Same but for the terminal
 " tmap <C-h> <C-w>h
@@ -257,7 +277,7 @@ augroup END
 "" Reloading configs after saving files
 augroup ReloadConfigs
     autocmd!
-    autocmd BufWritePost dunstrc silent exec "!killall dunst" | redraw!
+    autocmd BufWritePost dunstrc silent exec "!killall dunst" | redraw! | echo "Dunst reloaded" | silent exec "!notify-send 'Dunst config' 'The config has been successfully reloaded'"
 augroup END
 
 " Plugin settings
@@ -268,7 +288,7 @@ let g:CoolTotalMatches = 1
 "" Indentline
 let g:indentLine_enabled = 0
 """ Enable indentline only in programming languages files
-augroup ReloadConfigs
+augroup IndentLineFix
     autocmd!
     autocmd FileType c,ccp,py,java,javascript,typescript,lua let g:indentLine_enabled = 1
     autocmd FileType c,ccp,py,java,javascript,typescript,lua let g:indentLine_char = '│'
