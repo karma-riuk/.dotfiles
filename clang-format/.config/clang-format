@@ -1,4 +1,6 @@
-AlignAfterOpenBracket: false
+AlignAfterOpenBracket: BlockIndent
+AlignOperands: AlignAfterOperator
+AllowAllArgumentsOnNextLine: false
 AllowShortBlocksOnASingleLine: Empty
 AllowShortEnumsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: Empty
@@ -7,6 +9,7 @@ AlwaysBreakTemplateDeclarations: Yes
 BasedOnStyle: LLVM
 BinPackArguments: false
 BinPackParameters: false
+BreakBeforeBinaryOperators: NonAssignment
 EmptyLineBeforeAccessModifier: Always
 FixNamespaceComments: true
 IncludeBlocks: Regroup
