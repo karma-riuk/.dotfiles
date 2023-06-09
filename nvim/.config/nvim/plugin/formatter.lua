@@ -10,6 +10,7 @@ require("formatter").setup({
         c = require("formatter.filetypes.c").clangformat,
         cpp = require("formatter.filetypes.cpp").clangformat,
         sh = require("formatter.filetypes.bash").beautysh,
+        go = require("formatter.filetypes.go").gofumpt,
     },
 })
 
