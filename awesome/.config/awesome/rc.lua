@@ -134,7 +134,7 @@ local taglist_buttons = gears.table.join(
 )
 
 awful.screen.connect_for_each_screen(function(s)
-    local default_prop = { screen = s, layout = awful.layout.suit.spiral.dwindle }
+    local default_prop = { screen = s, layout = awful.layout.suit.tile }
 
     local tabs = {
         {
@@ -649,6 +649,7 @@ awful.rules.rules = {
             height = screen_height() * 0.6,
         },
     }, -- Floating clients.
+    { rule = { class = "MATLAB*", name = "Figure*" }, properties = { ontop = true } },
     {
         rule_any = {
             instance = {
@@ -683,6 +684,8 @@ awful.rules.rules = {
                 "Event Tester", -- xev.
                 "Figure %d+", -- Matlab figures
                 "Picture in picture",
+                "Sign in – Google accounts - Vivaldi",
+                "Style Editor - TikZiT",
             },
             role = {
                 "AlarmWindow", -- Thunderbird's calendar.
