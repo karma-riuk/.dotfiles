@@ -335,7 +335,7 @@ globalkeys = gears.table.join(
 
     -- Prompt
     awful.key({ modkey }, "d", function()
-        awful.spawn("/home/karma/.config/rofi/bin/launcher_misc")
+        awful.spawn("/home/karma/.config/rofi/launchers/type-3/launcher.sh")
     end, { description = "Launch rofi -show run", group = "launcher" }),
 
     awful.key({}, "Print", function()
@@ -347,7 +347,7 @@ globalkeys = gears.table.join(
     --- Media Management
     ---- Volume Management
     awful.key({}, "XF86PowerOff", function()
-        awful.spawn("/home/karma/.config/rofi/bin/powermenu")
+        awful.spawn("/home/karma/.config/rofi/powermenu/type-2/powermenu.sh")
     end, { description = "Toggle mute", group = "Media management" }),
     awful.key({}, "XF86AudioMute", function()
         awful.spawn("volumectl -t")
