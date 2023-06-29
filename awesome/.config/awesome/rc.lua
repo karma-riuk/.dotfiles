@@ -722,6 +722,14 @@ end)
 client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
+
+-- Prevent floating clients to come on first tag with reloading awesomewm
+client.connect_signal("request::manage", function(client, context)
+    if client.floating and context == "new" then
+        client.placement = awful.placement.centered
+    end
+end)
+
 screen.connect_signal("arrange", function(s)
     local max = s.selected_tag.layout.name == "max"
     local only_one = #s.tiled_clients == 1 -- use tiled_clients so that other floating windows don't affect the count
