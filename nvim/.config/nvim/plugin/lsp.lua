@@ -60,15 +60,35 @@ require("mason-lspconfig").setup_handlers({
                 ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
             },
         }
-
-        if server_name == "sumneko_lua" then
-            setup.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+        if server_name == "lua_ls" then
+            setup.settings = {
+                Lua = {
+                    runtime = {
+                        -- Tell the language server which version of Lua you're using
+                        -- (most likely LuaJIT in the case of Neovim)
+                        version = "LuaJIT",
+                    },
+                    diagnostics = { globals = { "vim", "awesome", "client", "root" } },
+                    workspace = {
+                        -- Make the server aware of Neovim runtime files
+                        library = {
+                            vim.api.nvim_get_runtime_file("", true),
+                            "/usr/share/awesome/lib",
+                        },
+                        checkThirdParty = false,
+                    },
+                    -- Do not send telemetry data containing a randomized but unique identifier
+                    telemetry = {
+                        enable = false,
+                    },
+                    completion = {
+                        callSnippet = "Replace",
+                    },
+                },
+            }
         end
 
-        -- if server_name == "clangd" then
-        -- print("world")
         setup.capabilities.offsetEncoding = "utf-8"
-        -- end
 
         require("lspconfig")[server_name].setup(setup)
     end,
