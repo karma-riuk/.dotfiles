@@ -111,6 +111,8 @@ require("lspconfig.ui.windows").default_options = {
     border = "rounded",
 }
 
+require("lspconfig").matlab_ls.setup({})
+
 -- local win = require("lspconfig.ui.windows")
 -- local _default_opts = win.default_opts
 --
