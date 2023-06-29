@@ -4,7 +4,7 @@ awesomewm - $XDG_CONFIG_HOME/awesome/rc.lua
 dunst - $XDG_CONFIG_HOME/dunst/dunstrc
 latexmk - $XDG_CONFIG_HOME/latexmk/latexmkrc
 localenv - $XDG_CONFIG_HOME/zsh/.localenv
-nvim - $XDG_CONFIG_HOME/nvim/init.vim
+nvim - $XDG_CONFIG_HOME/nvim
 picom - $XDG_CONFIG_HOME/picom/picom.conf
 polybar - $XDG_CONFIG_HOME/polybar/config
 profile - $HOME/.profile
