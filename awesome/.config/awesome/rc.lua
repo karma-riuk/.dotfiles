@@ -582,30 +582,27 @@ awful.rules.rules = {
             -- class = "scratchpad"
             -- role = "scratchpad"
             name = { "scratch-.*", "Bitwarden" },
-            class = { "blueman-manager" },
+            class = { "blueman-manager", "Thunar" },
         },
-        properties = { floating = true },
-        -- Center the position of the window
-        callback = function(c)
-            awful.placement.centered(c, {
-                honor_padding = true,
-                honor_workarea = true,
-            })
-            gears.timer.delayed_call(function()
-                c.urgent = false
-            end)
-        end,
+        properties = {
+            floating = true,
+            placement = function(c)
+                awful.placement.centered(c, {
+                    -- honor_workarea = true,
+                    honor_padding = true,
+                })
+            end,
+        },
     },
     {
-        rule = { class = "Google-chrome" },
-        properties = { maximized = false }, --
-    },
-    {
-        rule = { class = "qutebrowser" },
-        properties = { maximized = false }, --
-    },
-    {
-        rule = { class = "Vivaldi-stable" },
+        rule_any = {
+            class = {
+                "Vivaldi-stable",
+                "qutebrowser",
+                "Google-chrome",
+                "Thunar",
+            },
+        },
         properties = { maximized = false }, --
     }, -- Specific rules for scratchpads
     ---- Tmux
