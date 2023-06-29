@@ -302,7 +302,7 @@ augroup IndentLineFix
 augroup END
 
 "" Auto-pairs
-let g:AutoPairsShortcutToggle = '<leader>('
+" let g:AutoPairsShortcutToggle = '<leader>('
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<M-v>' " default: <M-b>, changed because otherwise doing <esc>b might do something unintended and it triggered be a lot
 
