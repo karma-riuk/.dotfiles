@@ -56,7 +56,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'f3fora/cmp-spell'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-context'
+" Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/playground'
 Plug 'numToStr/Comment.nvim'
 

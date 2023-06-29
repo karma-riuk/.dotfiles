@@ -1,2 +1,2 @@
-require("treesitter-context").setup({})
-vim.cmd([[ hi TreesitterContext guibg=#363944 ]])
+-- require("treesitter-context").setup({})
+-- vim.cmd([[ hi TreesitterContext guibg=#363944 ]])
