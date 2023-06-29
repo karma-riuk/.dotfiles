@@ -109,6 +109,8 @@ Plug 'github/copilot.vim'
 
 Plug 'nvim-tree/nvim-tree.lua'
 
+Plug 'folke/which-key.nvim'
+
 call plug#end()
 
 " Command
