@@ -57,6 +57,7 @@ Plug 'f3fora/cmp-spell'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'SmiteshP/nvim-navic'
 Plug 'nvim-treesitter/playground'
 Plug 'numToStr/Comment.nvim'
 

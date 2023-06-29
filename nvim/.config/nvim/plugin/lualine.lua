@@ -31,6 +31,7 @@ require("lualine").setup({
         lualine_y = { "filename" },
     },
     winbar = {
+        lualine_c = { "navic" },
         lualine_z = { "filename" },
     },
     extensions = {
