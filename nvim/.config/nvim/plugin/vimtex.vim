@@ -2,16 +2,12 @@ let g:vimtex_quickfix_ignore_filters = [
             \ '\v(Over|Under)full',
             \ '\vunder(bar|line)',
             \ 'uop',
+            \ '\v.*[Ll]istings.*cpp.*',
+            \ "Package Listings Error: Couldn't load requested language.",
             \]
-
-" let g:vimtex_enabled = 0
-" let g:tex_fast = 'bMpr'
-let g:tex_fast = ''
 
 " let g:vimtex_matchparen_enabled = 0
 let g:vimtex_imaps_enabled = 0 " vimtex imaps are cool by nothing compared to ultisnips
-set conceallevel=2
-set colorcolumn=81
 
 let g:vimtex_view_method = 'zathura'
 " let g:vimtex_view_method = 'zathura_simple'
@@ -32,11 +28,16 @@ augroup MyVimtex
 augroup END
 
 " Affects the 'jiangmiao/auto-pairs' plugin
-let g:AutoPairs = {
-                \ '(':')',
-                \ '[':']',
-                \ '{':'}',
-                \ "$":"$",
-                \ "$$":"$$",
-                \ }
+" let g:AutoPairs = {
+"                 \ '(':')',
+"                 \ '[':']',
+"                 \ '{':'}',
+"                 \ "$":"$",
+"                 \ "$$":"$$",
+"                 \ }
+augroup TexDollarPairs
+    au!
+    autocmd FileType tex let b:AutoPairs = AutoPairsDefine({'$': '$', "$$": "$$"})
+augroup END
 
+let g:vimtex_quickfix_autoclose_after_keystrokes = 2
