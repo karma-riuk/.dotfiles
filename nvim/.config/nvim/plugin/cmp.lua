@@ -35,6 +35,15 @@ cmp.setup({
         { name = "spell", keyword_length = 5, max_item_count = 2 },
         { name = "path" },
     },
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.kind,
+        },
+    },
     formatting = {
         format = lspkind.cmp_format({
             with_text = true, -- do not show text alongside icons
