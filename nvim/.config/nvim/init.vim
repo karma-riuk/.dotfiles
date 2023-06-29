@@ -20,8 +20,8 @@ Plug 'ap/vim-css-color'
 " Highlighting search patterns when needed
 Plug 'romainl/vim-cool'
 Plug 'sainnhe/sonokai'
-Plug 'sheerun/vim-polyglot'
-Plug 'lervag/vimtex'
+" Plug 'sheerun/vim-polyglot'
+Plug 'lervag/vimtex', { 'for' : 'tex' }
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
