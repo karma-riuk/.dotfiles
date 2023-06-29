@@ -1,7 +1,5 @@
 ### Export XDG base directories
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
+# NOTE: for XDG_CONFIG_HOME (and USI), edit /etc/profile
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
@@ -32,7 +30,6 @@ export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$XDG_CONFIG_HOME"/zsh/oh-my-zsh
-#export USI="/home/karma/Documents/USI/BA 1 - 2020"
 export EDITOR=nvim
 export MANPATH="/usr/local/man:$MANPATH"
 
