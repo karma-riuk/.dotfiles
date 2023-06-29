@@ -325,8 +325,8 @@ lua require('dressing').setup()
 
 "" Notify
 lua << EOF
-require("notify").setup({
-    background_color = "#000000" 
-})
-vim.notify = require("notify")
+-- require("notify").setup({
+    -- background_color = "#000000" 
+-- })
+-- vim.notify = require("notify")
 EOF
