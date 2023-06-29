@@ -107,6 +107,10 @@ require("null-ls").setup({
     },
 })
 
+require("lspconfig.ui.windows").default_options = {
+    border = "rounded",
+}
+
 -- local win = require("lspconfig.ui.windows")
 -- local _default_opts = win.default_opts
 --
