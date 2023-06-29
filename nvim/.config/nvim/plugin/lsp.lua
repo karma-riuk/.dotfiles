@@ -96,14 +96,14 @@ require("mason-lspconfig").setup_handlers({
 
 require("mason-null-ls").setup({
     automatic_setup = true,
-    ensure_installed = { "stylua", "jq", "vale" },
+    ensure_installed = { "stylua", "jq" },
 })
 require("null-ls").setup({
     on_init = function(new_client, _)
         new_client.offset_encoding = "utf-32"
     end,
     sources = {
-        require("null-ls").builtins.diagnostics.vale,
+        -- require("null-ls").builtins.diagnostics.vale,
     },
 })
 
