@@ -17,7 +17,7 @@ is_file_empty () {
 edit_from_terminal () {
     is_file_empty "$file"
 
-    if [[ -f "$1" ]]; then
+    if [[ -f "$1" || -d "$1" ]]; then
         $EDITOR "$1" 
     else
         >&2 echo "Error: File '$1' does not exist on the system"
