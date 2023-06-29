@@ -22,10 +22,10 @@ cmp.setup({
             select = true,
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-            cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-        end, { "i" }),
+            cmp_ultisnips_mappings.compose({ "expand", "select_next_item" })(fallback)
+        end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
-            cmp_ultisnips_mappings.jump_backwards(fallback)
+            cmp_ultisnips_mappings.jump_forwards(fallback)
         end, { "i" }),
     },
     sources = {
