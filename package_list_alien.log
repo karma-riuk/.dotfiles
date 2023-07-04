@@ -2,6 +2,7 @@ adb-sync-git
 auto-cpufreq
 chromium-widevine
 colorpicker
+console-bridge
 dunst-git
 duplicati-latest
 geogebra-5
@@ -24,7 +25,6 @@ python-spotdl
 python-validity
 python2
 qdirstat-bin
-ros-noetic-angles
 siji
 simple-mtpfs
 simplescreenrecorder
