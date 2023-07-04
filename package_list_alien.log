@@ -24,7 +24,7 @@ python-spotdl
 python-validity
 python2
 qdirstat-bin
-ros-noetic-rostest
+ros-noetic-roslz4
 siji
 simple-mtpfs
 simplescreenrecorder
