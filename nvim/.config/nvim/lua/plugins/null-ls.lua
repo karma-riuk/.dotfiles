@@ -6,6 +6,7 @@ return {
         "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
+        local null_ls = require("null-ls")
         require("mason").setup()
         require("mason-null-ls").setup({
             ensure_installed = {
@@ -27,7 +28,13 @@ return {
             },
             automatic_setup = true,
             automatic_installation = false,
-            handlers = {},
+            handlers = {
+                clang_format = function()
+                    null_ls.register(null_ls.builtins.formatting.clang_format.with({
+                        extra_args = { "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/clang-format" },
+                    }))
+                end,
+            },
         })
 
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
