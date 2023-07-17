@@ -10,12 +10,9 @@ return {
     keys = {
         "<leader>m",
     },
-    config = function()
-        require("maximize").setup({
-            "<leader>m",
-            require("maximize").toggle,
-            desc = "[m]aximize current buffer",
-        })
+    config = function(_, opts)
+        require("maximize").setup(opts)
+        vim.keymap.set("n", "<leader>m", require("maximize").toggle, { desc = "[m]aximize current buffer" })
         require("lualine").setup({
             winbar = {
                 lualine_y = { maximize_status },
