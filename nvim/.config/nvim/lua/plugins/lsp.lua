@@ -57,7 +57,7 @@ local on_attach = function(_, bufnr)
     nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
     nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
-    nmap("gh", "<cmd>Lspsaga lsp_finder<cr>", "lsp finder")
+    nmap("gh", "<cmd>Lspsaga finder<cr>", "LspSaga finder")
     nmap("gp", "<cmd>Lspsaga peek_definition<CR>", "[p]eak definition")
 
     nmap("<leader>e", "<cmd>Lspsaga show_line_diagnostics ++unfocus<CR>")
