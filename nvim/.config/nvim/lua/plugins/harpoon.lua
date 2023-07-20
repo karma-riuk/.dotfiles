@@ -11,24 +11,26 @@ return {
         end, { desc = "[h]arpoon: [a]dd file", silent = false })
         vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
-        vim.keymap.set("n", "<Tab>j", function()
+        vim.keymap.set("n", "<leader>j", function()
             ui.nav_file(1)
         end, { desc = "Navigate to first file in list" })
-        vim.keymap.set("n", "<Tab>k", function()
+        vim.keymap.set("n", "<leader>k", function()
             ui.nav_file(2)
         end, { desc = "Navigate to second file in list" })
-        vim.keymap.set("n", "<Tab>l", function()
+        vim.keymap.set("n", "<leader>l", function()
             ui.nav_file(3)
         end, { desc = "Navigate to third file in list" })
-        vim.keymap.set("n", "<Tab>'", function()
+        vim.keymap.set("n", "<leader>'", function()
             ui.nav_file(4)
         end, { desc = "Navigate to fourth file in list" })
     end,
     keys = {
+        "<C-e>",
         "<leader>ha",
-        "<Tab>j",
-        "<Tab>k",
-        "<Tab>l",
-        "<Tab>'",
+        "<leader>j",
+        "<leader>k",
+        "<leader>l",
+        "<leader>'",
+        -- "<C-I>",
     },
 }
