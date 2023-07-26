@@ -43,6 +43,9 @@ alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias lsblk="lsblk -e7 -o name,fstype,size,fsavail,fsuse%,type,mountpoint,label"
 alias pamixer="pamixer --allow-boost"
 
+alias="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+
+
 ###################### FUNCTIONS ######################
 
 # Exctract any compressed filetype

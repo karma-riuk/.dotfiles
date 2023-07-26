@@ -24,6 +24,33 @@ export SSB_HOME="$XDG_DATA_HOME"/zoom
 # Less
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+# Android
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+# Calc
+export CALCHISTFILE="$XDG_CACHE_HOME/calc_history"
+# Cargo
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+# GnuPG
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+# Go
+export GOPATH="$XDG_DATA_HOME/go"
+# Gradle
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+# Icons
+export XCURSOR_PATH=/usr/share/icons:$XDG_DATA_HOME/icons
+# IPython
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+# Julia
+export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
+# MySQL
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+# Node Repl
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+# Python tensorflow (might not work)
+export KERAS_HOME="${XDG_STATE_HOME}/keras"
+# Vagrant
+export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+
 
 export TERM="xterm-256color"
 
