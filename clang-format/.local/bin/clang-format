@@ -19,7 +19,7 @@ style_arg_set() {
 }
 
 get_clang_path () {
-    if [[ -f "$MASON_PATH" ]]; then
+    if [ -f "$MASON_PATH" ]; then
         echo "$MASON_PATH"
         return;
     fi
