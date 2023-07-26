@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+CONFIG_FILE_PATH="${XDG_CONFIG_HOME:-$HOME/.config}"/clang-format
+
+MASON_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/bin"
+DEFAULT_PATH="/usr/bin"
+
+style_arg_set() {
+    for arg in "$@"
+    do
+        case "$arg" in
+            -style*|--style*)
+                return 0
+                ;;
+            --)
+                return 1
+        esac
+    done
+    return 1
+}
+
+get_clang_path () {
+    if [[ -f "$MASON_PATH" ]]; then
+        echo "$MASON_PATH"
+        return;
+    fi
+    echo "$DEFAULT_PATH"
+}
+
+PATH_TO_BIN="$(get_clang_path)"
+
+if style_arg_set "$@"; then
+    "$PATH_TO_BIN"/clang-format "$@"
+else
+    "$PATH_TO_BIN"/clang-format --style=file:"$CONFIG_FILE_PATH" "$@"
+fi
