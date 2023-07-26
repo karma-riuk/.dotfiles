@@ -3,57 +3,11 @@
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
-export XDG_LIB_HOME="$HOME/.local/lib" # custom global for libraries
-### Golbal variables for XDG rebase ###
-# ZSH
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
-# Wget
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-# NodeJs
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-# GTK 2
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-# LateX
-export TEXMFHOME="$XDG_DATA_HOME/texmf"
-export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
-export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-var"
-# Nvm
-export NVM_DIR="$XDG_DATA_HOME"/nvm
-# Zoom
-export SSB_HOME="$XDG_DATA_HOME"/zoom
-# Less
-export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-# Android
-export ANDROID_HOME="$XDG_DATA_HOME"/android
-# Calc
-export CALCHISTFILE="$XDG_CACHE_HOME/calc_history"
-# Cargo
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-# GnuPG
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-# Go
-export GOPATH="$XDG_DATA_HOME/go"
-# Gradle
-export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
-# Icons
-export XCURSOR_PATH=/usr/share/icons:$XDG_DATA_HOME/icons
-# IPython
-export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
-# Julia
-export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
-# MySQL
-export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
-# Node Repl
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
-# Python tensorflow (might not work)
-export KERAS_HOME="${XDG_STATE_HOME}/keras"
-# Vagrant
-export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+[[ -f "$ZDOTDIR/xdg_compliance" ]] && source "$ZDOTDIR/xdg_compliance"
 
+export XDG_LIB_HOME="$HOME/.local/lib" # custom global for libraries
 
 export TERM="xterm-256color"
-
 
 # Path to your oh-my-zsh installation.
 export ZSH="$XDG_CONFIG_HOME"/zsh/oh-my-zsh
