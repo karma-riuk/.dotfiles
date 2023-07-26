@@ -2,6 +2,9 @@
 -- vim.keymap.set("n", "<leader>jk", vim.cmd.wq, { desc = "Save and quit file" })
 vim.keymap.set("n", "<leader>q", vim.cmd.q, { desc = "[q]uit current file" })
 vim.keymap.set("n", "<leader>Q", vim.cmd.Q, { desc = "[Q]uit current file, even with unsaved files" })
+
+-- Disable annoying mappings
+vim.keymap.set("n", "q:", "<nop>", { desc = "disable q:" })
 vim.keymap.set("n", "Q", "<nop>", { desc = "disable Q" })
 
 -- Window navigation
