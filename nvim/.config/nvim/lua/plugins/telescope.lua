@@ -2,7 +2,6 @@
 return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    lazy = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         require("telescope").setup({
@@ -47,7 +46,7 @@ return {
         vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
         vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
     end,
-    cmd = {
-        "Telescope",
+    key = {
+        "<leader>s",
     },
 }
