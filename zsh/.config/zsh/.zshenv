@@ -3,30 +3,11 @@
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
+[[ -f "$ZDOTDIR/xdg_compliance" ]] && source "$ZDOTDIR/xdg_compliance"
+
 export XDG_LIB_HOME="$HOME/.local/lib" # custom global for libraries
-### Golbal variables for XDG rebase ###
-# ZSH
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
-# Wget
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-# NodeJs
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-# GTK 2
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-# LateX
-export TEXMFHOME="$XDG_DATA_HOME/texmf"
-export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
-export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-var"
-# Nvm
-export NVM_DIR="$XDG_DATA_HOME"/nvm
-# Zoom
-export SSB_HOME="$XDG_DATA_HOME"/zoom
-# Less
-export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
-export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 export TERM="xterm-256color"
-
 
 # Path to your oh-my-zsh installation.
 export ZSH="$XDG_CONFIG_HOME"/zsh/oh-my-zsh
