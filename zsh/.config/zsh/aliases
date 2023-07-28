@@ -40,7 +40,7 @@ alias pytest="py -m unittest"
 alias q="exit"
 # alias scrot="scrot \"scrot_$(date '+%Y-%m-%d_%H-%M-%S').png\" -e 'mv \$f ~/Pictures/Screenshots/'"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias lsblk="lsblk -e7 -o name,fstype,size,fsavail,fsuse%,type,mountpoint,label"
+alias lsblk="lsblk -e7 -o name,fstype,size,fsavail,fsused,fsuse%,type,mountpoint,label"
 alias pamixer="pamixer --allow-boost"
 
 alias="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
