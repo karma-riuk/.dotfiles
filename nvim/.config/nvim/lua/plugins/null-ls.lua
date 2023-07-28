@@ -34,6 +34,17 @@ return {
                         extra_args = { "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/clang-format" },
                     }))
                 end,
+                luacheck = function()
+                    null_ls.register(null_ls.builtins.diagnostics.luacheck.with({
+                        extra_args = {
+                            "--globals",
+                            "vim",
+                            "awesome",
+                            "client",
+                            "root",
+                        },
+                    }))
+                end,
             },
         })
 
