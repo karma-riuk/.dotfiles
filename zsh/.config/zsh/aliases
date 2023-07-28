@@ -17,8 +17,8 @@ alias wgup="wg-quick up home"
 alias cw="feh --no-fehbg --bg-scale --randomize ~/.local/share/wallpapers/*"
 alias feh="feh --keep-zoom-vp"
 
-# Config 
-## Vim vimrc not relocating properly to XDG 
+# Config
+## Vim vimrc not relocating properly to XDG
 # alias vim='vim -u ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
 alias vim='nvim'
 
@@ -61,14 +61,14 @@ ex () {
         *.tbz2)      tar xjf $1   ;;
         *.tgz)       tar xzf $1   ;;
         *.zip)       unzip $1     ;;
-        *.Z)         uncompress $1;;
+        *.Z)         uncompress $1 ;;
         *.7z)        7z x $1      ;;
         *.deb)       ar x $1      ;;
         *.tar.xz)    tar xf $1    ;;
-        *.tar.zst)   unzstd $1    ;;      
+        *.tar.zst)   unzstd $1    ;;
         *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
-} 
+}
 
 #EPFL stuff (might be usefull for other ideas)
 #cepfl () {
@@ -78,20 +78,20 @@ ex () {
 #sepfl () {
 #    #pdf="$(find "$EPFL"/**/Series/ -name "*.pdf" | fzf-tmux -m)" && echo ">>"${pdf[@]}"<<" && (zathura ${pdf} > /dev/null 2>&1 &)
 #
-#    while IFS= read -r pdf; do 
+#    while IFS= read -r pdf; do
 #        (zathura "$pdf" > /dev/null 2>&1 &)
 #    done <<< $(find "$EPFL"/**/Series/ -name "*.pdf" | fzf-tmux -m)
-#   
+#
 #}
 #
 #eepfl () {
-#    lecture=$(find "$EPFL/" -maxdepth 2 -type f | grep ".tex" | grep -v ".sw\\w"| fzf) 
+#    lecture=$(find "$EPFL/" -maxdepth 2 -type f | grep ".tex" | grep -v ".sw\\w"| fzf)
 #    [[ ! -z "$lecture" ]] && vim "$lecture"
 #}
 
 # Stupid script
 lets_hack_NASA(){
-    for i in $(seq 1 5); do 
+    for i in $(seq 1 5); do
         tree /;
     done
 }
