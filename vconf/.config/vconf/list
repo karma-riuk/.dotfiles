@@ -17,3 +17,4 @@ vim - $XDG_CONFIG_HOME/vim/vimrc
 zathura - $XDG_CONFIG_HOME/zathura/zathurarc
 zsh - $XDG_CONFIG_HOME/zsh/.zshrc
 zshenv - $XDG_CONFIG_HOME/zsh/.zshenv
+xdgenv - $XDG_CONFIG_HOME/zsh/xdg_compliance
