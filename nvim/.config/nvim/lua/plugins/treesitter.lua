@@ -11,6 +11,7 @@ return {
         require("nvim-treesitter.configs").setup({
             -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = {
+                "bash",
                 "bibtex",
                 "c",
                 "cpp",
@@ -19,6 +20,8 @@ return {
                 "json",
                 "latex",
                 "lua",
+                "markdown",
+                "markdown_inline",
                 "matlab",
                 "python",
                 "rust",
