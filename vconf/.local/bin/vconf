@@ -7,6 +7,7 @@ LIST="$(envsubst < "$XDG_CONFIG_HOME/vconf/list")"
 ERR_FILE_EMPTY=2
 ERR_FILE_NOT_EXIST=3
 EDITOR="${EDITOR:-nvim}"
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 
 is_file_empty () {
     if [[ -z "$1" ]]; then 
@@ -16,11 +17,22 @@ is_file_empty () {
 
 edit_from_terminal () {
     is_file_empty "$file"
+    # cd to dotfiles so that (neo)vim's cwd is the dotfiles
+    cd "$DOTFILES"
 
-    if [[ -f "$1" || -d "$1" ]]; then
-        $EDITOR "$1" 
+    local file="$1"
+
+    # Check if the file is a symbolic link, if it is, follow it. This is done 
+    # to make vim-fugitive aware that the file is in ~/.dotfiles, so we can 
+    # commit it right after the modification
+    if [[ -L "$file" ]]; then
+        file="$(realpath $file)"
+    fi
+
+    if [[ -f "$file" || -d "$file" ]]; then
+        $EDITOR "$file" 
     else
-        >&2 echo "Error: File '$1' does not exist on the system"
+        >&2 echo "Error: File '$file' does not exist on the system"
         exit $ERR_FILE_NOT_EXIST
     fi
 }
