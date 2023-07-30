@@ -1,8 +1,10 @@
 return {
     {
         "tpope/vim-fugitive",
-        event = "VeryLazy",
         config = function() end,
+        cmd = {
+            "Git",
+        },
     },
     {
         "lewis6991/gitsigns.nvim",
