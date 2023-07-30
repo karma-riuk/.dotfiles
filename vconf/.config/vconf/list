@@ -13,6 +13,7 @@ qutebrowser - $XDG_CONFIG_HOME/qutebrowser/config.py
 termite - $XDG_CONFIG_HOME/termite/config
 tmux - $XDG_CONFIG_HOME/tmux/tmux.conf
 vconf - $XDG_CONFIG_HOME/vconf/list
+vconf-bin - $HOME/.local/bin/vconf
 vim - $XDG_CONFIG_HOME/vim/vimrc
 zathura - $XDG_CONFIG_HOME/zathura/zathurarc
 zsh - $XDG_CONFIG_HOME/zsh/.zshrc
