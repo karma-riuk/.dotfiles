@@ -59,7 +59,7 @@ with_dmenu () {
 }
 
 with_argument () {
-    local possibilities=$(echo "$LIST" | grep "^$1\w* - ")
+    local possibilities=$(echo "$LIST" | grep "^\S*$1\S* - ")
     # Check if there is an exact match in the possiblites, if there is select
     # that one (example if $1 == zsh and there is 'zsh' and 'zshenv' in the
     # possiblities, then select 'zsh' because it is an exact match)
