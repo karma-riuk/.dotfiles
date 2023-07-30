@@ -10,8 +10,8 @@ EDITOR="${EDITOR:-nvim}"
 DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 
 is_file_empty () {
-    if [[ -z "$1" ]]; then 
-        exit $ERR_FILE_EMPTY 
+    if [[ -z "$1" ]]; then
+        exit $ERR_FILE_EMPTY
     fi
 }
 
@@ -22,15 +22,15 @@ edit_from_terminal () {
 
     local file="$1"
 
-    # Check if the file is a symbolic link, if it is, follow it. This is done 
-    # to make vim-fugitive aware that the file is in ~/.dotfiles, so we can 
+    # Check if the file is a symbolic link, if it is, follow it. This is done
+    # to make vim-fugitive aware that the file is in ~/.dotfiles, so we can
     # commit it right after the modification
     if [[ -L "$file" ]]; then
         file="$(realpath $file)"
     fi
 
     if [[ -f "$file" || -d "$file" ]]; then
-        $EDITOR "$file" 
+        $EDITOR "$file"
     else
         >&2 echo "Error: File '$file' does not exist on the system"
         exit $ERR_FILE_NOT_EXIST
@@ -69,7 +69,7 @@ with_argument () {
     elif [[ "$(echo "$possibilities" | grep "^$1 - ")" ]]; then
         local file="$(echo "$possibilities" | grep "^$1 - " | sed 's/^.*- //')"
         edit_from_terminal "$file"
-    else 
+    else
         with_fzf "$possibilities"
     fi
 
@@ -77,10 +77,9 @@ with_argument () {
 
 case "$1" in
     '')
-        with_fzf "$LIST";;
+        with_fzf "$LIST" ;;
     -d|--dmenu)
-        with_dmenu "$LIST";;
+        with_dmenu "$LIST" ;;
     *)
-        with_argument "$1";;
+        with_argument "$1" ;;
 esac
-
