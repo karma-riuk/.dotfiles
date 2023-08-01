@@ -32,6 +32,22 @@ return {
         winbar = {
             lualine_z = { "filename" },
         },
+        sections = {
+            lualine_x = {
+                {
+                    "selectioncount",
+                    fmt = function(str)
+                        if str == "" then
+                            return ""
+                        else
+                            return "v_count: " .. str
+                        end
+                    end,
+                },
+                "fileformat",
+                "filetype",
+            },
+        },
         extensions = {
             "toggleterm",
             "man",
