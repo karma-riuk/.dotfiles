@@ -43,3 +43,11 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "[y]ank to system cl
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "[p]aste from system clipboard" })
 vim.keymap.set("n", "<leader>P", [["+P]], { desc = "[P]aste from system clipboard" })
+
+-- wqa!
+vim.keymap.set("n", "ZZ", function()
+    -- wirte all buffers first
+    vim.cmd.wa()
+    -- quit all buffers
+    vim.cmd("silent qa") -- silent to prevent 'Press enter to continue' on last buffer close
+end, { desc = ":wa | silent qa" })
