@@ -30,16 +30,6 @@ return {
             lualine_y = { "filename" },
         },
         winbar = {
-            -- lualine_c = {
-            --     {
-            --         "navic",
-            --         color_correction = "static",
-            --         padding = {
-            --             left = 1,
-            --             right = 0,
-            --         },
-            --     },
-            -- },
             lualine_z = { "filename" },
         },
         extensions = {
