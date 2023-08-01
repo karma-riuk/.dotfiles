@@ -1,7 +1,11 @@
 -- vim.keymap.set("n", "<leader>s", vim.cmd.up, {desc = "[s]ave file (only if changes happened)"})
 -- vim.keymap.set("n", "<leader>jk", vim.cmd.wq, { desc = "Save and quit file" })
-vim.keymap.set("n", "<leader>q", vim.cmd.q, { desc = "[q]uit current file" })
-vim.keymap.set("n", "<leader>Q", vim.cmd.Q, { desc = "[Q]uit current file, even with unsaved files" })
+vim.keymap.set("n", "<leader>q", function()
+    vim.cmd("silent q") -- silent to prevent 'Press enter to continue' on last buffer close
+end, { desc = "[q]uit current file" })
+vim.keymap.set("n", "<leader>Q", function()
+    vim.cmd("silent Q") -- silent to prevent 'Press enter to continue' on last buffer close
+end, { desc = "[Q]uit current file, even with unsaved files" })
 
 -- Disable annoying mappings
 vim.keymap.set("n", "q:", "<nop>", { desc = "disable q:" })
