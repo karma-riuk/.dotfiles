@@ -54,9 +54,12 @@ return {
         },
     },
     config = function(_, opts)
-        local orignal_sections = require("lualine").get_config().sections.lualine_x
+        local lualine_x = require("lualine").get_config().sections.lualine_x
+        table.insert(lualine_x, 1, {
+            n_words_component,
+        })
         local texcount_ext = { filetypes = { "tex" }, sections = require("lualine").get_config().sections }
-        texcount_ext.sections.lualine_x = vim.tbl_extend("keep", { n_words_component }, orignal_sections)
+        texcount_ext.sections.lualine_x = lualine_x
         table.insert(opts.extensions, texcount_ext)
 
         require("lualine").setup(opts)

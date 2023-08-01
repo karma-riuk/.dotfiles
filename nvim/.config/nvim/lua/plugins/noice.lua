@@ -31,15 +31,20 @@ return {
     config = function(_, opts)
         require("noice").setup(opts)
         vim.opt.showmode = false
+
+        local lualine_x = require("lualine").get_config().sections.lualine_x
+        table.insert(lualine_x, 1, {
+            require("noice").api.statusline.mode.get,
+            cond = require("noice").api.statusline.mode.has,
+            color = { fg = "#ff9e64" },
+        })
+        -- local new_x = vim.tbl_extend("keep", {
+        --     ,
+        -- }, orignal_sections)
+
         require("lualine").setup({
             sections = {
-                lualine_x = {
-                    {
-                        require("noice").api.statusline.mode.get,
-                        cond = require("noice").api.statusline.mode.has,
-                        color = { fg = "#ff9e64" },
-                    },
-                },
+                lualine_x = lualine_x,
             },
         })
     end,
