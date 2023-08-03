@@ -40,7 +40,7 @@ vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format, { desc = "[f]ormat
 
 -- System clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "[y]ank to system clipboard" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank to system clipboard" })
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank to system clipboard", remap = true })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "[p]aste from system clipboard" })
 vim.keymap.set("n", "<leader>P", [["+P]], { desc = "[P]aste from system clipboard" })
 
