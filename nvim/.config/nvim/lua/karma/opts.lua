@@ -16,6 +16,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.colorcolumn = "80"
+vim.opt.textwidth = 80
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
