@@ -51,3 +51,9 @@ vim.keymap.set("n", "ZZ", function()
     -- quit all buffers
     vim.cmd("silent qa") -- silent to prevent 'Press enter to continue' on last buffer close
 end, { desc = ":wa | silent qa" })
+
+-- Disbale format on save
+vim.keymap.set("n", "<leader>F", function()
+    vim.notify("Disabling formatting on save")
+    vim.api.nvim_clear_autocmds({ group = "LspFormatting" })
+end, { desc = "Choose closest spell match" })
