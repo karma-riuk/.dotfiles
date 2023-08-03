@@ -4,7 +4,11 @@ local servers = {
     cssls = {},
     gopls = {},
     html = {},
-    ltex = {},
+    ltex = {
+        ltex = {
+            checkFrequency = "save",
+        },
+    },
     texlab = {},
     pyright = {},
     rust_analyzer = {},
