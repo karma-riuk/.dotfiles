@@ -60,7 +60,6 @@ glow
 gnome-keyring
 gnu-netcat
 gparted
-gperf
 gradle
 grub
 gvim
@@ -138,14 +137,11 @@ powertop
 pulseaudio
 pulseaudio-bluetooth
 python-adblock
-python-html5lib
 python-pip
 python-pynvim
 python-pytz
 python-pywal
 python-tldextract
-python-webencodings
-qt5-doc
 qt5ct
 qutebrowser
 ranger
