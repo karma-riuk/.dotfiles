@@ -41,7 +41,7 @@ efibootmgr
 entr
 ethtool
 evtest
-exa
+eza
 fakeroot
 fasd
 feh
@@ -261,7 +261,6 @@ xorg-xwud
 xournalpp
 xprintidle
 xterm
-youtube-dl
 zathura
 zathura-pdf-mupdf
 zip
