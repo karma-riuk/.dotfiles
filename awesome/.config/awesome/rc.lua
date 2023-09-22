@@ -107,7 +107,11 @@ awful.layout.layouts = {
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock()
+
+local pacupdates = awful.widget.watch('bash -c "checkupdates | wc -l"', 30 * 60, function(widget, stdout)
+    widget:set_text("   " .. stdout .. "")
+end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -198,6 +202,13 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+    local vert_sep = wibox.widget({
+        widget = wibox.widget.separator,
+        orientation = "vertical",
+        -- forced_width = 2,
+        color = "#353535",
+    })
+
     -- Add widgets to the wibox
     s.mywibox:setup({
         layout = wibox.layout.align.horizontal,
@@ -206,10 +217,12 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
         },
-        nil, -- Middle widget
+        nil,
         { -- Right widgets
+            spacing = 5,
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
+            pacupdates,
             mytextclock,
             s.mylayoutbox,
         },
