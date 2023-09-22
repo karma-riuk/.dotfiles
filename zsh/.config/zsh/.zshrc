@@ -26,7 +26,7 @@ autoload -U promptinit; promptinit;
 zstyle :prompt:pure:prompt:success color cyan
 prompt pure
 
-
+# export AUTO_LS_NEWLINE=false
 
 export NVM_LAZY_LOAD=true
 
