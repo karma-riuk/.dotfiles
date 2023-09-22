@@ -44,6 +44,10 @@ return {
                         extra_args = { "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/clang-format" },
                     }))
                 end,
+                eslint_d = function()
+                    null_ls.register(null_ls.builtins.diagnostics.eslint_d)
+                    -- null_ls.register(null_ls.builtins.code_actions.eslint_d) -- was annoying with fidget
+                end,
                 luacheck = function()
                     null_ls.register(null_ls.builtins.diagnostics.luacheck.with({
                         extra_args = {
