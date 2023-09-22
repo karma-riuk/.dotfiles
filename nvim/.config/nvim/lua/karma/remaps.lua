@@ -45,7 +45,7 @@ vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "[p]aste from system
 vim.keymap.set("n", "<leader>P", [["+P]], { desc = "[P]aste from system clipboard" })
 
 -- wqa!
-vim.keymap.set("n", "ZZ", function()
+vim.keymap.set("n", "ZA", function()
     -- wirte all buffers first
     vim.cmd.wa()
     -- quit all buffers
