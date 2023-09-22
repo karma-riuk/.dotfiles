@@ -19,7 +19,8 @@ export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 
 # Setting vim to view man pages
-export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist norelativenumber nonumber' -\""
+# export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist norelativenumber nonumber' -\""
+export MANPAGER="nvim +Man!"
 
 export TODAY=$(date '+%A %d/%m/%Y')
 
