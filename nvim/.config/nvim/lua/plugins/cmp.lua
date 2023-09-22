@@ -70,9 +70,10 @@ return {
             }),
             sources = {
                 { name = "nvim_lsp" },
+                { name = "luasnip" },
                 -- { name = "ultisnips" },
-                { name = "buffer",  keyword_length = 5, max_item_count = 3 },
-                { name = "spell",   keyword_length = 5, max_item_count = 2 },
+                { name = "buffer", keyword_length = 5, max_item_count = 3 },
+                { name = "spell", keyword_length = 5, max_item_count = 2 },
                 { name = "path" },
             },
             sorting = {
@@ -87,7 +88,7 @@ return {
             formatting = {
                 format = require("lspkind").cmp_format({
                     with_text = true, -- do not show text alongside icons
-                    maxwidth = 50,    -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     menu = {
                         buffer = "[Buf]",
                         nvim_lsp = "[LSP]",
