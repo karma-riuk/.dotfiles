@@ -7,3 +7,5 @@
 	rebase = false
 [push]
 	followTags = true
+[alias]
+    pushpr = "!f() { git commit --allow-empty -m 'push to execute post-receive';git push origin main; }; f"
