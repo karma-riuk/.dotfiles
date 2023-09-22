@@ -23,7 +23,6 @@ return {
                 "gofumpt",
                 "jq",
                 "latexindent",
-                "prettier",
                 "stylua",
             },
             automatic_setup = true,
