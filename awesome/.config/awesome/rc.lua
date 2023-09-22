@@ -675,6 +675,7 @@ awful.rules.rules = {
                 "mpv",
                 "Thunar",
                 "Balls", -- USi Bachelor Project (repo: flying-balls)
+                "maze-solver-go",
             },
 
             -- Note that the name property shown in xprop might be set slightly after creation of the client
