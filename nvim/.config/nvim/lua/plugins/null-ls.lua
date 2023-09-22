@@ -28,6 +28,17 @@ return {
             automatic_setup = true,
             automatic_installation = false,
             handlers = {
+                latexindent = function()
+                    null_ls.register(null_ls.builtins.formatting.latexindent.with({
+                        extra_args = {
+                            "-g",
+                            "/dev/null",
+                            "-m",
+                            "-l",
+                            os.getenv("XDG_CONFIG_HOME") .. "/latexindent/defaultSettings.yaml",
+                        },
+                    }))
+                end,
                 clang_format = function()
                     null_ls.register(null_ls.builtins.formatting.clang_format.with({
                         extra_args = { "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/clang-format" },
