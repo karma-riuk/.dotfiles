@@ -285,7 +285,6 @@ globalkeys = gears.table.join(
         group = "awesome",
     }),
     awful.key({ modkey, "Control" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-
     awful.key({ modkey }, "b", function()
         -- awful.spawn("blueman-manager")
         scratch.toggle("blueman-manager", { class = "Blueman-manager" })
@@ -306,7 +305,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "h", function()
         awful.tag.incncol(1, nil, true)
     end, { description = "increase the number of columns", group = "layout" }),
-
     awful.key({ modkey, "Control" }, "l", function()
         awful.tag.incncol(-1, nil, true)
     end, { description = "decrease the number of columns", group = "layout" }),
@@ -360,7 +358,6 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioRaiseVolume", function()
         awful.spawn("volumectl -i")
     end, { description = "Increase volume", group = "Media management" }),
-
     awful.key({ "Shift" }, "XF86AudioRaiseVolume", function()
         awful.spawn("volumectl -I")
     end, {
@@ -370,7 +367,6 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioLowerVolume", function()
         awful.spawn("volumectl -d")
     end, { description = "Decrease volume", group = "Media management" }),
-
     awful.key({ "Shift" }, "XF86AudioLowerVolume", function()
         awful.spawn("volumectl -D")
     end, {
@@ -394,15 +390,12 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86MonBrightnessDown", function()
         awful.spawn("brightctl -d")
     end, { description = "Decrease brigthness", group = "Brightness management" }),
-
     awful.key({ "Shift" }, "XF86MonBrightnessDown", function()
         awful.spawn("brightctl --set-min-brightness")
     end, { description = "Set min brightness", group = "Brightness management" }),
-
     awful.key({}, "XF86MonBrightnessUp", function()
         awful.spawn("brightctl -i")
     end, { description = "Increase brigthness", group = "Brightness management" }),
-
     awful.key({ "Shift" }, "XF86MonBrightnessUp", function()
         awful.spawn("brightctl --set-max-brightness")
     end, { description = "Set max brightness", group = "Brightness management" })
@@ -481,19 +474,15 @@ clientkeys = gears.table.join(
         awful.client.focus.global_bydirection("right")
         c:lower()
     end, { description = "Focus the window on the right", group = "layout" }),
-
     awful.key({ modkey, "Shift" }, "h", function()
         awful.tag.incmwfact(-0.05)
     end, { description = "Decrease the with of the master node", group = "layout" }),
-
     awful.key({ modkey, "Shift" }, "j", function()
         awful.client.incwfact(0.05)
     end, { description = "Increase the with of the master node", group = "layout" }),
-
     awful.key({ modkey, "Shift" }, "k", function()
         awful.client.incwfact(-0.05)
     end, { description = "Decrease the with of the master node", group = "layout" }),
-
     awful.key({ modkey, "Shift" }, "l", function()
         awful.tag.incmwfact(0.05)
     end, { description = "Increase the with of the master node", group = "layout" })
