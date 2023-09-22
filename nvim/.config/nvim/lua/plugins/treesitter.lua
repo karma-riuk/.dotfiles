@@ -12,13 +12,13 @@ return {
             -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = {
                 "bash",
-                "bibtex",
+                -- "bibtex",
                 "c",
                 "cpp",
                 "go",
                 "html",
                 "json",
-                "latex",
+                -- "latex",
                 "lua",
                 "markdown",
                 "markdown_inline",
