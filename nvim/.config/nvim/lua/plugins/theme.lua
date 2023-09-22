@@ -1,3 +1,12 @@
+-- from https://www.reddit.com/r/neovim/comments/yexeil/extending_highlight_groups_in_lua/
+-- Usage extend_hl('Comment', { italic = true })
+function extend_hl(name, def)
+    local current_def = vim.api.nvim_get_hl_by_name(name, true)
+    local new_def = vim.tbl_extend("force", {}, current_def, def)
+
+    vim.api.nvim_set_hl(0, name, new_def)
+end
+
 return {
     -- Theme inspired by Atom
     -- "sainnhe/sonokai",
@@ -23,7 +32,9 @@ return {
             hi FloatBorder guibg=None ctermbg=None
             hi EndOfBuffer guibg=None ctermbg=None
             hi SignColumn guibg=None ctermbg=None
+            hi! link SpellBad DiagnosticError
         ]])
+        extend_hl("SpellBad", { italic = true, underline = true, bold = true })
 
         -- [[ Tokyonight (for light theme) ]]
         -- require("tokyonight").setup({
