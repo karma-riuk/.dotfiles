@@ -1,3 +1,13 @@
+function get_dictionary_words()
+    local path = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+    local words = {}
+
+    for word in io.open(path, "r"):lines() do
+        table.insert(words, word)
+    end
+    return words
+end
+
 local servers = {
     bashls = {},
     clangd = {},
@@ -7,6 +17,10 @@ local servers = {
     ltex = {
         ltex = {
             checkFrequency = "save",
+            dictionary = {
+                ["en-US"] = get_dictionary_words(),
+                ["en-GB"] = get_dictionary_words(),
+            },
         },
     },
     texlab = {},
