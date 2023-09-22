@@ -1,4 +1,4 @@
-# ZSH stuff 
+# ZSH stuff
 #
 HIST_STAMPS="dd/mm/yyyy"
 setopt correct
@@ -41,14 +41,13 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen apply
 
-
 ## To disable auto-ls commands to be run, uncomment the line below
 # AUTO_LS_COMMANDS=()
 
 bindkey -v
 function zle-line-init zle-keymap-select {
-            RPS1="${${KEYMAP/vicmd/-- Normal --}/(main|viins)/}"
-            zle reset-prompt
+    RPS1="${${KEYMAP/vicmd/-- Normal --}/(main|viins)/}"
+    zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
