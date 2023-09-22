@@ -13,9 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 
+require("karma.opts")
+
 require("lazy").setup("plugins", {
     ui = {
         border = "rounded",
     },
 })
-require("karma")
+require("karma.remaps")

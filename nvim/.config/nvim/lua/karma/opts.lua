@@ -43,6 +43,11 @@ vim.opt.wildignore:append({
     "+*~",
     "*.sw?",
     "*.tmp",
+    -- Ignore tex files
+    "*.aux",
+    "*.fdb_latexmk",
+    "*.fls",
+    "*x.gz",
 })
 
 -- Enable break indent

@@ -40,6 +40,11 @@ return {
         },
     },
     config = function(_, opts)
+        local new_ignores = vim.opt.wildignore:get()
+        for k, v in pairs(new_ignores) do
+            new_ignores[k] = v:gsub([[%.]], [[\.]]):gsub("*", ".*"):gsub("~", "\\~")
+        end
+        vim.list_extend(opts.filters.custom, new_ignores)
         require("nvim-tree").setup(opts)
         vim.cmd([[hi! link NvimTreeNormal Normal]])
         vim.cmd([[hi! link NvimTreeEndOfBuffer EndOfBuffer]])
