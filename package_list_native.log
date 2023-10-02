@@ -72,6 +72,7 @@ inotify-tools
 intellij-idea-community-edition
 jdk-openjdk
 jre11-openjdk
+libcurl-gnutls
 libfprint
 libgnt
 libreoffice-still
