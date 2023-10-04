@@ -94,6 +94,7 @@ m4
 make
 mariadb
 materia-gtk-theme
+maven
 mesa-utils
 mlocate
 mpc
