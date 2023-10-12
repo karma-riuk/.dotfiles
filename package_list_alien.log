@@ -18,6 +18,7 @@ lua-format
 matlab
 mongodb-bin
 mongodb-compass
+neo4j-community
 nerd-fonts-noto-sans-mono
 pacaur
 pharo-launcher
@@ -26,7 +27,6 @@ python-spotdl
 python-validity
 python2
 qdirstat-bin
-scala
 siji
 simple-mtpfs
 simplescreenrecorder
