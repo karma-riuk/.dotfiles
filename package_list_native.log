@@ -72,6 +72,7 @@ intellij-idea-community-edition
 jdk-openjdk
 jdk8-openjdk
 jre11-openjdk
+libcurl-gnutls
 libfprint
 libgnt
 libreoffice-still
