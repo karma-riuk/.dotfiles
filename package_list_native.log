@@ -138,6 +138,7 @@ pulseaudio
 pulseaudio-bluetooth
 python-adblock
 python-pip
+python-poetry
 python-pynvim
 python-pytz
 python-pywal
