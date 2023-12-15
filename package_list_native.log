@@ -24,6 +24,7 @@ bluez-utils
 bottom
 breeze-gtk
 breeze-icons
+cabal-install
 cbatticon
 cjson
 clang
@@ -53,6 +54,7 @@ fwupd
 fzf
 gcc
 gdb
+ghc
 gimp
 git
 glow
