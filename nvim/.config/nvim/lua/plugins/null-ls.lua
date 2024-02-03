@@ -13,7 +13,7 @@ return {
                 -- [[ Linters ]]
                 "eslint_d",
                 "luacheck",
-                "pylint",
+                -- "pylint",
                 -- "vale",
 
                 -- [[ Formatters ]]
