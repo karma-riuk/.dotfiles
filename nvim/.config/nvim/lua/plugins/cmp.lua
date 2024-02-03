@@ -1,14 +1,10 @@
 return {
     -- Autocompletion
     "hrsh7th/nvim-cmp",
-    event = {
-        "InsertEnter",
-        "CmdlineEnter",
-    },
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
+        -- "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip",
 
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
@@ -26,19 +22,17 @@ return {
     },
     config = function()
         local cmp = require("cmp")
-        local luasnip = require("luasnip")
-        require("luasnip.loaders.from_vscode").lazy_load()
-        luasnip.config.setup({})
+        -- local luasnip = require("luasnip")
+        -- require("luasnip.loaders.from_vscode").lazy_load()
+        -- luasnip.config.setup({})
 
         cmp.setup({
-            snippet = {
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end,
-            },
-            window = {
-                documentation = cmp.config.window.bordered(),
-            },
+            -- snippet = {
+            --     expand = function(args)
+            --         luasnip.lsp_expand(args.body)
+            --     end
+            -- },
+            window = { documentation = cmp.config.window.bordered() },
             mapping = cmp.mapping.preset.insert({
                 ["<C-n>"] = cmp.mapping.select_next_item(),
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -52,8 +46,8 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif luasnip.expand_or_locally_jumpable() then
-                        luasnip.expand_or_jump()
+                        -- elseif luasnip.expand_or_locally_jumpable() then
+                        --     luasnip.expand_or_jump()
                     else
                         fallback()
                     end
@@ -61,8 +55,8 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.locally_jumpable(-1) then
-                        luasnip.jump(-1)
+                        -- elseif luasnip.locally_jumpable(-1) then
+                        --     luasnip.jump(-1)
                     else
                         fallback()
                     end
@@ -104,26 +98,18 @@ return {
         cmp.setup.filetype("gitcommit", {
             sources = cmp.config.sources({
                 { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-            }, {
-                { name = "buffer" },
-            }),
+            }, { { name = "buffer" } }),
         })
 
         -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline({ "/", "?" }, {
             mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
+            sources = { { name = "buffer" } },
         })
 
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                { name = "cmdline" },
-            }),
+            sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
         })
     end,
 }
