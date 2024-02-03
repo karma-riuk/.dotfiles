@@ -4,27 +4,33 @@ return {
     lazy = true,
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "JoosepAlviste/nvim-ts-context-commentstring",
+        {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            init = function()
+                vim.g.skip_ts_context_commentstring_module = true
+            end,
+            setup = false,
+        },
     },
     build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.configs").setup({
             -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = {
-                "bash",
-                -- "bibtex",
+                "bash", -- "bibtex",
                 "c",
                 "cpp",
                 "go",
                 "html",
-                "json",
-                -- "latex",
+                "java",
+                "json", -- "latex",
                 "lua",
                 "markdown",
                 "markdown_inline",
                 "matlab",
                 "python",
                 "rust",
+                "scala",
                 "tsx",
                 "typescript",
                 "vim",
@@ -56,9 +62,7 @@ return {
                     node_decremental = "<M-space>",
                 },
             },
-            context_commentstring = {
-                enable = true,
-            },
+            context_commentstring = { enable = true },
             textobjects = {
                 select = {
                     enable = true,
