@@ -62,7 +62,7 @@ return {
             },
         })
 
-        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+        local augroup = vim.api.nvim_create_augroup("NullLspFormatting", {})
 
         require("null-ls").setup({
             border = "single",
