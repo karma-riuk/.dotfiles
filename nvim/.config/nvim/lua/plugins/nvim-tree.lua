@@ -52,7 +52,7 @@ return {
     keys = {
         {
             "<C-n>",
-            "<cmd> NvimTreeFocus<CR>",
+            "<cmd>NvimTreeFocus<CR>",
             desc = "Toggle/Focus NeoTree",
         },
     },
