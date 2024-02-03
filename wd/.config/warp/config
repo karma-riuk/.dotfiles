@@ -21,5 +21,7 @@ cn1:~/Documents/USI/BA4_2022/Computer Networking/Assignments/01
 sa4-front:~/Documents/USI/BA4_2022/Software Atelier 4/project/frontend
 sa4-back:~/Documents/USI/BA4_2022/Software Atelier 4/project/backend
 awe:~/.config/awesome
-usi:~/Documents/USI/BA6_2023
 aoc:~/code/Advent of Code/2022/go
+usi:~/Documents/USI/MA1_2023
+luce:~/Documents/USI/Luce_Lab
+tmp:/tmp/tests
