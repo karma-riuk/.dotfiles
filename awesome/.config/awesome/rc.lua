@@ -19,12 +19,6 @@ package.loaded["naughty.dbus"] = {}
 
 -- Scratchpad library
 local scratch = require("scratch")
-local screen_width = function()
-    return awful.screen.focused().geometry.width
-end
-local screen_height = function()
-    return awful.screen.focused().geometry.height
-end
 
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -260,11 +254,18 @@ globalkeys = gears.table.join(
     }),
     awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }), -- Scratchpad terminal
     awful.key({ modkey }, "u", function()
-        scratch.toggle(terminal .. " -t scratch-term -e tmux-setup", { name = "scratch-term" })
+        scratch.toggle(terminal .. " -t scratch-term -e tmux-setup", {
+            rule = { name = "scratch-term" },
+            width = 0.75,
+            height = 0.70,
+        })
     end, { description = "Toggle the tmux scratchpad", group = "tag" }),
 
     awful.key({ modkey }, "i", function()
-        scratch.toggle(terminal .. " -t scratch-htop -e nice -n 19 btm --battery", { name = "scratch-htop" })
+        scratch.toggle(
+            terminal .. " -t scratch-htop -e nice -n 19 btm --battery",
+            { rule = { name = "scratch-htop" }, width = 0.8, height = 0.8 }
+        )
     end, { description = "Toggle the tmux scratchpad", group = "tag" }),
 
     awful.key({ modkey }, "a", function()
@@ -300,18 +301,18 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
     awful.key({ modkey }, "b", function()
         -- awful.spawn("blueman-manager")
-        scratch.toggle("blueman-manager", { class = "Blueman-manager" })
+        scratch.toggle("blueman-manager", { rule = { class = "Blueman-manager" } })
     end, {
         description = "Spawns a rofi prompt to connect paired bluetooth devices",
         group = "Utilities",
     }),
     awful.key({ modkey, "Shift" }, "b", function()
-        scratch.toggle(terminal .. " -t scratch-bluetooth  -e bluetoothctl", { name = "scratch-bluetooth" })
+        scratch.toggle(terminal .. " -t scratch-bluetooth  -e bluetoothctl", {
+            rule = { name = "scratch-bluetooth" },
+            width = 0.45,
+            height = 0.4,
+        })
     end, { description = "Spawns a bluetoothctl terminal", group = "Utilities" }),
-
-    awful.key({ modkey }, "n", function()
-        scratch.toggle("bitwarden-desktop", { name = "Bitwarden" })
-    end, { description = "Spawns a bitwarden window", group = "Utilities" }),
 
     -- awful.tag.incnmaster(-1, nil, true)  -- decrease # of master clients
 
@@ -603,50 +604,11 @@ awful.rules.rules = {
                 "qutebrowser",
                 "Google-chrome",
                 "Thunar",
+                "code-oss",
+                "Microsoft Teams - Preview",
             },
         },
         properties = { maximized = false }, --
-    }, -- Specific rules for scratchpads
-    ---- Tmux
-    {
-        rule = {
-            -- role = "scratchpad",
-            -- class = "scratchpad",
-            name = "scratch-term",
-        },
-        properties = {
-            width = screen_width() * 0.75,
-            height = screen_height() * 0.70,
-        },
-    }, ---- Htop
-    {
-        rule = {
-            -- role = "scratchpad",
-            -- class = "scratchpad",
-            name = "scratch-htop",
-        },
-        properties = {
-            width = screen_width() * 0.8,
-            height = screen_height() * 0.8,
-        },
-    }, ---- Bluetoothctl
-    {
-        rule = {
-            -- role = "scratchpad",
-            -- class = "scratchpad",
-            name = "scratch-bluetooth",
-        },
-        properties = {
-            width = screen_width() * 0.45,
-            height = screen_height() * 0.4,
-        },
-    },
-    {
-        rule = { name = "Bitwarden" },
-        properties = {
-            width = screen_width() * 0.6,
-            height = screen_height() * 0.6,
-        },
     }, -- Floating clients.
     { rule = { class = "MATLAB*", name = "Figure*" }, properties = { ontop = true } },
     {
@@ -676,6 +638,7 @@ awful.rules.rules = {
                 "Thunar",
                 "Balls", -- USi Bachelor Project (repo: flying-balls)
                 "maze-solver-go",
+                "pharo",
             },
 
             -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -686,6 +649,7 @@ awful.rules.rules = {
                 "Picture in picture",
                 "Sign in – Google accounts - Vivaldi",
                 "Style Editor - TikZiT",
+                "Bitwarden - Vivaldi",
             },
             role = {
                 "AlarmWindow", -- Thunderbird's calendar.
