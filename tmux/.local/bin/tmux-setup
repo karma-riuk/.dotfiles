@@ -1,22 +1,43 @@
 #!/bin/bash
 
-session_name="drpdwn"
-
-if [[ "$1" = "-f" ]] || [[ "$1" = "--force" ]]; then
-    tmux kill-session -t $session_name 
-fi
-
-
-SA3_DIR="$HOME/Documents/USI/BA3_2021/Software Atelier 3 The Web/AutoAutomaton"
-
-if [[ -z "$(tmux list-session | grep $session_name)" ]]; then
-    tmux new-session -d -n main -s $session_name
+setup_drpdwm() {
+    tmux new-session -d -n main -s "drpdwn"
     tmux new-window -n tests -c /tmp/tests
-    tmux split-window -h -c /tmp/tests
-    tmux selectp -t 0
-    tmux new-window -n bin -c ~/.local/bin
-    tmux new-window -n "run in background" 
+    tmux new-window -n "run in background"
     tmux selectw -t 1
-fi
+}
 
-tmux attach-session -t $session_name
+setup_usi() {
+    USI_DIR="$HOME/Documents/USI/MA1_2023"
+
+    tmux new-session -d -s "usi" -n AJP -c "$HOME/Documents/USI/MA1_2023/Advanced Java Programming"
+    tmux new-window -n "Data D&M" -c "$HOME/Documents/USI/MA1_2023/Data Design and Modelling"
+    tmux new-window -n "Design 101" -c "$HOME/Documents/USI/MA1_2023/Design 101"
+    tmux new-window -n "EDSL" -c "$HOME/Documents/USI/MA1_2023/EDSL/"
+    tmux new-window -n "Prog. Styles" -c "$HOME/Documents/USI/MA1_2023/Programming Styles/"
+    tmux new-window -n "Software D&M" -c "$HOME/Documents/USI/MA1_2023/Software Design and Modelling"
+    tmux selectw -t 1
+}
+
+setup_session() {
+    session_name="$1"
+
+    if [[ "$2" = "-f" ]] || [[ "$2" = "--force" ]]; then
+        tmux kill-session -t $session_name
+    fi
+
+
+    if [[ -z "$(tmux list-session | grep $session_name)" ]]; then
+        case "$session_name" in
+            drpdwn) setup_drpdwm
+                ;;
+            usi) setup_usi
+                ;;
+        esac
+    fi
+}
+
+setup_session "drpdwn"
+setup_session "usi"
+
+tmux attach-session -t "drpdwn"
