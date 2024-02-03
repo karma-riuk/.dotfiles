@@ -22,7 +22,6 @@ alias feh="feh --keep-zoom-vp"
 # alias vim='vim -u ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
 alias vim='nvim'
 
-alias zat='zathura'
 
 # LateX tlmgr
 # alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
@@ -94,5 +93,9 @@ lets_hack_NASA(){
     for i in $(seq 1 5); do
         tree /;
     done
+}
+
+zat () {
+    zathura $* &!
 }
 # vim: ft=zsh
