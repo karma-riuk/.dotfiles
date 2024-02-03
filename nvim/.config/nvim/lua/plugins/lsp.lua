@@ -2,9 +2,7 @@ function get_dictionary_words()
     local path = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
     local words = {}
 
-    for word in io.open(path, "r"):lines() do
-        table.insert(words, word)
-    end
+    for word in io.open(path, "r"):lines() do table.insert(words, word) end
     return words
 end
 
@@ -19,13 +17,12 @@ local servers = {
             checkFrequency = "save",
             dictionary = {
                 ["en-US"] = get_dictionary_words(),
-                ["en-GB"] = get_dictionary_words(),
-            },
-        },
+                ["en-GB"] = get_dictionary_words()
+            }
+        }
     },
     texlab = {},
     pyright = {},
-    rust_analyzer = {},
     tsserver = {},
     vimls = {},
 
@@ -34,46 +31,59 @@ local servers = {
             runtime = {
                 -- Tell the language server which version of Lua you're using
                 -- (most likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
+                version = "LuaJIT"
             },
-            diagnostics = { globals = { "vim", "awesome", "client", "root" } },
+            diagnostics = {globals = {"vim", "awesome", "client", "root"}},
             workspace = {
                 -- Make the server aware of Neovim runtime files
                 library = {
                     vim.api.nvim_get_runtime_file("", true),
-                    "/usr/share/awesome/lib",
+                    "/usr/share/awesome/lib"
                 },
-                checkThirdParty = false,
+                checkThirdParty = false
             },
             -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
-            completion = {
-                callSnippet = "Replace",
-            },
-        },
-    },
+            telemetry = {enable = false},
+            completion = {callSnippet = "Replace"}
+        }
+    }
 }
 
-local on_attach = function(_, bufnr)
-    local nmap = function(keys, func, desc)
-        if desc then
-            desc = "LSP: " .. desc
-        end
+local on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+        print("lsp formatting enabled")
+        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+        vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+                vim.lsp.buf.format({async = false})
+            end
+        })
+    end
 
-        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+    local nmap = function(keys, func, desc)
+        if desc then desc = "LSP: " .. desc end
+
+        vim.keymap.set("n", keys, func, {buffer = bufnr, desc = desc})
     end
 
     nmap("<leader>r", vim.lsp.buf.rename, "[R]ename")
     nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
     nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-    nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+    nmap("gr", require("telescope.builtin").lsp_references,
+         "[G]oto [R]eferences")
     nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
     nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-    nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols,
+         "[D]ocument [S]ymbols")
+    nmap("<leader>ws",
+         require("telescope.builtin").lsp_dynamic_workspace_symbols,
+         "[W]orkspace [S]ymbols")
 
     nmap("gh", "<cmd>Lspsaga finder<cr>", "LspSaga finder")
     nmap("gp", "<cmd>Lspsaga peek_definition<CR>", "[p]eak definition")
@@ -95,82 +105,106 @@ local on_attach = function(_, bufnr)
 end
 
 return {
-    -- LSP Configuration & Plugins
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-        -- Automatically install LSPs to stdpath for neovim
-        { "williamboman/mason.nvim", config = true },
-        "williamboman/mason-lspconfig.nvim",
+    {
+        -- LSP Configuration & Plugins
+        "neovim/nvim-lspconfig",
+        event = {"BufReadPre", "BufNewFile"},
+        dependencies = {
+            -- Automatically install LSPs to stdpath for neovim
+            "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim",
 
-        -- Useful status updates for LSP
-        -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-        {
-            "j-hui/fidget.nvim",
-            tag = "legacy",
-            opts = {
-                window = {
-                    relative = "editor",
-                    winblend = 0, -- doesn't work to disable black bg
-                    -- border = "single",
-                },
-            },
+            -- Useful status updates for LSP
+            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+            {
+                "j-hui/fidget.nvim",
+                tag = "legacy",
+                opts = {
+                    window = {
+                        relative = "editor",
+                        winblend = 0 -- doesn't work to disable black bg
+                        -- border = "single",
+                    }
+                }
+            }, -- Additional lua configuration, makes nvim stuff amazing!
+            {"folke/neodev.nvim", config = true}, {
+                "glepnir/lspsaga.nvim",
+                opts = {symbol_in_winbar = {enable = false}},
+                dependencies = {
+                    {"nvim-tree/nvim-web-devicons"},
+                    -- Please make sure you install markdown and markdown_inline parser
+                    {"nvim-treesitter/nvim-treesitter"}
+                }
+            }
         },
+        config = function()
+            -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities = require("cmp_nvim_lsp").default_capabilities(
+                               capabilities)
+            capabilities.offsetEncoding = "utf-8"
 
-        -- Additional lua configuration, makes nvim stuff amazing!
-        { "folke/neodev.nvim", config = true },
-        {
-            "glepnir/lspsaga.nvim",
-            opts = {
-                symbol_in_winbar = {
-                    enable = false,
-                },
-            },
-            dependencies = {
-                { "nvim-tree/nvim-web-devicons" },
-                --Please make sure you install markdown and markdown_inline parser
-                { "nvim-treesitter/nvim-treesitter" },
-            },
-        },
-    },
-    config = function()
-        -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-        capabilities.offsetEncoding = "utf-8"
+            require("mason").setup({
+                ui = {
+                    border = "rounded",
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗"
+                    }
+                }
+            })
 
-        -- Ensure the servers above are installed
-        local mason_lspconfig = require("mason-lspconfig")
+            require("lspconfig.ui.windows").default_options = {
+                border = "rounded"
+            }
 
-        mason_lspconfig.setup({
-            ensure_installed = vim.tbl_keys(servers),
-        })
+            -- Ensure the servers above are installed
+            local mason_lspconfig = require("mason-lspconfig")
 
-        mason_lspconfig.setup_handlers({
-            function(server_name)
-                require("lspconfig")[server_name].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = servers[server_name],
-                })
-            end,
-        })
+            mason_lspconfig.setup({
+                automatic_installation = true,
+                ensure_installed = vim.tbl_keys(servers)
+            })
 
-        require("mason").setup({
-            ui = {
-                border = "rounded",
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗",
-                },
-            },
-        })
+            mason_lspconfig.setup_handlers({
+                function(server_name)
+                    require("lspconfig")[server_name].setup({
+                        capabilities = capabilities,
+                        on_attach = on_attach,
+                        settings = servers[server_name]
+                    })
+                end
+            })
+        end
+    }, {
+        "scalameta/nvim-metals",
+        dependencies = {{"nvim-lua/plenary.nvim"}},
+        ft = "scala",
+        config = function()
+            local metals_config = require("metals").bare_config()
 
-        require("lspconfig.ui.windows").default_options = {
-            border = "rounded",
-        }
-        -- matlab really is special...
-        require("lspconfig").matlab_ls.setup({})
-    end,
+            -- Example of settings
+            metals_config.settings = {
+                showImplicitArguments = true,
+                excludedPackages = {
+                    "akka.actor.typed.javadsl",
+                    "com.github.swagger.akka.javadsl"
+                }
+            }
+
+            -- *READ THIS*
+            -- I *highly* recommend setting statusBarProvider to true, however if you do,
+            -- you *have* to have a setting to display this in your statusline or else
+            -- you'll not see any messages from metals. There is more info in the help
+            -- docs about this
+            metals_config.init_options.statusBarProvider = "on"
+
+            -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
+            metals_config.capabilities =
+                require("cmp_nvim_lsp").default_capabilities()
+            metals_config.on_attach = on_attach
+
+            require("metals").initialize_or_attach(metals_config)
+        end
+    }
 }
