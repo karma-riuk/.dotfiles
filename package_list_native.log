@@ -211,6 +211,7 @@ vivaldi-ffmpeg-codecs
 vlc
 wget
 wireguard-tools
+wireshark-qt
 wmctrl
 xcape
 xclip
