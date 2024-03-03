@@ -48,8 +48,6 @@ eza
 fakeroot
 fasd
 feh
-festival
-festival-us
 figlet
 flameshot
 flex
@@ -120,7 +118,6 @@ nodejs
 notify-sharp-3
 noto-fonts
 obs-studio
-okular
 opendoas
 openresolv
 os-prober
