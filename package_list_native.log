@@ -78,6 +78,7 @@ jdk-openjdk
 jdk8-openjdk
 jre11-openjdk
 kcachegrind
+kde-gtk-config
 kmouth
 libfprint
 libgnt
