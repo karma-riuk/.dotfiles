@@ -34,6 +34,7 @@ cmake
 cmatrix
 code
 cups
+dconf-editor
 deepin-gtk-theme
 discord
 dmenu
