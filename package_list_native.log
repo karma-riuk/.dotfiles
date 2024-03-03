@@ -42,6 +42,7 @@ dust
 efibootmgr
 entr
 ethtool
+evince
 evtest
 eza
 fakeroot
