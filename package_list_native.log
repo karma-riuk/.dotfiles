@@ -34,6 +34,7 @@ cmake
 cmatrix
 cups
 deepin-gtk-theme
+deepin-printer
 discord
 dmenu
 dosfstools
