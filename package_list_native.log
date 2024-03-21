@@ -37,6 +37,7 @@ deepin-gtk-theme
 discord
 dmenu
 dosfstools
+dotnet-runtime-6.0
 dust
 efibootmgr
 entr
@@ -115,7 +116,6 @@ network-manager-applet
 networkmanager
 nitrogen
 nodejs
-notify-sharp-3
 noto-fonts
 npm
 obs-studio
