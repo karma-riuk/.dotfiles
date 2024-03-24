@@ -40,6 +40,7 @@ dosfstools
 dotnet-runtime-6.0
 dust
 efibootmgr
+enca
 entr
 ethtool
 evince
