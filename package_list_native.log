@@ -27,6 +27,7 @@ breeze-gtk
 breeze-icons
 cabal-install
 cbatticon
+cfitsio
 cjson
 clang
 cloc
