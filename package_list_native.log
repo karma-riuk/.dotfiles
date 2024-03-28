@@ -141,6 +141,7 @@ perl-yaml-tiny
 pkgconf
 playerctl
 polybar
+postgresql-libs
 powertop
 pulseaudio
 pulseaudio-bluetooth
