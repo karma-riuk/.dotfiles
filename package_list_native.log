@@ -57,6 +57,7 @@ fwupd
 fzf
 gcc
 gcc-fortran
+gdal
 gdb
 ghc
 gimp
