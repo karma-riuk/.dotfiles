@@ -93,6 +93,7 @@ lightdm-webkit-theme-litarvan
 lightdm-webkit2-greeter
 linux
 linux-firmware
+lld
 llvm
 lsof
 lua-language-server
