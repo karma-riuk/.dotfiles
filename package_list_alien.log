@@ -39,6 +39,9 @@ python-spotdl
 python-validity
 python2
 qdirstat-bin
+r-cli
+r-glue
+r-rlang
 rstudio-desktop-bin
 scala3
 siji
