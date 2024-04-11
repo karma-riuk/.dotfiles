@@ -39,7 +39,11 @@ python-spotdl
 python-validity
 python2
 qdirstat-bin
-r-lifecycle
+r-fansi
+r-ps
+r-r6
+r-utf8
+r-vctrs
 rstudio-desktop-bin
 scala3
 siji
