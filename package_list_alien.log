@@ -39,11 +39,10 @@ python-spotdl
 python-validity
 python2
 qdirstat-bin
-r-fansi
-r-ps
-r-r6
-r-utf8
-r-vctrs
+r-magrittr
+r-pillar
+r-pkgconfig
+r-processx
 rstudio-desktop-bin
 scala3
 siji
