@@ -71,6 +71,7 @@ gnu-netcat
 gparted
 grub
 gvim
+help2man
 hplip
 htop
 id3v2
@@ -79,6 +80,7 @@ inetutils
 inkscape
 inotify-tools
 intellij-idea-community-edition
+iperf
 jdk-openjdk
 jdk8-openjdk
 jre11-openjdk
@@ -116,6 +118,7 @@ nautilus
 ncdu
 neofetch
 neovim
+net-tools
 network-manager-applet
 networkmanager
 nitrogen
@@ -125,6 +128,7 @@ npm
 obs-studio
 opendoas
 openresolv
+openvswitch
 os-prober
 pacman-contrib
 pamixer
