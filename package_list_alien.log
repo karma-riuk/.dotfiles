@@ -19,7 +19,6 @@ i3lock-fancy-git
 jplag
 kripton-theme-git
 libinput-gestures
-libnode
 light
 lua-format
 matlab
@@ -41,9 +40,7 @@ python-spotdl
 python-validity
 python2
 qdirstat-bin
-r-curl
-r-rcpp
-r-testthat
+r-v8
 rstudio-desktop-bin
 scala3
 siji
