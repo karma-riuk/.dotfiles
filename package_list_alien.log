@@ -36,7 +36,6 @@ pacaur
 pharo-launcher
 picom-jonaburg-git
 postman-bin
-python-spotdl
 python-validity
 python2
 qdirstat-bin
@@ -47,6 +46,7 @@ simple-mtpfs
 simplescreenrecorder
 slack-desktop
 snapd
+spotdl
 teams
 tikzit
 tlpui-git

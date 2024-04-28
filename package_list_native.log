@@ -149,8 +149,6 @@ python-adblock
 python-pip
 python-poetry
 python-pynvim
-python-pytest-asyncio
-python-pytest-mock
 python-pytz
 python-pywal
 python-tldextract
