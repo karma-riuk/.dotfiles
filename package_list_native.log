@@ -146,6 +146,7 @@ powertop
 pulseaudio
 pulseaudio-bluetooth
 python-adblock
+python-pandas
 python-pip
 python-poetry
 python-pynvim
