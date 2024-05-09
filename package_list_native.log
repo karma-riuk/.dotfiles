@@ -85,6 +85,7 @@ jdk8-openjdk
 jre11-openjdk
 kcachegrind
 kmouth
+libconfig
 libfprint
 libgnt
 libreoffice-still
