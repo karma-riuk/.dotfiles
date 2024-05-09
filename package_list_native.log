@@ -141,7 +141,6 @@ perl-file-homedir
 perl-log-log4perl
 perl-unicode-linebreak
 perl-yaml-tiny
-picom
 pkgconf
 playerctl
 polybar
