@@ -8,14 +8,34 @@ setup_drpdwm() {
 }
 
 setup_usi() {
-    USI_DIR="$HOME/Documents/USI/MA1_2023"
+    tmux new-session -d -s "usi"
 
-    tmux new-session -d -s "usi" -n AJP -c "$HOME/Documents/USI/MA1_2023/Advanced Java Programming"
-    tmux new-window -n "Data D&M" -c "$HOME/Documents/USI/MA1_2023/Data Design and Modelling"
-    tmux new-window -n "Design 101" -c "$HOME/Documents/USI/MA1_2023/Design 101"
-    tmux new-window -n "EDSL" -c "$HOME/Documents/USI/MA1_2023/EDSL/"
-    tmux new-window -n "Prog. Styles" -c "$HOME/Documents/USI/MA1_2023/Programming Styles/"
-    tmux new-window -n "Software D&M" -c "$HOME/Documents/USI/MA1_2023/Software Design and Modelling"
+    USI_DIR="$HOME/Documents/USI/MA2_2024"
+    courses_dir=(
+        "Advanced_Networking"
+        "Information Modelling and Analysis"
+        "Software Analysis"
+        "Text Analysis and Spatial Data for Economists"
+        "Visual Analytics"
+    )
+    courses_display_name=(
+        "Advanced Networking"
+        "IMA"
+        "Software Analysis"
+        "TA & SD"
+        "Visual Analytics"
+    )
+
+    for i in $(seq 0 $((${#courses_dir[*]}-1))); do
+        dir="$USI_DIR/${courses_dir[i]}" 
+        if [[ ! -d "$dir" ]]; then
+            mkdir -p "$dir"
+        fi
+        tmux new-window -n "${courses_display_name[i]}" -c "$dir"
+    done
+
+    tmux selectw -t 1
+    tmux killw # becuase the first window is empty, since we do new-session before the new-window's
     tmux selectw -t 1
 }
 
@@ -38,6 +58,6 @@ setup_session() {
 }
 
 setup_session "drpdwn"
-setup_session "usi"
+setup_session "usi" -f
 
 tmux attach-session -t "drpdwn"
