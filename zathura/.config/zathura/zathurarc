@@ -4,8 +4,8 @@ set default-fg "#0F0"
 set default-bg "#0a0d0f"
 # set recolor-lightcolor "#111"
 
-set highlight-color \#F00
-set highlight-active-color \#0F0
+# set highlight-color \#F00
+# set highlight-active-color \#0F0
 
 
 set statusbar-bg \#222
@@ -27,3 +27,5 @@ set window-title-basename true
 
 # Show horizontal and vertical scrollbars
 set guioptions "hv"
+
+set database sqlite
