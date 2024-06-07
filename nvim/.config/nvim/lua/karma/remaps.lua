@@ -49,7 +49,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank to system clipboard",
 vim.keymap.set({ "n", "v" }, "<leader>d", [["+d]], { desc = "[d]elete to system clipboard" })
 vim.keymap.set("n", "<leader>D", [["+D]], { desc = "[D]elete to system clipboard", remap = true })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "[p]aste from system clipboard" })
-vim.keymap.set("x", "<leader>P", [["_dp]], { desc = "[P]aste without yanking what you pasted over" })
+vim.keymap.set("x", "<leader>P", [["_dP]], { desc = "[P]aste without yanking what you pasted over" })
 vim.keymap.set("n", "<leader>P", [["+P]], { desc = "[P]aste from system clipboard" })
 
 -- wqa!
