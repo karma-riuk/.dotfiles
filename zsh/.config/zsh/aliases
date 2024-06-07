@@ -6,7 +6,7 @@ alias ll='eza -al --color=auto --group-directories-first'  # long format
 alias lt='eza -aT --color=auto --group-directories-first' # tree listing
 
 alias sudo="doas "
-alias yay="yay --nodiffmenu --noeditmenu"
+alias yay="yay --noansweredit --noanswerdiff"
 
 alias sys="sudo systemctl"
 alias sysu="systemctl --user"
