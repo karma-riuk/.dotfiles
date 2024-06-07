@@ -36,7 +36,12 @@ for _, key in pairs({ ",", ".", "!", "?", "(", ")", "[", "]", "{", "}" }) do
 end
 
 -- Format
-vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format, { desc = "[f]ormat current buffer / selection" })
+vim.keymap.set(
+    { "n", "v" },
+    "<leader>f",
+    require("karma.format").format,
+    { desc = "[f]ormat current buffer / selection" }
+)
 
 -- System clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "[y]ank to system clipboard" })
