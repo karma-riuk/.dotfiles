@@ -4,7 +4,8 @@ return {
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        -- "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
 
         -- Adds LSP completion capabilities
         "hrsh7th/cmp-nvim-lsp",
@@ -22,16 +23,16 @@ return {
     },
     config = function()
         local cmp = require("cmp")
-        -- local luasnip = require("luasnip")
-        -- require("luasnip.loaders.from_vscode").lazy_load()
-        -- luasnip.config.setup({})
+        local luasnip = require("luasnip")
+        require("luasnip.loaders.from_vscode").lazy_load()
+        luasnip.config.setup({})
 
         cmp.setup({
-            -- snippet = {
-            --     expand = function(args)
-            --         luasnip.lsp_expand(args.body)
-            --     end
-            -- },
+            snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end,
+            },
             window = { documentation = cmp.config.window.bordered() },
             mapping = cmp.mapping.preset.insert({
                 ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -46,8 +47,8 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                        -- elseif luasnip.expand_or_locally_jumpable() then
-                        --     luasnip.expand_or_jump()
+                    elseif luasnip.expand_or_locally_jumpable() then
+                        luasnip.expand_or_jump()
                     else
                         fallback()
                     end
@@ -64,8 +65,7 @@ return {
             }),
             sources = {
                 { name = "nvim_lsp" },
-                { name = "luasnip" },
-                -- { name = "ultisnips" },
+                { name = "luasnip" }, -- { name = "ultisnips" },
                 { name = "buffer", keyword_length = 5, max_item_count = 3 },
                 { name = "spell", keyword_length = 5, max_item_count = 2 },
                 { name = "path" },
