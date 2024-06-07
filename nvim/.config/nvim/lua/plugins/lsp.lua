@@ -2,7 +2,9 @@ function get_dictionary_words()
     local path = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
     local words = {}
 
-    for word in io.open(path, "r"):lines() do table.insert(words, word) end
+    for word in io.open(path, "r"):lines() do
+        table.insert(words, word)
+    end
     return words
 end
 
