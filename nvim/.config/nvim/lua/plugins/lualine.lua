@@ -9,7 +9,13 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "BufWinEnter" }, {
     pattern = "*.tex",
     group = mygroup,
     callback = function()
-        n_words = vim.fn.system("texcount -1 -sum -merge " .. vim.fn.shellescape(vim.fn.expand("%:p"))):gsub("%s+", "")
+        local output =
+            vim.fn.system("texcount -1 -sum -merge " .. vim.fn.shellescape(vim.fn.expand("%:p"))):gsub("%s+", "")
+        if string.find(output, "errors") then
+            n_words = "error while processing file"
+        else
+            n_words = output
+        end
     end,
 })
 
