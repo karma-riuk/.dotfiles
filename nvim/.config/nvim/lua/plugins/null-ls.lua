@@ -12,10 +12,8 @@ return {
             ensure_installed = {
                 -- [[ Linters ]]
                 "eslint_d",
-                "luacheck",
-                -- "pylint",
+                "luacheck", -- "pylint",
                 -- "vale",
-
                 -- [[ Formatters ]]
                 "beautysh",
                 "blue",
