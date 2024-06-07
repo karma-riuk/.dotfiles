@@ -14,15 +14,15 @@ local servers = {
     cssls = {},
     gopls = {},
     html = {},
-    ltex = {
-        ltex = {
-            checkFrequency = "save",
-            dictionary = {
-                ["en-US"] = get_dictionary_words(),
-                ["en-GB"] = get_dictionary_words()
-            }
-        }
-    },
+    -- ltex = {
+    --     ltex = {
+    --         checkFrequency = "save",
+    --         dictionary = {
+    --             ["en-US"] = get_dictionary_words(),
+    --             ["en-GB"] = get_dictionary_words(),
+    --         },
+    --     },
+    -- },
     texlab = {},
     pyright = {},
     tsserver = {},
