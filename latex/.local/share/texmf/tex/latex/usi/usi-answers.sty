@@ -1,0 +1,63 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{usi-answers}[2021/03/02 Basic answers to assignements setup]
+
+\RequirePackage{kvoptions}
+
+\SetupKeyvalOptions{
+    family=USI,
+    prefix=USI@
+}
+
+% \DeclareStringOption[TITLE\_PLACEHOLDER]{title}
+% \DeclareStringOption[{NAME SURNAME}]{prof}
+% \DeclareStringOption[{Arnaud Fauconnet}]{authors}
+% \DeclareStringOption[{COURSE NAME PLACEHOLDER}]{course}
+% \DeclareStringOption[Spring]{season}
+% \DeclareStringOption[\the\year]{year}
+
+\ProcessKeyvalOptions*
+
+\RequirePackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+\date{\monthyeardate\today}
+\author{AUTHORS}
+
+% Define the command to set the course name
+\newcommand{\course}[1]{\def\@course{#1}}
+% Ensure that LaTeX knows how to handle \@course if it's called before \course is defined
+\def\@course{COURSE PLACEHOLDER (use \textbackslash course\{...\})}
+
+\RequirePackage{xstring}
+
+\newcommand{\studentOrStudents}[1]{
+    \StrCount{#1}{,}[\commas]
+    \ifnum\commas>0
+        Students: #1
+    \else
+        Student: #1
+    \fi
+}
+
+\newcommand{\dueDateIfNotEmpty}[1]{
+    \IfStrEq{#1}{}{}{Due date: #1}
+}
+
+\RequirePackage{graphicx}
+\graphicspath{{./img/}}
+
+\makeatletter
+\def\@maketitle{%
+\begin{flushleft}
+    \includegraphics[width=.4\textwidth]{usi_inf.png}
+\end{flushleft}
+{\large \textbf{\@course} \hfill \textbf{Faculty of Informatics}}\\ \\
+{\large \studentOrStudents{\@author} \hfill \@date}\\
+\hrule\bigskip
+{\noindent\Large{\textbf{\@title}}\par}
+\bigskip\hrule
+}
+\makeatother
+
+\RequirePackage{amsmath}
+\usepackage[margin=.9in]{geometry}
