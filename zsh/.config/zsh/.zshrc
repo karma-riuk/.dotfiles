@@ -13,7 +13,13 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf|class|a|o|png|jpg|bmp|gif|ico|git|DS_Store|sw?|tmp):source-files' '*:all-files'
 zstyle ':completion:*:*:nvim:*' file-patterns '^*.(aux|log|pdf|class|a|o|png|jpg|bmp|gif|ico|git|DS_Store|sw?|tmp):source-files' '*:all-files'
 
-# setopt INC_APPEND_HISTORY
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
 
 # export NVM_LAZY_LOAD=true
 
