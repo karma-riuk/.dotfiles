@@ -67,6 +67,7 @@ ex () {
         *.tar.zst)   unzstd $1    ;;
         *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
+    find . -type d -name __MACOSX -prune -exec rm -rf {} \;
 }
 
 #EPFL stuff (might be usefull for other ideas)
