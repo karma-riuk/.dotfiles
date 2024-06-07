@@ -1,0 +1,57 @@
+import = ["/home/karma/.config/alacritty/local.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#4a4a4a"
+blue = "#0092ff"
+cyan = "#67fff0"
+green = "#abe15b"
+magenta = "#9a5feb"
+red = "#ff2740"
+white = "#c5c8c6"
+yellow = "#ffd242"
+
+[colors.normal]
+black = "#232323"
+blue = "#008df8"
+cyan = "#00d8eb"
+green = "#8ce10b"
+magenta = "#9d42a5"
+red = "#ff000f"
+white = "#eaeaea"
+yellow = "#ffb900"
+
+[colors.primary]
+background = "#0e1019"
+foreground = "#c5c8c6"
+
+[cursor]
+vi_mode_style = "Block"
+
+[cursor.style]
+shape = "Underline"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.normal]
+family = "MesloLGS Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = -1
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+opacity = 0.95
+
+[window.padding]
+x = 3
+y = 3
