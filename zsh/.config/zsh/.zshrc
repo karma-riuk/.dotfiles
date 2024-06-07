@@ -45,6 +45,7 @@ antigen bundle desyncr/auto-ls
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle lukechilds/zsh-nvm
 antigen bundle zsh-users/zsh-completions
+antigen bundle conda-incubator/conda-zsh-completion
 antigen apply
 
 ## To disable auto-ls commands to be run, uncomment the line below
@@ -87,3 +88,4 @@ unsetopt autopushd
 # [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 source $ZDOTDIR/aliases
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

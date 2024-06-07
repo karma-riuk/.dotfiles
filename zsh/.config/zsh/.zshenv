@@ -32,3 +32,5 @@ export BITWARDEN_ENV_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/bw.env"
 
 local_env_file="${ZDOTDIR:-$HOME/.config/zsh}/.localenv"
 [[ -f "$local_env_file" ]] && source "$local_env_file"
+
+export CONDA_ENVS_DIRS="$XDG_DATA_HOME/conda/envs"
