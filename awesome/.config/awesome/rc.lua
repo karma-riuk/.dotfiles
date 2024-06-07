@@ -263,7 +263,7 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey }, "i", function()
         scratch.toggle(
-            terminal .. " -t scratch-htop -e nice -n 19 btm --battery",
+            terminal .. " -t scratch-htop -e nice -n 19 btop",
             { rule = { name = "scratch-htop" }, width = 0.8, height = 0.8 }
         )
     end, { description = "Toggle the tmux scratchpad", group = "tag" }),
