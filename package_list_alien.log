@@ -35,6 +35,11 @@ opera-ffmpeg-codecs
 pacaur
 pharo-launcher
 postman-bin
+python-bandcamp-api
+python-pykakasi
+python-soundcloud-v2
+python-spotipy
+python-syncedlyrics
 python-validity
 python2
 qdirstat-bin
