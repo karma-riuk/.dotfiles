@@ -35,6 +35,9 @@ opera-ffmpeg-codecs
 pacaur
 pharo-launcher
 postman-bin
+python-dacite
+python-demjson3
+python-jaconv
 python-validity
 python2
 qdirstat-bin

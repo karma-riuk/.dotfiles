@@ -154,15 +154,12 @@ powertop
 pulseaudio
 pulseaudio-bluetooth
 python-adblock
-python-deprecated
 python-pandas
 python-pip
 python-poetry
 python-pynvim
 python-pytz
 python-pywal
-python-setuptools-scm
-python-sphinx
 python-tldextract
 qt5ct
 qutebrowser
