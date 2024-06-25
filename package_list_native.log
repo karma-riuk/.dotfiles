@@ -154,13 +154,19 @@ powertop
 pulseaudio
 pulseaudio-bluetooth
 python-adblock
+python-fastapi
 python-pandas
 python-pip
 python-poetry
+python-pydantic
 python-pynvim
+python-pytube
 python-pytz
 python-pywal
+python-rich
+python-slugify
 python-tldextract
+python-ytmusicapi
 qt5ct
 qutebrowser
 r
@@ -218,6 +224,7 @@ unclutter
 unrar
 unzip
 uthash
+uvicorn
 vagrant
 valgrind
 vi
@@ -284,6 +291,7 @@ xorg-xwud
 xournalpp
 xprintidle
 xterm
+yt-dlp
 zathura
 zathura-pdf-mupdf
 zip
