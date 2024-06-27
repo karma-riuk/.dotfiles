@@ -156,6 +156,7 @@ pulseaudio-bluetooth
 python-adblock
 python-pandas
 python-pip
+python-pipx
 python-poetry
 python-pynvim
 python-pytz
