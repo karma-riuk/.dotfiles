@@ -25,7 +25,6 @@ miniconda3
 mininet-git
 mongodb-bin
 mongodb-compass
-mongosh-bin
 nerd-fonts-noto-sans-mono
 notify-sharp-3
 opera
