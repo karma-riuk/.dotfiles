@@ -223,6 +223,7 @@ vagrant
 valgrind
 vi
 virtualbox
+virtualbox-guest-iso
 virtualbox-guest-utils
 vivaldi
 vivaldi-ffmpeg-codecs
