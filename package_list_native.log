@@ -229,6 +229,7 @@ vivaldi
 vivaldi-ffmpeg-codecs
 vlc
 wget
+wine
 wireguard-tools
 wireshark-qt
 wmctrl
