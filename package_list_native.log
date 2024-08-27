@@ -154,7 +154,6 @@ powertop
 pulseaudio
 pulseaudio-bluetooth
 python-adblock
-python-openstackclient
 python-pandas
 python-pip
 python-pipx
