@@ -35,6 +35,7 @@ clang
 cloc
 cmake
 cmatrix
+cudd
 cups
 deepin-gtk-theme
 discord
