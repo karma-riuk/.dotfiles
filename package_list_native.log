@@ -148,6 +148,7 @@ perl-unicode-linebreak
 perl-yaml-tiny
 pkgconf
 playerctl
+plocate
 polybar
 postgresql-libs
 powertop
