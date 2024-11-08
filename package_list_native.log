@@ -135,6 +135,7 @@ openresolv
 os-prober
 pacman-contrib
 pamixer
+pandoc-cli
 papirus-icon-theme
 parallel
 patch
