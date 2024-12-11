@@ -93,6 +93,7 @@ kmouth
 libconfig
 libfprint
 libgnt
+libratbag
 libreoffice-still
 libvirt
 libxcrypt-compat
