@@ -145,6 +145,7 @@ pdfgrep
 pdfjs
 pdftk
 pdftricks
+perf
 perl-file-homedir
 perl-log-log4perl
 perl-unicode-linebreak
