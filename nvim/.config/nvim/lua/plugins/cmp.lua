@@ -65,9 +65,23 @@ return {
             }),
             sources = {
                 { name = "nvim_lsp" },
-                { name = "luasnip" }, -- { name = "ultisnips" },
-                { name = "buffer", keyword_length = 5, max_item_count = 3 },
-                { name = "spell", keyword_length = 5, max_item_count = 2 },
+                {
+                    name = "luasnip",
+                    entry_filter = function(entry, ctx)
+                        local before_cursor = ctx.cursor_before_line
+                        -- If the string before cursor is exactly "...", filter out specific entries
+                        if before_cursor:match("%.$") then
+                            local item = entry:get_completion_item()
+                            if item.data.filetype == "tex" and item.label == "..." then
+                                return false
+                            end
+                        end
+                        return true
+                    end,
+                },
+                -- { name = "ultisnips" },
+                { name = "buffer",  keyword_length = 5, max_item_count = 3 },
+                { name = "spell",   keyword_length = 5, max_item_count = 2 },
                 { name = "path" },
             },
             sorting = {
