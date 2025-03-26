@@ -57,6 +57,11 @@ return {
                         },
                     }))
                 end,
+                blue = function()
+                    null_ls.register(null_ls.builtins.formatting.blue.with({
+                        extra_args = { "--config", os.getenv("XDG_CONFIG_HOME") .. "/blue/pyproject.toml" },
+                    }))
+                end,
             },
         })
 
