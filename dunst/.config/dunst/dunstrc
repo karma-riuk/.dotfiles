@@ -17,8 +17,8 @@
     # will be ignored.
     follow = mouse
 
-    geometry = "400x5-90+20"
-    width = (0, 500)
+    geometry = "450x5-90+20"
+    width = (0, 520)
     height = 200
 
     # Turn on the progess bar
