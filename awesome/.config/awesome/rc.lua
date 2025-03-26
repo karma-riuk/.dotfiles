@@ -639,6 +639,11 @@ awful.rules.rules = {
                 "Balls", -- USi Bachelor Project (repo: flying-balls)
                 "maze-solver-go",
                 "pharo",
+                "VirtualBox",
+                "Com.cisco.secureclient.gui", -- Cisco USI VPN
+                "Tk",
+                "Chess Board",
+                "Choice",
             },
 
             -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -650,6 +655,7 @@ awful.rules.rules = {
                 "Sign in – Google accounts - Vivaldi",
                 "Style Editor - TikZiT",
                 "Bitwarden - Vivaldi",
+                "Cisco Secure Client", -- Cisco USI VPN
             },
             role = {
                 "AlarmWindow", -- Thunderbird's calendar.
