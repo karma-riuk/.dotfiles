@@ -24,7 +24,17 @@ local servers = {
     --     },
     -- },
     texlab = {},
-    pyright = {},
+    pyright = {
+        settings = {
+            python = {
+                analysis = {
+                    autoSearchPaths = true,
+                    useLibraryCodeForTypes = true,
+                    diagnosticMode = "openFilesOnly",
+                },
+            },
+        },
+    },
     -- tsserver = {},
     vimls = {},
 
