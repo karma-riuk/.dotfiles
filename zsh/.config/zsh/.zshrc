@@ -40,12 +40,14 @@ export NVM_LAZY_LOAD=true
 source "$ZSH"/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle MichaelAquilina/zsh-you-should-use
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 antigen bundle zsh-users/zsh-autosuggestions
+
 antigen bundle desyncr/auto-ls
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle lukechilds/zsh-nvm
 antigen bundle zsh-users/zsh-completions
-antigen bundle conda-incubator/conda-zsh-completion
 antigen apply
 
 ## To disable auto-ls commands to be run, uncomment the line below
