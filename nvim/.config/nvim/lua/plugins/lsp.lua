@@ -25,7 +25,7 @@ local servers = {
     -- },
     texlab = {},
     pyright = {},
-    tsserver = {},
+    -- tsserver = {},
     vimls = {},
 
     lua_ls = {
