@@ -96,7 +96,7 @@ return {
             formatting = {
                 format = require("lspkind").cmp_format({
                     with_text = true, -- do not show text alongside icons
-                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    maxwidth = 50,    -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     menu = {
                         buffer = "[Buf]",
                         nvim_lsp = "[LSP]",
