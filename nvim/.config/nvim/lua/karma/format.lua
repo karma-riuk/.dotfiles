@@ -9,6 +9,7 @@ M.exclusion_list = {
 M.format = function()
     vim.lsp.buf.format({
         async = false,
+        timeout_ms = 5000,
         filter = function(client)
             return not vim.tbl_contains(M.exclusion_list, client.name)
         end,
