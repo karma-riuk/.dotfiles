@@ -65,6 +65,8 @@ export KEYTIMEOUT=20
 bindkey '^[[Z' autosuggest-execute
 bindkey '^ ' autosuggest-accept
 
+bindkey '\el' autosuggest-accept
+
 function search-down {
     zle down-line-or-beginning-search
     zle vi-cmd-mode
