@@ -24,6 +24,10 @@ awe:~/.config/awesome
 aoc:~/code/Advent of Code/2022/go
 luce:~/Documents/USI/Luce_Lab
 tmp:/tmp/tests
-usi:~/Documents/USI/MA2_2024
 website:~/code/website
-cv:~/Documents/CV
+pozzi:~/Documents/USI/Pozzi
+mono:~/Documents/USI/Pozzi/Monomorphism
+subxpath:~/Documents/USI/Pozzi/SubXPAT
+usi:~/Documents/USI/MA4_2025/Thesis
+cv:~/Documents/Job Applications/CV
+cover:~/Documents/Job Applications/Cover Letter
