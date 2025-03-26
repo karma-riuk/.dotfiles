@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# This script is used to toggle the DND (Do Not Disturb) mode on and off.
+# DND means turning notificaitons off together with the sound. This is useful
+# when you are in a meeting or you are working on something important.
+
+turn_off_everything() {
+    dunstctl set-paused true
+    volumectl --mute
+}
+
+turn_on_everything() {
+    dunstctl set-paused false
+    volumectl --unmute
+}
+
+toggle() {
+    durstctl set-paused toggle
+    volumectl --toggle
+}
+
+if [[ $# == 0 ]] || [[ $1 == "--help" ]] || [[ $1 == "-h" ]]; then
+    echo "Usage: dnd [on|off]"
+    echo "Turn the Do Not Disturb mode on or off."
+    echo "If no argument is provided, the script will toggle the DND mode."
+    exit 0
+fi
+
+if [[ $1 == "on" ]]; then
+    turn_off_everything
+elif [[ $1 == "off" ]]; then
+    turn_on_everything
+else
+    toggle
+fi
