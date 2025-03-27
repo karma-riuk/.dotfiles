@@ -1,6 +1,7 @@
 abiword
 acpi
 acpid
+adwaita-qt5
 alacritty
 alsa-utils
 android-tools
@@ -38,6 +39,7 @@ cmatrix
 cudd
 cups
 deepin-gtk-theme
+deepin-screenshot
 discord
 dmenu
 dosfstools
@@ -98,6 +100,7 @@ libratbag
 libreoffice-still
 libvirt
 libxcrypt-compat
+light
 lightdm
 lightdm-webkit-theme-litarvan
 lightdm-webkit2-greeter
@@ -129,6 +132,7 @@ network-manager-applet
 networkmanager
 nitrogen
 nodejs
+notify-sharp-3
 noto-fonts
 npm
 obs-studio
@@ -172,6 +176,7 @@ qt5ct
 qutebrowser
 r
 ranger
+reflector
 ripgrep
 rofi
 rofi-calc
@@ -183,6 +188,7 @@ scribus
 scrot
 sfml
 simple-scan
+simplescreenrecorder
 speedtest-cli
 sshfs
 stow
@@ -296,6 +302,7 @@ xournalpp
 xprintidle
 xterm
 yosys
+youtube-dl
 zathura
 zathura-pdf-mupdf
 zip

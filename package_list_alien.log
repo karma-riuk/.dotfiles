@@ -1,12 +1,10 @@
 adb-sync-git
-adwaita-qt5
 auto-cpufreq
 boomaga
 chromium-widevine
 colorpicker
 coursier
 dafny-bin
-deepin-screenshot
 dunst-git
 duplicati-latest
 ghcup-hs-bin
@@ -17,7 +15,6 @@ i3lock-color
 jplag
 kripton-theme-git
 libinput-gestures
-light
 ltunify
 lua-format
 matlab
@@ -25,7 +22,6 @@ mininet-git
 mongodb-bin
 mongodb-compass
 nerd-fonts-noto-sans-mono
-notify-sharp-3
 opensta-git
 pacaur
 picom-git
@@ -38,7 +34,6 @@ rstudio-desktop-bin
 scala3
 siji
 simple-mtpfs
-simplescreenrecorder
 slack-desktop
 teams
 tikzit
@@ -52,5 +47,4 @@ xcwd-git
 xdg-ninja-git
 xpub
 yay-bin
-youtube-dl
 ytop-bin
