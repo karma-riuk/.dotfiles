@@ -1,0 +1,5 @@
+[tool.blue]
+line-length = 110
+target-version = ["py39"]
+skip-string-normalization = true
+skip-magic-trailing-comma = false
