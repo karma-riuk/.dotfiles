@@ -170,6 +170,11 @@ return {
 
         require("lspconfig.ui.windows").default_options = { border = "rounded" }
 
+        vim.diagnostic.config({
+            virtual_text = true,
+            virtual_lines = { current_line = true },
+        })
+
         -- Ensure the servers above are installed
         local mason_lspconfig = require("mason-lspconfig")
 
