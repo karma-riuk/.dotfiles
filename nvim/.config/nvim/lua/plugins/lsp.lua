@@ -83,7 +83,7 @@ local enable_formatting = function(client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
-    -- enable_formatting(client, bufnr)
+    enable_formatting(client, bufnr)
 
     local nmap = function(keys, func, desc)
         if desc then
