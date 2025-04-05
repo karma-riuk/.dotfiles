@@ -1,53 +1,66 @@
+function blue()
+    local h = require("null-ls.helpers")
+    local methods = require("null-ls.methods")
+
+    local FORMATTING = methods.internal.FORMATTING
+
+    return h.make_builtin({
+        name = "blue",
+        meta = {
+            url = "https://github.com/grantjenks/blue",
+            description = "Blue -- Some folks like black but I prefer blue.",
+        },
+        method = FORMATTING,
+        filetypes = { "python" },
+        generator_opts = {
+            command = "blue",
+            args = {
+                "--stdin-filename",
+                "$FILENAME",
+                "--quiet",
+                "-",
+            },
+            to_stdin = true,
+        },
+        factory = h.formatter_factory,
+    })
+end
 return {
     "jay-babu/mason-null-ls.nvim",
+    -- enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "williamboman/mason.nvim",
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
+        "gbprod/none-ls-luacheck.nvim",
     },
     config = function()
         local null_ls = require("null-ls")
+        -- local helpers = require("null-ls.helpers")
         require("mason").setup()
         require("mason-null-ls").setup({
             ensure_installed = {
                 -- [[ Linters ]]
                 "eslint_d",
-                "luacheck", -- "pylint",
+                "luacheck",
                 -- "vale",
                 -- [[ Formatters ]]
                 "beautysh",
                 "blue",
                 "clang-format",
                 "gofumpt",
-                "jq",
-                "latexindent",
                 "stylua",
             },
             automatic_setup = true,
             automatic_installation = false,
             handlers = {
-                latexindent = function()
-                    null_ls.register(null_ls.builtins.formatting.latexindent.with({
-                        extra_args = {
-                            "-g",
-                            "/dev/null",
-                            "-m",
-                            "-l",
-                            os.getenv("XDG_CONFIG_HOME") .. "/latexindent/defaultSettings.yaml",
-                        },
-                    }))
-                end,
                 clang_format = function()
                     null_ls.register(null_ls.builtins.formatting.clang_format.with({
                         extra_args = { "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/clang-format" },
                     }))
                 end,
-                eslint_d = function()
-                    null_ls.register(null_ls.builtins.diagnostics.eslint_d)
-                    -- null_ls.register(null_ls.builtins.code_actions.eslint_d) -- was annoying with fidget
-                end,
                 luacheck = function()
-                    null_ls.register(null_ls.builtins.diagnostics.luacheck.with({
+                    null_ls.register(require("none-ls-luacheck.diagnostics.luacheck").with({
                         extra_args = {
                             "--globals",
                             "vim",
@@ -58,7 +71,7 @@ return {
                     }))
                 end,
                 blue = function()
-                    null_ls.register(null_ls.builtins.formatting.blue.with({
+                    null_ls.register(blue().with({
                         extra_args = { "--config", os.getenv("XDG_CONFIG_HOME") .. "/blue/pyproject.toml" },
                     }))
                 end,
@@ -66,6 +79,7 @@ return {
         })
 
         local augroup = vim.api.nvim_create_augroup("NullLspFormatting", {})
+
 
         require("null-ls").setup({
             border = "single",
@@ -76,15 +90,12 @@ return {
                         group = augroup,
                         buffer = bufnr,
                         callback = function()
-                            -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                            -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
                             require("karma.format").format()
                         end,
                     })
                 end
             end,
             sources = {
-                -- Anything not supported by mason.
             },
         })
     end,
