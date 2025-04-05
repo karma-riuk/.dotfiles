@@ -93,21 +93,17 @@ local on_attach = function(client, bufnr)
         vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
     end
 
-    nmap("<leader>r", vim.lsp.buf.rename, "[R]ename")
-    nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
     nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-    nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-    nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+    nmap("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
     nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+    nmap("gO", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
     nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
     nmap("gh", "<cmd>Lspsaga finder<cr>", "LspSaga finder")
     nmap("gp", "<cmd>Lspsaga peek_definition<CR>", "[p]eak definition")
 
-    nmap("<leader>e", "<cmd>Lspsaga show_line_diagnostics ++unfocus<CR>")
-    nmap("<leader>E", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+    -- nmap("<leader>e", "<cmd>Lspsaga show_line_diagnostics ++unfocus<CR>")
+    -- nmap("<leader>E", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 
     -- nmap("gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "LSP: [g]oto defintion" })
 
