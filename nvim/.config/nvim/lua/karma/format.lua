@@ -3,6 +3,7 @@ local M = {}
 M.exclusion_list = {
     "clangd",
     "lua-ls",
+    "lua_ls",
 }
 
 M.format = function()
