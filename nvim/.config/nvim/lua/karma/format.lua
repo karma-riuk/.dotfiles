@@ -2,7 +2,6 @@ local M = {}
 
 M.exclusion_list = {
     "clangd",
-    "texlab",
     "lua-ls",
 }
 
