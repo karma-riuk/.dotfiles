@@ -102,8 +102,19 @@ local on_attach = function(client, bufnr)
     nmap("gh", "<cmd>Lspsaga finder<cr>", "LspSaga finder")
     nmap("gp", "<cmd>Lspsaga peek_definition<CR>", "[p]eak definition")
 
-    -- nmap("<leader>e", "<cmd>Lspsaga show_line_diagnostics ++unfocus<CR>")
-    -- nmap("<leader>E", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+    -- Enable virtual lines for diagnostics
+    nmap("<leader>e", function()
+        vim.diagnostic.config({ virtual_lines = { current_line = true } })
+
+        -- As soon as you move off, disable them again
+        vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufLeave" }, {
+            buffer = bufnr,
+            once = true,
+            callback = function()
+                vim.diagnostic.config({ virtual_lines = false })
+            end,
+        })
+    end, "Show diagnostics on this line (virtual_lines), then disable when you move off")
 
     -- nmap("gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "LSP: [g]oto defintion" })
 
@@ -172,7 +183,6 @@ return {
 
         vim.diagnostic.config({
             virtual_text = true,
-            virtual_lines = { current_line = true },
         })
 
         -- Ensure the servers above are installed
