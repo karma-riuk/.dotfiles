@@ -600,6 +600,7 @@ awful.rules.rules = {
     {
         rule_any = {
             class = {
+                "vivaldi-stable",
                 "Vivaldi-stable",
                 "qutebrowser",
                 "Google-chrome",
