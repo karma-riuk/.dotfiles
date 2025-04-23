@@ -7,38 +7,6 @@ setup_drpdwm() {
     tmux selectw -t 1
 }
 
-setup_usi() {
-    tmux new-session -d -s "usi"
-
-    USI_DIR="$HOME/Documents/USI/MA2_2024"
-    courses_dir=(
-        "Advanced_Networking"
-        "Information Modelling and Analysis"
-        "Software Analysis"
-        "Text Analysis and Spatial Data for Economists"
-        "Visual Analytics"
-    )
-    courses_display_name=(
-        "Advanced Networking"
-        "IMA"
-        "Software Analysis"
-        "TA & SD"
-        "Visual Analytics"
-    )
-
-    for i in $(seq 0 $((${#courses_dir[*]}-1))); do
-        dir="$USI_DIR/${courses_dir[i]}" 
-        if [[ ! -d "$dir" ]]; then
-            mkdir -p "$dir"
-        fi
-        tmux new-window -n "${courses_display_name[i]}" -c "$dir"
-    done
-
-    tmux selectw -t 1
-    tmux killw # becuase the first window is empty, since we do new-session before the new-window's
-    tmux selectw -t 1
-}
-
 setup_session() {
     session_name="$1"
 
@@ -51,13 +19,10 @@ setup_session() {
         case "$session_name" in
             drpdwn) setup_drpdwm
                 ;;
-            usi) setup_usi
-                ;;
         esac
     fi
 }
 
 setup_session "drpdwn"
-setup_session "usi" -f
 
 tmux attach-session -t "drpdwn"
