@@ -70,3 +70,11 @@ vim.keymap.set("n", "<leader>F", function()
         vim.api.nvim_clear_autocmds({ group = "NullLspFormatting" })
     end)
 end, { desc = "Choose closest spell match" })
+
+-- Ctrl-Delete
+vim.keymap.set(
+    "i",
+    "<C-Backspace>",
+    "<C-W>",
+    { desc = "Delete from current position to the beginning of the word in insert mode" }
+)
