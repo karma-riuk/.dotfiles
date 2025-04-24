@@ -139,7 +139,6 @@ openresolv
 os-prober
 pacman-contrib
 pamixer
-pandoc-cli
 papirus-icon-theme
 parallel
 patch
@@ -228,7 +227,6 @@ unclutter
 unrar
 unzip
 uthash
-vagrant
 valgrind
 vi
 virtualbox
