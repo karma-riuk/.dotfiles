@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = pre-upgrade timeshift snapshot
+When = PreTransaction
+Exec = /bin/sh -c "alacritty -t scratch-timeshift -e /etc/pacman.d/hooks.bin/timeshift.sh"

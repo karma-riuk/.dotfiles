@@ -1,0 +1,11 @@
+[Trigger]
+Type = Package
+Operation = Remove
+Operation = Install
+Operation = Upgrade
+Target = *
+
+[Action]
+Description = Create a backup list of all installed packages
+When = PostTransaction
+Exec = /bin/sh -c "sudo -Hiu karma /etc/pacman.d/hooks.bin/package-list.sh"
