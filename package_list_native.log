@@ -237,7 +237,6 @@ vlc
 wget
 wine
 wireguard-tools
-wireshark-qt
 wmctrl
 xcape
 xclip
