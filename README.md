@@ -36,6 +36,19 @@ run
 stow <package>
 ```
 
+**NOTE**: some packages, like `lightdm` and `pacman` (and maybe others if I forget to update this in
+the future) don't have the target directory that is the root `/` folder instead of the default
+(which is the parent of the `.dotfiles/` dir, usually `/home/user`). To indicate a target directory
+different than the default one, call (remember that you might need `sudo`)
+
+```bash
+stow -t <targetd-dir> <package>
+```
+
+Example:
+```bash
+sudo stow -t / pacman lightdm
+```
 
 ## Uninstall
 
@@ -60,4 +73,18 @@ Alternitavely, if you want to do it one by on
 stow -D <package1>
 stow -D <package2>
 stow -D <package3>
+```
+
+**NOTE**: some packages, like `lightdm` and `pacman` (and maybe others if I forget to update this in
+the future) don't have the target directory that is the root `/` folder instead of the default
+(which is the parent of the `.dotfiles/` dir, usually `/home/user`). To indicate a target directory
+different than the default one, call (remember that you might need `sudo`)
+
+```bash
+stow -t <targetd-dir> -D <package>
+```
+
+Example:
+```bash
+sudo stow -t / -D pacman lightdm
 ```
