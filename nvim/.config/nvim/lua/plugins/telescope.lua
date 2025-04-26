@@ -13,6 +13,11 @@ return {
                     },
                 },
             },
+            pickers = {
+                colorscheme = {
+                    enable_preview = true,
+                },
+            },
         })
 
         pcall(require("telescope").load_extension, "notify")
