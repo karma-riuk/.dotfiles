@@ -3,6 +3,7 @@ base
 base-devel
 bat
 btrfs-progs
+darkman
 dkms
 dolphin
 efibootmgr
