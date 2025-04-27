@@ -9,6 +9,7 @@ dunst
 efibootmgr
 eza
 git
+go
 grim
 htop
 hyprland
@@ -22,6 +23,7 @@ libyaml
 linux
 linux-firmware
 linux-headers
+lua
 man-pages
 nano
 neofetch
