@@ -3,7 +3,6 @@ base
 base-devel
 bat
 btrfs-progs
-cmake
 darkman
 dkms
 dolphin
@@ -41,10 +40,10 @@ opendoas
 openssh
 os-prober
 pacman-contrib
+pavucontrol
 polkit-kde-agent
 pulseaudio
 qt5-wayland
-qt5-x11extras
 qt6-wayland
 sddm
 slurp
