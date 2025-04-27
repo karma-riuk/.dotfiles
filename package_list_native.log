@@ -24,6 +24,7 @@ linux
 linux-firmware
 linux-headers
 lua
+luarocks
 man-pages
 nano
 neofetch
