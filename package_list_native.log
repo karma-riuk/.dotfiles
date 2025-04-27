@@ -43,6 +43,7 @@ wget
 wireless_tools
 wofi
 wpa_supplicant
+xcape
 xdg-desktop-portal-hyprland
 xdg-utils
 xorg-server
