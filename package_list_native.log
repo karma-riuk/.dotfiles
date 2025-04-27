@@ -31,6 +31,7 @@ nvidia-dkms
 nwg-shell
 opendoas
 openssh
+os-prober
 polkit-kde-agent
 pulseaudio
 qt5-wayland
