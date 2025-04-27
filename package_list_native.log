@@ -16,7 +16,6 @@ hyprland
 intel-ucode
 interception-caps2esc
 iwd
-jq
 kitty
 less
 libnotify
@@ -46,7 +45,6 @@ qt6-wayland
 sddm
 slurp
 smartmontools
-socat
 stow
 tmux
 unzip
