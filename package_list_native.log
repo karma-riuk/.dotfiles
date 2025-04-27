@@ -3,6 +3,7 @@ base
 base-devel
 bat
 btrfs-progs
+cmake
 darkman
 dkms
 dolphin
@@ -43,6 +44,7 @@ pacman-contrib
 polkit-kde-agent
 pulseaudio
 qt5-wayland
+qt5-x11extras
 qt6-wayland
 sddm
 slurp
