@@ -37,6 +37,7 @@ nwg-displays
 opendoas
 openssh
 os-prober
+pacman-contrib
 polkit-kde-agent
 pulseaudio
 qt5-wayland
