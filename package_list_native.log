@@ -18,6 +18,7 @@ interception-caps2esc
 iwd
 kitty
 less
+libnotify
 libva-nvidia-driver
 libyaml
 linux
