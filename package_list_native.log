@@ -45,6 +45,7 @@ openssh
 os-prober
 pacman-contrib
 pavucontrol
+piper
 polkit-kde-agent
 pulseaudio
 qt5-wayland
