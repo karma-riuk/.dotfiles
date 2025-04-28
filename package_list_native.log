@@ -75,6 +75,7 @@ xdg-desktop-portal-hyprland
 xdg-utils
 xorg-server
 xorg-xinit
+xterm
 zram-generator
 zsh
 zsh-autocomplete
