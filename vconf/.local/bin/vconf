@@ -63,11 +63,18 @@ with_argument () {
     # Check if there is an exact match in the possiblites, if there is select
     # that one (example if $1 == zsh and there is 'zsh' and 'zshenv' in the
     # possiblities, then select 'zsh' because it is an exact match)
-    if [[ "$(echo "$possibilities" | wc -l)" -eq 1 ]]; then
+    if [[ ! -z "$possibilities" ]] && [[ "$(echo "$possibilities" | wc -l)" -eq 1 ]]; then
         local file="$(echo "$possibilities" | sed 's/^.*- //')"
         edit_from_terminal "$file"
     elif [[ "$(echo "$possibilities" | grep "^$1 - ")" ]]; then
         local file="$(echo "$possibilities" | grep "^$1 - " | sed 's/^.*- //')"
+        edit_from_terminal "$file"
+    fi
+
+    # if the file wasn't in the config list, lookup ~/.dotfiles if there are any matches
+    possibilities=$(ls "$DOTFILES" | grep "$1")
+    if [[ "$(echo "$possibilities" | wc -l)" -eq 1  ]]; then
+        local file="$possibilities"
         edit_from_terminal "$file"
     else
         with_fzf "$possibilities"
