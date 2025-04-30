@@ -1,0 +1,29 @@
+.green-clock-widget {
+  font-family: "Digital-7 Mono";
+  font-size: 14pt;
+  color: #16F529;
+  font-size: 30;
+  text-shadow: 2 2 5px black, -2 -2 5px black;
+}
+
+.green-clock {
+  background: transparent;
+}
+
+/* ----------------------------- */
+
+.big-clock {
+  background: transparent;
+}
+
+.big-clock-widget {
+  text-shadow: 2 2 15px black, -2 -2 15px black;
+}
+
+.big-clock-widget .time {
+  font-size: 15em;
+}
+
+.big-clock-widget .date {
+  font-size: 2.5em;
+}

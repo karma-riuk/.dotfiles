@@ -2,6 +2,7 @@ alacritty - $XDG_CONFIG_HOME/alacritty/alacritty.toml
 aliases - $XDG_CONFIG_HOME/zsh/aliases
 awesomewm - $XDG_CONFIG_HOME/awesome/rc.lua
 dunst - $XDG_CONFIG_HOME/dunst/dunstrc
+eww - $XDG_CONFIG_HOME/eww
 hypr - $XDG_CONFIG_HOME/hypr/
 latexmk - $XDG_CONFIG_HOME/latexmk/latexmkrc
 localenv - $XDG_CONFIG_HOME/zsh/.localenv
