@@ -44,6 +44,7 @@ nvidia-dkms
 nwg-displays
 nwg-look
 opendoas
+openntpd
 openssh
 os-prober
 pacman-contrib
