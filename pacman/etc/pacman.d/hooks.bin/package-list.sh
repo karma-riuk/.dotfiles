@@ -28,7 +28,7 @@ if [[ $(git status --porcelain "$alien_filename") ]]; then
 fi
 if $gotta_commit; then
     echo "Committing..."
-    git commit -m "pacman: updated package lists"
+    git commit -m "pacman: updated package lists on $(hostname)"
     echo "Pushing..."
     git push
 fi
