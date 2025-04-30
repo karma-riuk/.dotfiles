@@ -2,6 +2,7 @@ alacritty - $XDG_CONFIG_HOME/alacritty/alacritty.toml
 aliases - $XDG_CONFIG_HOME/zsh/aliases
 awesomewm - $XDG_CONFIG_HOME/awesome/rc.lua
 dunst - $XDG_CONFIG_HOME/dunst/dunstrc
+hypr - $XDG_CONFIG_HOME/hypr/
 latexmk - $XDG_CONFIG_HOME/latexmk/latexmkrc
 localenv - $XDG_CONFIG_HOME/zsh/.localenv
 nvim - $XDG_CONFIG_HOME/nvim
@@ -15,7 +16,7 @@ tmux - $XDG_CONFIG_HOME/tmux/tmux.conf
 vconf - $XDG_CONFIG_HOME/vconf/list
 vconf-bin - $HOME/.local/bin/vconf
 vim - $XDG_CONFIG_HOME/vim/vimrc
+xdgenv - $XDG_CONFIG_HOME/zsh/xdg_compliance
 zathura - $XDG_CONFIG_HOME/zathura/zathurarc
 zsh - $XDG_CONFIG_HOME/zsh/.zshrc
 zshenv - $XDG_CONFIG_HOME/zsh/.zshenv
-xdgenv - $XDG_CONFIG_HOME/zsh/xdg_compliance
