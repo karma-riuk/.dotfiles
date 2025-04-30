@@ -1,0 +1,29 @@
+(include "widgets/clocks.yuck")
+
+(defwindow green-clock
+    :monitor 1
+    :exclusive false
+    :geometry (geometry 
+        :x "50%"
+        :y 5
+        :width 130
+        :height 20
+        :anchor "top center"
+    )
+    (green-clock-widget)
+)
+
+(defwindow big-clock
+    :monitor 2
+    :exclusive false
+    :stacking "bg"
+    :focusable false
+    :geometry (geometry 
+        :x "50%"
+        :y "50%"
+        :anchor "center"
+        :width 1000
+        :height 1000
+    )
+    (big-clock)
+)

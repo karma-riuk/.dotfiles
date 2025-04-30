@@ -1,0 +1,42 @@
+(defpoll clock-time-with-seconds
+    :interval "250ms"
+    :initial "00:00:00"
+    `date +%H:%M:%S`
+)
+
+(defwidget green-clock-widget []
+    (box :class "green-clock-widget"
+        (label :text "${clock-time-with-seconds}")
+    )
+)
+
+; ----------------------
+
+(defpoll clock-time 
+    :interval "1s"
+    :initial "00:00"
+    `date +%H:%M`
+)
+
+(defpoll date
+    :interval "1m"
+    :initial "Neverday, 32th Neveruary"
+    `date "+%A, %d %B %Y"`
+)
+
+(defwidget big-clock []
+    (box :class "big-clock-widget"
+        :orientation "v"
+        :valign "center"
+        :spacing 5
+        :space-evenly false
+        (box 
+            :class "time" 
+            (label :text "${clock-time}")
+        )
+        (box 
+            :class "date" 
+            (label :text "${date}")
+        )
+    )
+)
