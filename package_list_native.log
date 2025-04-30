@@ -76,6 +76,9 @@ wpa_supplicant
 xcape
 xdg-desktop-portal-hyprland
 xdg-utils
+xorg-bdftopcf
+xorg-font-util
+xorg-mkfontscale
 xorg-server
 xorg-xinit
 xterm
