@@ -9,8 +9,8 @@ echo "$native" > "$XDG_CACHE_HOME/package-lists/$(date +%Y-%m-%d_%H:%M)_native.l
 echo "$alien" > "$XDG_CACHE_HOME/package-lists/$(date +%Y-%m-%d_%H:%M)_alien.log"
 
 echo "Saving files to dotfiles..."
-native_filename="package_list_native.log"
-alien_filename="package_list_alien.log"
+native_filename="package_list_$(hostname)_native.log"
+alien_filename="package_list_$(hostname)_alien.log"
 echo "$native" > "$DOTFILES/$native_filename"
 echo "$alien" > "$DOTFILES/$alien_filename"
 
