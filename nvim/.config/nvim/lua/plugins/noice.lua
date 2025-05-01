@@ -26,9 +26,8 @@ return {
         --     },
         -- },
         routes = {
-            filter = { event = "cmdline_output" },
+            filter = { event = "msg_show" },
             view = "split",
-            opts = { enter = true },
         },
     },
     config = function(_, opts)
