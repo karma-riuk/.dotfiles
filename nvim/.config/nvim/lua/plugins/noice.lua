@@ -21,7 +21,7 @@ return {
         },
         routes = {
             {
-                view = "mini",
+                view = "cmdline_output",
                 filter = { cmdline = "Git pu", event = "msg_show" },
             },
         },
