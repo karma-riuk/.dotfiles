@@ -53,6 +53,7 @@ pacman-contrib
 pavucontrol
 polkit-kde-agent
 pulseaudio
+python-pywal
 qt5-wayland
 qt5ct
 qt6-wayland
