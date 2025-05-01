@@ -1,0 +1,140 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, 'Font Awesome 5', 'SFNS Display', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: alpha(#222, .7);
+    border-bottom: 1px solid rgba(100, 114, 125, 0.5);
+    color: #ffffff;
+}
+
+window#waybar.hidden {
+    opacity: 0.0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 1px solid transparent;
+}
+
+#workspaces button.active {
+    background: alpha(#c5c8c6, 0.2);
+    border-bottom: 1px solid #c5c8c6;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#window {
+    /* background: alpha(#222, 0.4); */
+    border-bottom: 1px solid #c5c8c6;
+}
+
+#window,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor {
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#memory,
+#cpu {
+    padding-right: 15px;
+}
+
+#clock {
+    background: alpha(#64727D, .3);
+    border-bottom: 1px solid #64727D;
+}
+
+#cpu {
+    background: alpha(#2ecc71, .3);
+    border-bottom: 1px solid #2ecc71;
+}
+
+#memory {
+    background: alpha(#9b59b6, .3);
+    border-bottom: 1px solid #9b59b6;
+}
+
+#pulseaudio,
+#pulseaudio-slider {
+    background: alpha(#f1c40f, .3);
+    border-bottom: 1px solid #f1c40f;
+}
+
+#pulseaudio {
+    padding-right: 12px;
+}
+
+#pulseaudio.muted {
+    background: alpha(#90b1b1, .3);
+    border-bottom: 1px solid #90b1b1;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    /* background-color: alpha(black, 0.3); */
+}
+
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 5px;
+    background-color: #f1c40f;
+}
+
+#custom-media {
+    background: #66cc99;
+    color: #2a5c45;
+}
+
+.custom-spotify {
+    background: #66cc99;
+}
+
+.custom-vlc {
+    background: #ffa000;
+}
+
+#temperature {
+    background: alpha(#f0932b, .3);
+    border-bottom: 1px solid #f0932b;
+}
+
+#temperature.critical {
+    background: #eb4d4b;
+}
+
+#tray {
+    background-color: #2980b9;
+}
