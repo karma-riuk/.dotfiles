@@ -1,7 +1,12 @@
 (include "widgets/clocks.yuck")
 
+; Screens 
+; HDMI-A-1: [0] PL2410HD
+; DP-1 (vertical): [1] ROG PG248Q
+; DP-2 (4k): [2] ASUS MG28U
+
 (defwindow green-clock
-    :monitor 1
+    :monitor "ROG PG248Q"
     :exclusive false
     :geometry (geometry 
         :x "50%"
@@ -14,7 +19,7 @@
 )
 
 (defwindow big-clock
-    :monitor 2
+    :monitor "PL2410HD"
     :exclusive false
     :stacking "bg"
     :focusable false
