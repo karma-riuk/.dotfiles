@@ -19,15 +19,11 @@ return {
             inc_rename = false, -- enables an input dialog for inc-rename.nvim
             lsp_doc_border = false, -- add a border to hover docs and signature help
         },
-        -- routes = {
-        --     {
-        --         view = "messages",
-        --         filter = { cmdline = "Git pu", event = "msg_show" },
-        --     },
-        -- },
         routes = {
-            filter = { event = "msg_show" },
-            view = "split",
+            {
+                view = "mini",
+                filter = { cmdline = "Git pu", event = "msg_show" },
+            },
         },
     },
     config = function(_, opts)
