@@ -38,6 +38,10 @@ window#waybar.hidden {
     border-bottom: 1px solid #c5c8c6;
 }
 
+window#waybar.empty #window {
+    opacity: 0;
+}
+
 #window,
 #clock,
 #battery,
