@@ -23,7 +23,6 @@
     "hyprland/workspaces": {
         "disable-scroll": true,
         "disable-markup": false,
-        "active-only": true,
         "format-icons": {
             "active": "",
             "empty": "",
