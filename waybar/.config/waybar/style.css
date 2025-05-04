@@ -51,6 +51,7 @@ window#waybar.empty #window {
 #backlight,
 #network,
 #pulseaudio,
+#pulseaudio-slider,
 #custom-media,
 #tray,
 #mode,
