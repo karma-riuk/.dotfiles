@@ -21,7 +21,7 @@ return {
         },
         routes = {
             {
-                view = "cmdline_popup",
+                view = "messages",
                 filter = { cmdline = "Git pu", event = "msg_show" },
             },
         },
