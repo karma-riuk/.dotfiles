@@ -54,6 +54,11 @@ return {
             automatic_setup = true,
             automatic_installation = false,
             handlers = {
+                prettier = function()
+                    null_ls.register(null_ls.builtins.formatting.prettier.with({
+                        filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+                    }))
+                end,
                 clang_format = function()
                     null_ls.register(null_ls.builtins.formatting.clang_format.with({
                         extra_args = { "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/clang-format" },
