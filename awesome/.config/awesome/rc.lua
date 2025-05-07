@@ -253,6 +253,14 @@ globalkeys = gears.table.join(
         group = "tag",
     }),
     awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }), -- Scratchpad terminal
+
+    awful.key({ modkey }, "e", function()
+        scratch.toggle("thunar", {
+            rule = { class = "Thunar" },
+            width = 0.5,
+            height = 0.5,
+        })
+    end, { description = "Toggle the tmux scratchpad", group = "tag" }),
     awful.key({ modkey }, "u", function()
         scratch.toggle(terminal .. " -t scratch-term -e tmux-setup", {
             rule = { name = "scratch-term" },
