@@ -90,6 +90,7 @@ xdg-utils
 xorg-server
 xorg-xinit
 xterm
+yarn
 zram-generator
 zsh
 zsh-autocomplete
