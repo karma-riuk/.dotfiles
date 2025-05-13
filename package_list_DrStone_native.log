@@ -5,6 +5,7 @@ bat
 btop
 btrfs-progs
 darkman
+discord
 dkms
 dolphin
 efibootmgr
@@ -47,6 +48,7 @@ ntfs-3g
 nvidia-dkms
 nwg-displays
 nwg-look
+obs-studio
 opendoas
 openssh
 os-prober
@@ -64,6 +66,7 @@ slurp
 smartmontools
 stow
 swaync
+syncthing
 thunar
 tmux
 ttf-dejavu-nerd
@@ -77,6 +80,7 @@ waybar
 wev
 wget
 wireless_tools
+wireplumber
 wl-clipboard
 wofi
 wpa_supplicant
@@ -86,6 +90,7 @@ xdg-utils
 xorg-server
 xorg-xinit
 xterm
+yarn
 zram-generator
 zsh
 zsh-autocomplete
