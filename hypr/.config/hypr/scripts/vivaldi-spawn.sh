@@ -9,7 +9,7 @@ start=$SECONDS
 while [ "$(hyprctl clients | grep -c 'class: vivaldi-stable')" -lt 2 ]; do
     sleep 0.1
     if [ $(( SECONDS - start )) -ge $TIMEOUT ]; then
-        notify-send -u critical "Timed out waiting for Vivaldi windows, skipping move." >&2
+        notify-send "Timed out waiting for Vivaldi windows, skipping move." >&2
         exit 0
     fi
 done
