@@ -60,6 +60,8 @@ otf-codenewroman-nerd
 pacman-contrib
 papirus-icon-theme
 pavucontrol
+perl-file-homedir
+perl-yaml-tiny
 polkit-kde-agent
 pulseaudio
 python-pip
