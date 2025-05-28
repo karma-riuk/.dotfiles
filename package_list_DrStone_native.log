@@ -5,7 +5,6 @@ bat
 biber
 btop
 btrfs-progs
-confuse
 darkman
 discord
 dkms
@@ -21,6 +20,7 @@ go
 greetd
 greetd-regreet
 grim
+gtk2
 htop
 hypridle
 hyprland
@@ -35,7 +35,6 @@ kvantum
 less
 libadwaita
 libnotify
-libusb-compat
 libva-nvidia-driver
 libyaml
 linux
