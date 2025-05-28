@@ -5,6 +5,7 @@ bat
 biber
 btop
 btrfs-progs
+confuse
 darkman
 discord
 dkms
@@ -34,6 +35,7 @@ kvantum
 less
 libadwaita
 libnotify
+libusb-compat
 libva-nvidia-driver
 libyaml
 linux
