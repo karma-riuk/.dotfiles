@@ -13,7 +13,13 @@ local servers = {
     clangd = {},
     cssls = {},
     gopls = {},
-    html = {},
+    html = {
+        html = {
+            format = {
+                contentUnformatted = "pre,code",
+            },
+        },
+    },
     -- ltex = {
     --     ltex = {
     --         checkFrequency = "save",
