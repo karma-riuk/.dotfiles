@@ -615,6 +615,7 @@ awful.rules.rules = {
                 "Thunar",
                 "code-oss",
                 "Microsoft Teams - Preview",
+                "discord",
             },
         },
         properties = { maximized = false }, --
