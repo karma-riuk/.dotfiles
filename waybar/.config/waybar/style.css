@@ -68,6 +68,9 @@ window#waybar.empty #window {
 #clock {
     background: alpha(#64727D, .3);
     border-bottom: 1px solid #64727D;
+}
+
+#clock.time {
     margin-right: 0;
 }
 

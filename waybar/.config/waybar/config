@@ -17,7 +17,8 @@
         "temperature",
         "pulseaudio/slider",
         "pulseaudio",
-        "clock"
+        "clock#date",
+        "clock#time"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -36,9 +37,12 @@
         "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-        "tooltip-format": "{:%Y-%m-%d | %H:%M}",
-        "format-alt": "{:%Y-%m-%d}"
+    "clock#time": {
+        "tooltip-format": "{:%H:%M}"
+    },
+    "clock#date": {
+        "format": "{:%a. %d %B %Y}",
+        "tooltip-format": "{:%a %d.%m.%Y}"
     },
     "cpu": {
         "format": "{usage}% "
