@@ -6,6 +6,7 @@ alias ll='eza -al --color=auto --group-directories-first'  # long format
 alias lt='eza -aT --color=auto --group-directories-first' # tree listing
 
 alias sudo="doas "
+alias update_discord="increment_patch /opt/discord/resources/build_info.json"
 
 alias sys="sudo systemctl"
 alias sysu="systemctl --user"
@@ -99,4 +100,11 @@ lets_hack_NASA(){
 zat () {
     zathura $* &!
 }
+
+
+increment_patch() {
+  local file="$1"
+  sudo perl -pi -e 's/\b(0\.0\.)(\d+)\b/$1 . ($2+1)/ge' "$file"
+}
+
 # vim: ft=zsh
