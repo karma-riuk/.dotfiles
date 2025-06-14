@@ -26,6 +26,7 @@ set statusbar-basename true
 set window-title-basename true
 
 # Show horizontal and vertical scrollbars
-set guioptions "hv"
+# set guioptions "hv"
+set guioptions "v"
 
 set database sqlite
