@@ -55,6 +55,7 @@ window#waybar.empty #window {
 #custom-media,
 #tray,
 #mode,
+#custom-updates,
 #idle_inhibitor {
     padding: 0 10px;
     margin: 0 5px;
@@ -145,5 +146,11 @@ window#waybar.empty #window {
 }
 
 #tray {
-    background-color: #2980b9;
+    background: alpha(#2980b9, .3);
+    border-bottom: 1px solid #2980b9;
+}
+
+#custom-updates {
+    background: alpha(#0f94d2, .3);
+    border-bottom: 1px solid #0f94d2;
 }

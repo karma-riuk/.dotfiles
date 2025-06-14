@@ -15,12 +15,23 @@
         "cpu",
         "memory",
         "temperature",
+        "custom/updates",
         "pulseaudio/slider",
         "pulseaudio",
         "clock#date",
         "clock#time"
     ],
     // Modules configuration
+    "custom/updates": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "󱍷",
+            "updated": "󰂪 "
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --tooltip-align-columns --no-zero-output --interval-seconds 5 --network-interval-seconds 300 --color-semver-updates"
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "disable-markup": false,
