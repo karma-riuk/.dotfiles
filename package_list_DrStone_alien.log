@@ -7,6 +7,5 @@ ttf-noto-sans-cjk-vf
 ttf-symbola
 via-bin
 waybar-module-pacman-updates-git
-waybar-module-pacman-updates-git-debug
 yay-bin
 yay-bin-debug
