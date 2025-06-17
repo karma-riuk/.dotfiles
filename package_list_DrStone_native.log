@@ -76,7 +76,6 @@ sddm
 simple-scan
 slurp
 smartmontools
-sshfs
 stow
 swaync
 syncthing
