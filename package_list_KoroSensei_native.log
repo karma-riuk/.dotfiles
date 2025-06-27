@@ -33,7 +33,6 @@ cfitsio
 cjson
 clang
 cloc
-cmake
 cmatrix
 cudd
 cups
