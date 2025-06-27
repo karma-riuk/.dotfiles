@@ -40,7 +40,6 @@ libnotify
 libva-nvidia-driver
 libyaml
 linux
-linux-firmware
 linux-headers
 lua
 luarocks
