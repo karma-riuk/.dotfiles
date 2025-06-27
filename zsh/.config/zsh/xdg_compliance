@@ -57,5 +57,9 @@ export GHCUP_USE_XDG_DIRS=true
 # Cabal (haskell related, boh)
 export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export CABAL_DIR="$XDG_DATA_HOME"/cabal
+# Python history
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
+# pkg
+export PKG_CACHE_PATH="$XDG_CACHE_HOME"/pkg-cache
 
 # vim: ft=zsh
