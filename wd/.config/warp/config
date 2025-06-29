@@ -1,9 +1,6 @@
 zsh:~/.config/zsh
-server:/mnt/server
 down:~/Downloads
 tests:/tmp/tests
-vim:~/.config/vim
-qute:~/.config/qutebrowser
 dnd:~/Documents/DND
 config:~/.config
 bin:~/.local/bin
@@ -11,18 +8,11 @@ admin:~/Documents/Administration
 dot:~/.dotfiles
 dotfiles:~/.dotfiles
 share:~/share
-automaton:~/Documents/USI/BA3_2021/Software Atelier 3 The Web/AutoAutomaton
 nvim:~/.config/nvim
-nvim-plugged:~/.local/share/nvim/plugged
 usi-archives:~/Documents/USI/.archives
 doc:~/Documents
-pintos:~/Documents/USI/BA4_2022/Operating Systems/pintos0/pintos-env/pintos
-cn1:~/Documents/USI/BA4_2022/Computer Networking/Assignments/01
-sa4-front:~/Documents/USI/BA4_2022/Software Atelier 4/project/frontend
-sa4-back:~/Documents/USI/BA4_2022/Software Atelier 4/project/backend
 awe:~/.config/awesome
 aoc:~/code/Advent of Code/2022/go
-luce:~/Documents/USI/Luce_Lab
 tmp:/tmp/tests
 website:~/code/website
 pozzi:~/Documents/USI/Pozzi
@@ -31,3 +21,4 @@ subxpath:~/Documents/USI/Pozzi/SubXPAT
 usi:~/Documents/USI/MA4_2025/Thesis
 cv:~/Documents/Job Applications/CV
 cover:~/Documents/Job Applications/Cover Letter
+inter:~/code/writing/writing_an_interpreter_in_go_1.7
