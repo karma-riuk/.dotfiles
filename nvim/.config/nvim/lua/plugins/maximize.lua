@@ -4,9 +4,7 @@ end
 
 return {
     "declancm/maximize.nvim",
-    opts = {
-        default_keymaps = false,
-    },
+    opts = {},
     keys = {
         "<leader>m",
     },
