@@ -14,9 +14,6 @@ return {
         },
         delay = 1000,
     },
-    init = function()
-        print("hello")
-    end,
     config = function(_, opts)
         require("illuminate").configure(opts)
         -- disable bold
