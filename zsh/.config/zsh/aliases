@@ -104,7 +104,9 @@ zat () {
 
 increment_patch() {
   local file="$1"
-  sudo perl -pi -e 's/\b(0\.0\.)(\d+)\b/$1 . ($2+1)/ge' "$file"
+  local cmd='s/\b(0\.0\.)(\d+)\b/$1 . ($2+1)/ge'
+  sudo perl -pe "$cmd" "$file"
+  sudo perl -i -pe "$cmd" "$file"
 }
 
 # vim: ft=zsh
