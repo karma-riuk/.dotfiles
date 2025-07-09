@@ -70,7 +70,6 @@ polkit-kde-agent
 pulseaudio
 python-dbus
 python-pip
-python-qtpy
 qt5-wayland
 qt5ct
 qt6-wayland
