@@ -67,6 +67,7 @@ perl-file-homedir
 perl-yaml-tiny
 polkit-kde-agent
 pulseaudio
+python-dbus
 python-pip
 qt5-wayland
 qt5ct
