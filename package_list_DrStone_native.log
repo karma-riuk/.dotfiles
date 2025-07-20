@@ -12,6 +12,7 @@ dkms
 docker
 dolphin
 efibootmgr
+entr
 eza
 fastfetch
 feh
