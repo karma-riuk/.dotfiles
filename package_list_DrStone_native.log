@@ -97,7 +97,6 @@ thunar
 tmux
 tree
 ttf-dejavu-nerd
-ttf-font-awesome
 ttf-meslo-nerd
 tumbler
 unzip
@@ -112,6 +111,7 @@ wget
 wireless_tools
 wireplumber
 wl-clipboard
+woff2-font-awesome
 wofi
 wpa_supplicant
 xcape
