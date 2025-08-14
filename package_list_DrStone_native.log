@@ -105,6 +105,7 @@ vim
 vivaldi
 vivaldi-ffmpeg-codecs
 vlc
+vlc-plugin-ffmpeg
 waybar
 wev
 wget
