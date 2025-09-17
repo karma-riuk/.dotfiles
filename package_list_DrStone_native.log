@@ -5,6 +5,7 @@ bat
 biber
 btop
 btrfs-progs
+cmake
 cups
 darkman
 discord
@@ -77,6 +78,8 @@ qt5-wayland
 qt5ct
 qt6-wayland
 qt6ct
+rdesktop
+remmina
 rhythmbox
 rsync
 sane
