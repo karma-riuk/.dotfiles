@@ -52,7 +52,6 @@ luarocks
 man-db
 man-pages
 nano
-nawk
 nbtscan
 neovim
 noto-fonts-emoji
@@ -82,7 +81,6 @@ qt6-wayland
 qt6ct
 remmina
 rhythmbox
-rpm-tools
 rsync
 sane
 sddm
