@@ -5,6 +5,8 @@ bat
 biber
 btop
 btrfs-progs
+clang
+cmake
 cups
 darkman
 discord
@@ -54,6 +56,7 @@ man-pages
 nano
 nbtscan
 neovim
+ninja
 noto-fonts-emoji
 npm
 ntfs-3g
