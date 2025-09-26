@@ -15,6 +15,8 @@ remmina-plugin-rdesktop
 ttf-noto-sans-cjk-vf
 ttf-symbola
 twingate
+unionfs-fuse
+unionfs-fuse-debug
 via-bin
 waybar-module-pacman-updates-git
 yay-bin

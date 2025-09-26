@@ -5,8 +5,6 @@ bat
 biber
 btop
 btrfs-progs
-clang
-cmake
 cups
 darkman
 discord
@@ -50,8 +48,6 @@ libva-nvidia-driver
 libyaml
 linux
 linux-headers
-lld
-llvm
 lua
 luarocks
 man-db
@@ -59,7 +55,6 @@ man-pages
 nano
 nbtscan
 neovim
-ninja
 noto-fonts-emoji
 npm
 ntfs-3g
