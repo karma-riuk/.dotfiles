@@ -1,6 +1,8 @@
 adwaita-qt5
 android-sdk
-android-sdk-debug
+android-sdk-cmdline-tools-latest
+android-sdk-platform-tools
+android-sdk-platform-tools-debug
 archlinux-themes-sddm
 eww
 flutter
