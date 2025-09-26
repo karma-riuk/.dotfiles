@@ -1,11 +1,7 @@
 adwaita-qt5
 archlinux-themes-sddm
 eww
-flutter-devel
-flutter-intellij-patch
-flutter-target-android
-flutter-target-linux
-flutter-target-web
+flutter
 hpuld
 hyprprop-git
 losslesscut-bin
