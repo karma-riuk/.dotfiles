@@ -7,6 +7,7 @@ android-sdk-platform-tools
 android-studio
 archlinux-themes-sddm
 eww
+flutter-bin
 hpuld
 hyprprop-git
 losslesscut-bin
@@ -15,8 +16,6 @@ remmina-plugin-rdesktop
 ttf-noto-sans-cjk-vf
 ttf-symbola
 twingate
-unionfs-fuse
-unionfs-fuse-debug
 via-bin
 waybar-module-pacman-updates-git
 yay-bin
