@@ -4,7 +4,12 @@ return {
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        "L3MON4D3/LuaSnip",
+        {
+            "L3MON4D3/LuaSnip",
+            config = function()
+                require("luasnip").config.setup({ history = false })
+            end,
+        },
         "saadparwaiz1/cmp_luasnip",
 
         -- Adds LSP completion capabilities
@@ -80,8 +85,8 @@ return {
                     end,
                 },
                 -- { name = "ultisnips" },
-                { name = "buffer",  keyword_length = 5, max_item_count = 3 },
-                { name = "spell",   keyword_length = 5, max_item_count = 2 },
+                { name = "buffer", keyword_length = 5, max_item_count = 3 },
+                { name = "spell", keyword_length = 5, max_item_count = 2 },
                 { name = "path" },
             },
             sorting = {
@@ -96,7 +101,7 @@ return {
             formatting = {
                 format = require("lspkind").cmp_format({
                     with_text = true, -- do not show text alongside icons
-                    maxwidth = 50,    -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     menu = {
                         buffer = "[Buf]",
                         nvim_lsp = "[LSP]",
