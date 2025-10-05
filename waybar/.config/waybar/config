@@ -19,9 +19,22 @@
         "pulseaudio/slider",
         "pulseaudio",
         "clock#date",
-        "clock#time"
+        "clock#time",
+        "custom/power"
     ],
     // Modules configuration
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    },
     "custom/updates": {
         "format": "{}{icon}",
         "return-type": "json",
