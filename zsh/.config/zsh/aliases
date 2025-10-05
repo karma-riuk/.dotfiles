@@ -8,7 +8,7 @@ alias lt='eza -aT --color=auto --group-directories-first' # tree listing
 alias sudo="doas "
 alias update_discord="increment_patch /opt/discord/resources/build_info.json"
 
-alias sys="sudo systemctl"
+alias sys="systemctl"
 alias sysu="systemctl --user"
 
 alias wgdown="wg-quick down home"
