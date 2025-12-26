@@ -60,7 +60,7 @@ neovim
 noto-fonts-emoji
 npm
 ntfs-3g
-nvidia-dkms
+nvidia-open-dkms
 nwg-displays
 nwg-look
 obs-studio
@@ -77,12 +77,9 @@ perl-file-homedir
 perl-yaml-tiny
 polkit-kde-agent
 pulseaudio
-python-build
 python-dbus
-python-installer
 python-pip
 python-pyqt5
-python-setuptools
 qt5-wayland
 qt5ct
 qt6-wayland
