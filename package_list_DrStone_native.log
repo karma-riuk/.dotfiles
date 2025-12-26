@@ -77,8 +77,17 @@ perl-yaml-tiny
 polkit-kde-agent
 pulseaudio
 python-dbus
+python-fastapi
+python-hatchling
+python-mutagen
 python-pip
+python-pydantic
+python-pykakasi
 python-pyqt5
+python-pytube
+python-rich
+python-slugify
+python-ytmusicapi
 qt5-wayland
 qt5ct
 qt6-wayland
@@ -107,6 +116,7 @@ ttf-dejavu-nerd
 ttf-meslo-nerd
 tumbler
 unzip
+uvicorn
 valgrind
 vim
 vivaldi
@@ -128,6 +138,7 @@ xorg-xinit
 xterm
 yarn
 ydotool
+yt-dlp
 zathura
 zathura-pdf-mupdf
 zram-generator
