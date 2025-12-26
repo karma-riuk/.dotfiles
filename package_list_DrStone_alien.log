@@ -6,6 +6,10 @@ hyprprop-git
 losslesscut-bin
 neofetch
 nvidia-580xx-dkms
+python-bandcamp-api
+python-soundcloud-v2
+python-spotipy
+python-syncedlyrics
 remmina-plugin-rdesktop
 ttf-noto-sans-cjk-vf
 ttf-symbola
