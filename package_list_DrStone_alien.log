@@ -6,6 +6,8 @@ hyprprop-git
 losslesscut-bin
 neofetch
 nvidia-580xx-dkms
+python-dacite
+python-demjson3
 remmina-plugin-rdesktop
 ttf-noto-sans-cjk-vf
 ttf-symbola
