@@ -5,7 +5,7 @@ hpuld
 hyprprop-git
 losslesscut-bin
 neofetch
-nvidia-580xx-utils
+nvidia-580xx-dkms
 remmina-plugin-rdesktop
 ttf-noto-sans-cjk-vf
 ttf-symbola
