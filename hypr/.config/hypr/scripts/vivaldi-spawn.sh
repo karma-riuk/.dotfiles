@@ -23,10 +23,10 @@ get_addr() {
 
 # 3) move the first (oldest) window to WS 2
 first_addr="$(get_addr 1)"
-hyprctl dispatch focuswindow address:"0x$first_addr"
+hyprctl dispatch focus_window match:address "0x$first_addr"
 hyprctl dispatch movetoworkspace 2
 
 # 4) move the second window to WS 3
 second_addr="$(get_addr 2)"
-hyprctl dispatch focuswindow address:"0x$second_addr"
+hyprctl dispatch focus_window match:address "0x$second_addr"
 hyprctl dispatch movetoworkspace 3
